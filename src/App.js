@@ -1,10 +1,10 @@
 import "./App.css";
+import SportySnap from "./SportySnap";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hiii</h1>
-        
+      <SportySnap />
     </div>
   );
 }
