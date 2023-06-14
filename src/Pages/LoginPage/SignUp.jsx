@@ -5,7 +5,7 @@ const SignUp = () => {
     const navigate = useNavigate();
   return (
     <div className="loginDiv">
-      <h1>Sign Up...</h1>
+      <h1>Sign Up</h1>
       <div className="login-input-div">
         <div>
           <label className="loginLabels">
@@ -14,7 +14,7 @@ const SignUp = () => {
           <input
             type="text"
             className="loginInputs"
-            placeholder="sidharth"
+            placeholder="Sidharth"
           />
         </div>
         <div>

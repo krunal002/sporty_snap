@@ -5,7 +5,7 @@ const Login = () => {
   const navigate = useNavigate();
   return (
     <div className="loginDiv">
-      <h1>Login...</h1>
+      <h1>Login</h1>
       <div className="login-input-div">
         <div>
           <label className="loginLabels">
