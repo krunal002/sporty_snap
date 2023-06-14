@@ -8,7 +8,7 @@ import { Routes, Route } from "react-router-dom";
 const SportySnap = () => {
   return (
     <div>
-      <h1>Sporty_Snap..!</h1>
+      <h1 style={{color:"gray"}}>Sporty_Snap..!</h1>
 
       <Routes>
         <Route path="/" element={<LandingPage />} />
