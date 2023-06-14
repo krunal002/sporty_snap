@@ -1,21 +1,84 @@
-@import url('https://fonts.googleapis.com/css2?family=Foldit&family=Raleway:wght@100&family=Red+Hat+Display:wght@600&family=Tajawal:wght@300;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Foldit&family=Girassol&family=Raleway:wght@100&family=Red+Hat+Display:wght@600&family=Tajawal:wght@300;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Foldit&family=Raleway:wght@100&family=Red+Hat+Display:wght@600&family=Tajawal:wght@300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Foldit&family=Girassol&family=Raleway:wght@100&family=Red+Hat+Display:wght@600&family=Tajawal:wght@300;500&display=swap");
 
-:root{
-    --primary-color:#66bfbf;
-    --secondary-color:#f76b8a;
-    --background-color:#eaf6f6;
-    --background-sec-color:#fcfefe;
+:root {
+  --primary-color: #66bfbf;
+  --secondary-color: #f76b8a;
+  --background-color: #eaf6f6;
+  --tertiary-color: #fcfefe;
 }
 
-.landingDiv{
-    font-family: 'Red Hat Display', sans-serif;
+.landingDiv {
+  border-top: 2px solid var(--secondary-color);
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  margin: auto;
+  font-family: "Red Hat Display", sans-serif;
+  background-color: var(--background-color);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1000px;
+  padding: 2rem;
 }
 
+.headingDiv {
+  margin: 20px;
+  font-family: "Girassol", cursive;
+}
 .heading {
-    font-family: 'Girassol', cursive;
-    color: var(--primary-color);
+  margin: 0;
+  text-align: center;
+
+  font-size: 50px;
+  color: var(--primary-color);
 }
+
 .headingSpan {
-    color: var(--secondary-color);
+  color: var(--secondary-color);
+}
+.tagline {
+  margin: -10px;
+  text-align: center;
+  color: var(--secondary-color);
+}
+
+.largeFont {
+  color: gray;
+  font-size: 20px;
+}
+.landingBtn {
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 5px;
+}
+.landingBtn:hover {
+  width: 100%;
+  padding: 1.1rem;
+  border-bottom: 1px solid var(--secondary-color);
+  box-shadow: 1px 1px 5px 3px lightgray;
+  cursor: pointer;
+}
+.leftContainer-landing {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.login-landing {
+  color: var(--secondary-color);
+  text-align: center;
+  cursor: pointer;
+}
+
+.landingImage {
+  width: 400px;
+  border-bottom: 1px solid var(--secondary-color);
+  border-right: 1px solid var(--secondary-color);
+  border-bottom-left-radius: 100px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
 }
