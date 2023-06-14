@@ -75,9 +75,11 @@
   cursor: pointer;
 }
 
+.leftContainer-landing{
+    padding: 0.5rem;
+}
 .landingImage {
   width: 400px;
-  padding: 0.5rem;
   border-bottom: 1px solid var(--secondary-color);
   border-right: 1px solid var(--secondary-color);
   border-bottom-left-radius: 100px;
