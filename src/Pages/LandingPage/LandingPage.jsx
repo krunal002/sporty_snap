@@ -33,10 +33,12 @@ const LandingPage = () => {
           </p>
         </div>
         <div className="landingBtnDiv">
-          <button onClick={() => navigate("/login")} className="landingBtn">
+          <button onClick={() => navigate("/signup")} className="landingBtn">
             <b>Join Now</b>
           </button>
-          <Link to="/login" className="login-landing">Already have an account?</Link>
+          <Link to="/login" className="login-landing">
+            Already have an account?
+          </Link>
         </div>
       </div>
       <div className="rightContainer-landing">
