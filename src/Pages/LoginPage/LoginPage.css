@@ -1,0 +1,17 @@
+:root {
+    --primary-color: #66bfbf;
+    --secondary-color: #f76b8a;
+    --background-color: #eaf6f6;
+    --tertiary-color: #fcfefe;
+  }
+
+  .loginDiv{
+    background-color: var(--background-color);
+    border-right: 1px solid var(--secondary-color);
+    border-bottom: 1px solid var(--secondary-color);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    max-width: 600px;
+    margin: auto;
+  }

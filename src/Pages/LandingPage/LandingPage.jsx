@@ -1,5 +1,5 @@
 import "./LandingPage.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -33,10 +33,10 @@ const LandingPage = () => {
           </p>
         </div>
         <div className="landingBtnDiv">
-          <button onClick={() => navigate("/home")} className="landingBtn">
+          <button onClick={() => navigate("/login")} className="landingBtn">
             <b>Join Now</b>
           </button>
-          <p className="login-landing">Already have an account?</p>
+          <Link to="/login" className="login-landing">Already have an account?</Link>
         </div>
       </div>
       <div className="rightContainer-landing">
