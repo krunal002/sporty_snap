@@ -15,7 +15,7 @@ const LandingPage = () => {
             <small>Level up your Sportsman Spirit!</small>
           </p>
         </div>
-        <div>
+        <div className="landingContent">
           <p>
             <small>
               <span className="largeFont">Click</span> outdoor sports
