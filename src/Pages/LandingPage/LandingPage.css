@@ -33,7 +33,6 @@
   font-size: 50px;
   color: var(--primary-color);
 }
-
 .headingSpan {
   color: var(--secondary-color);
 }
@@ -47,6 +46,7 @@
   color: gray;
   font-size: 20px;
 }
+
 .landingBtn {
   width: 100%;
   padding: 1rem;
@@ -62,6 +62,7 @@
   box-shadow: 1px 1px 5px 3px lightgray;
   cursor: pointer;
 }
+
 .leftContainer-landing {
   text-align: left;
   display: flex;
