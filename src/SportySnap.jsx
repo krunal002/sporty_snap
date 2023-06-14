@@ -1,4 +1,4 @@
-import LandingPage from "./Pages/LandingPage";
+import LandingPage from "./Pages/LandingPage/LandingPage";
 import Home from "./Pages/HomePage";
 import Profile from "./Pages/ProfilePage";
 
