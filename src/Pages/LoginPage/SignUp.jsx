@@ -48,7 +48,7 @@ const SignUp = () => {
           />
         </div>
         <button className="loginBtn" onClick={() => navigate("/login")}>
-          Sign In
+          Sign Up
         </button>
         <Link to="/login" className="login-landing">
           Already have an account?
