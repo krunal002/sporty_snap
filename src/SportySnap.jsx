@@ -8,7 +8,9 @@ import SignUp from "./Pages/LoginPage/SignUp";
 import RequiresAuth from "./Components/RequiresAuth";
 
 import { LoginContext } from "./Context/LoginContext";
+import { PostContext } from "./Context/PostContext";
 export { LoginContext };
+export { PostContext };
 
 const SportySnap = () => {
   return (
