@@ -8,7 +8,7 @@ const Login = () => {
   const { dispatch } = useContext(LoginContext)
 
   const clickHandler = () => {
-    localStorage.getItem("encodedToken")!=="undefined" ?navigate("/home") :navigate("/login")
+    navigate("/home")
     console.log(localStorage.getItem("encodedToken"))
   }
 

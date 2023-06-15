@@ -5,6 +5,7 @@ import Home from "./Pages/HomePage/HomePage";
 import Profile from "./Pages/ProfilePage/ProfilePage";
 import Login from "./Pages/LoginPage/LoginPage";
 import SignUp from "./Pages/LoginPage/SignUp";
+import RequiresAuth from "./Components/RequiresAuth";
 
 import { LoginContext } from "./Context/LoginContext";
 export { LoginContext };
@@ -17,7 +18,9 @@ const SportySnap = () => {
       <Routes>
         <Route path="/mockman" element={<Mockman />} />
         <Route path="/" element={<LandingPage />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/home" element={
+          <RequiresAuth><Home /></RequiresAuth>
+        } />
         <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
