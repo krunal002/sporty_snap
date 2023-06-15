@@ -1,3 +1,4 @@
+import Mockman from "mockman-js";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import Home from "./Pages/HomePage/HomePage";
 import Profile from "./Pages/ProfilePage/ProfilePage";
@@ -12,6 +13,7 @@ const SportySnap = () => {
       <h1 style={{ color: "gray" }}>Sporty_Snap..!</h1>
 
       <Routes>
+        <Route path="/mockman" element={<Mockman />} />
         <Route path="/" element={<LandingPage />} />
         <Route path="/home" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
