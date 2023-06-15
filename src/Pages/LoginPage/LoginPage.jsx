@@ -5,11 +5,12 @@ import { LoginContext } from "../../SportySnap";
 
 const Login = () => {
   const navigate = useNavigate(); 
-  const { dispatch } = useContext(LoginContext)
+  const { dispatch, postLoginData } = useContext(LoginContext)
 
   const clickHandler = () => {
-    navigate("/home")
-    console.log(localStorage.getItem("encodedToken"))
+    postLoginData();
+    navigate("/home");
+    console.log(localStorage.getItem("encodedToken"));
   }
 
 

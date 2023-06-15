@@ -1,8 +1,17 @@
-import "./LoginPage.css"
-import { Link, useNavigate } from "react-router-dom"
+import { useContext } from "react";
+import "./LoginPage.css";
+import { Link, useNavigate } from "react-router-dom";
+import { LoginContext } from "../../SportySnap";
 
 const SignUp = () => {
-    const navigate = useNavigate();
+  const { dispatch, postSignUpData } = useContext(LoginContext);
+  const navigate = useNavigate();
+
+  const signUpHandler = () => {
+    navigate("/login");
+    postSignUpData();
+  }
+
   return (
     <div className="loginDiv">
       <h1>Sign Up</h1>
@@ -15,6 +24,9 @@ const SignUp = () => {
             type="text"
             className="loginInputs"
             placeholder="Sidharth"
+            onChange={(e) =>
+              dispatch({ type: "firstName", payload: e.target.value })
+            }
           />
         </div>
         <div>
@@ -25,16 +37,22 @@ const SignUp = () => {
             type="text"
             className="loginInputs"
             placeholder="Shikhare"
+            onChange={(e) =>
+              dispatch({ type: "lastName", payload: e.target.value })
+            }
           />
         </div>
         <div>
           <label className="loginLabels">
-            <b>Email : </b>
+            <b>Username : </b>
           </label>
           <input
             type="email"
             className="loginInputs"
             placeholder="sidharth@gmail.com"
+            onChange={(e) =>
+              dispatch({ type: "username", payload: e.target.value })
+            }
           />
         </div>
         <div>
@@ -45,9 +63,12 @@ const SignUp = () => {
             type="password"
             className="loginInputs"
             placeholder="********"
+            onChange={(e) =>
+              dispatch({ type: "password", payload: e.target.value })
+            }
           />
         </div>
-        <button className="loginBtn" onClick={() => navigate("/login")}>
+        <button className="loginBtn" onClick={signUpHandler}>
           Sign Up
         </button>
         <Link to="/login" className="login-landing">
