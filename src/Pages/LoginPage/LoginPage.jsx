@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import "./LoginPage.css";
 import { Link, useNavigate } from "react-router-dom";
+import { LoginContext } from "../../SportySnap";
 
 const Login = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate(); navigate("/login");
+  const { loginData } = useContext(LoginContext)
   return (
     <div className="loginDiv">
       <h1>Login</h1>
@@ -27,7 +30,7 @@ const Login = () => {
             placeholder="********"
           />
         </div>
-        <button className="loginBtn" onClick={() => navigate("/home")}>
+        <button className="loginBtn" onClick={() => console.log(loginData)}>
           Sign In
         </button>
         <Link to="/signup" className="login-landing">
