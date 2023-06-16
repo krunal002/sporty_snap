@@ -14,46 +14,46 @@ const Home = () => {
       <button onClick={() => console.log(userData)}>click</button>
 
       <div className="primary-container">
-      <div className="link-container-div">
-        <Link to="/profile"> Profile </Link>
-        <Link to="/login"> Login </Link>
-      </div>
+        <div className="link-container-div">
+          <Link to="/profile" className="home-links"> Profile </Link>
+          <Link to="/login" className="home-links"> Login </Link>
+        </div>
 
-      <div className="post-container-div">
-        {postData.map((post) => (
-          <div key={post.id} className="post-container">
-            <div className="userDetails">
-              <div className="userImg">
-                <img
-                  src={post.userImage}
-                  alt="userImage"
-                  className="userImage"
-                />
+        <div className="post-container-div">
+          {postData.map((post) => (
+            <div key={post.id} className="post-container">
+              <div className="userDetails">
+                <div className="userImg">
+                  <img
+                    src={post.userImage}
+                    alt="userImage"
+                    className="userImage"
+                  />
+                </div>
+
+                <div className="userInfo">
+                  <h4>@{post.username}</h4>
+                </div>
               </div>
 
-              <div className="userInfo">
-                <h4>@{post.username}</h4>
-              </div>
+              <img src={post.img} alt="sportyImage" className="postImage" />
+              <p>content : {post.content}</p>
             </div>
+          ))}
+        </div>
 
-            <img src={post.img} alt="sportyImage" className="postImage" />
-            <p>content : {post.content}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="user-container-div">
-        {userData.map((user) => (
-          <div key={user.id} className="user-container">
-            <p>
-              <b>
-                {user.firstName} {user.lastName}
-              </b>
-            </p>
-            <p>@{user.username}</p>
-          </div>
-        ))}
-      </div>
+        <div className="user-container-div">
+          {userData.map((user) => (
+            <div key={user.id} className="user-container">
+              <p>
+                <b>
+                  {user.firstName} {user.lastName}
+                </b>
+              </p>
+              <p>@{user.username}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

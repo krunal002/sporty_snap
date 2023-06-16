@@ -30,7 +30,8 @@ const Login = () => {
           <input
             type="text"
             className="loginInputs"
-            placeholder="sidharth@gmail.com"
+            placeholder="sidharth002"
+            value={""}
             onChange={(e) =>
               dispatch({ type: "username", payload: e.target.value })
             }
@@ -44,6 +45,7 @@ const Login = () => {
             type="password"
             className="loginInputs"
             placeholder="********"
+            value={""}
             onChange={(e) =>
               dispatch({ type: "password", payload: e.target.value })
             }

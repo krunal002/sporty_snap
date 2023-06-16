@@ -24,6 +24,7 @@ const SignUp = () => {
             type="text"
             className="loginInputs"
             placeholder="Sidharth"
+            value={""}
             onChange={(e) =>
               dispatch({ type: "firstName", payload: e.target.value })
             }
@@ -37,6 +38,7 @@ const SignUp = () => {
             type="text"
             className="loginInputs"
             placeholder="Shikhare"
+            value={""}
             onChange={(e) =>
               dispatch({ type: "lastName", payload: e.target.value })
             }
@@ -49,7 +51,8 @@ const SignUp = () => {
           <input
             type="email"
             className="loginInputs"
-            placeholder="sidharth@gmail.com"
+            placeholder="sidharth002"
+            value={""}
             onChange={(e) =>
               dispatch({ type: "username", payload: e.target.value })
             }
@@ -63,6 +66,7 @@ const SignUp = () => {
             type="password"
             className="loginInputs"
             placeholder="********"
+            value={""}
             onChange={(e) =>
               dispatch({ type: "password", payload: e.target.value })
             }

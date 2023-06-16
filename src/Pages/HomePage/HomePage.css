@@ -8,14 +8,26 @@
 .home-container {
   background-color: var(--background-color);
 }
-.primary-container{
-    display: flex;
-    gap: 3rem;
-    justify-content: space-around;
+.primary-container {
+    margin: 1rem;
+  display: flex;
+  gap: 3rem;
+  justify-content: space-around;
 }
+.link-container-div {
+    display: flex;
+    flex-direction: column;
+}
+.home-links{
+    text-align: left;
+    text-decoration: none;
+    color: black;
+}
+
 .post-container {
-    max-width: 800px;
-  margin: 2rem auto;
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 2rem;
   padding: 1rem;
   text-align: left;
   background-color: var(--tertiary-color);
