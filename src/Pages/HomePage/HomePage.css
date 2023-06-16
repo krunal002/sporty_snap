@@ -9,27 +9,13 @@
   background-color: var(--background-color);
 }
 .primary-container {
-    margin: 1rem;
+  margin: 1rem;
   display: flex;
-  gap: 3rem;
+  gap: 0.5rem;
   justify-content: space-around;
 }
-.link-container-div {
-    display: flex;
-    flex-direction: column;
-}
-.home-links{
-    text-align: left;
-    text-decoration: none;
-    color: black;
-}
 
-.post-container {
-  max-width: 800px;
-  margin: auto;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  text-align: left;
+.container-format {
   background-color: var(--tertiary-color);
   border-bottom: 1px solid var(--secondary-color);
   border-right: 1px solid var(--secondary-color);
@@ -38,9 +24,45 @@
   border-bottom-left-radius: 1rem;
 }
 
+/* Link container */
+.link-container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.home-links {
+  margin: 1rem;
+  text-align: left;
+  text-decoration: none;
+  color: black;
+}
+
+/* Post container */
+.post-container {
+  max-width: 700px;
+  margin: auto;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  text-align: left;
+}
+.postImage {
+  width: 400px;
+}
+
+/* user container */
+.user-container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
 .userDetails {
   display: flex;
-  align-items: center;
+  align-content: center;
+}
+.userDetails-margin {
+  margin: 1rem auto;
+  justify-content: space-between;
+  gap: 1rem;
 }
 .userImage {
   margin-right: 5px;
@@ -49,6 +71,13 @@
   border-radius: 25px;
   border: 0.5px solid var(--primary-color);
 }
-.postImage {
-  width: 400px;
+.userInfo {
+  text-align: left;
+  line-height: 2px;
+}
+.follow-user {
+  color: var(--primary-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
