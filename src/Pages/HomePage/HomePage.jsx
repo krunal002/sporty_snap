@@ -3,12 +3,19 @@ import { useContext } from "react";
 import { PostContext } from "../../SportySnap";
 
 const Home = () => {
-  const { posts } = useContext(PostContext)
+  const { postData } = useContext(PostContext)
 
   return (
     <div>
       <h1>Home Page</h1>
-      <h3>{posts}</h3>
+      <button onClick={() => console.log( postData )}>click</button>
+
+      { postData.map((post) => (
+        <div>
+          <h4>user : {post.username}</h4>
+          <p>content : {post.content}</p>
+        </div>
+      ))}
 
       <Link to="/profile"> Profile </Link>
       <Link to="/login"> Login </Link>
