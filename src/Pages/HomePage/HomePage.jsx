@@ -31,7 +31,7 @@ const Home = () => {
         <div key={post.id} className="post-container">
           <div className="userDetails">
             <div className="userImg">
-              <img src={post.userImage} alt="user-image" className="userImage"/>
+              <img src={post.userImage} alt="userImage" className="userImage"/>
             </div>
             <div className="userInfo">
               <h4>@{post.username}</h4>
