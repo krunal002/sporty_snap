@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import { LoginContextHandler } from "./Context/LoginContext";
 import { PostContextHandler } from "./Context/PostContext";
+import { UserContextHandler } from "./Context/userContext";
 
 // Call make Server
 makeServer();
@@ -16,7 +17,9 @@ ReactDOM.render(
     <BrowserRouter>
       <LoginContextHandler>
       <PostContextHandler>
+      <UserContextHandler>
         <App />
+      </UserContextHandler>
       </PostContextHandler>
       </LoginContextHandler>
     </BrowserRouter>
