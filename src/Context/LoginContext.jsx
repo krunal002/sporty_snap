@@ -62,9 +62,27 @@ export const LoginContextHandler = ({ children }) => {
     }
   };
 
+  const postTestUser = async () => {
+    const cred = { username: "adarshbalika", password: "adarshBalika123" };
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        body: JSON.stringify(cred),
+      });
+
+      const result = await res.json();
+      localStorage.setItem("encodedToken", result.encodedToken);
+      localStorage.setItem("user", result.foundUser.firstName);
+      dispatch({ type: "isLoggedIn", payload: true });
+    } catch (e) {
+      console.log(e);
+      dispatch({ type: "isLoggedIn", payload: true });
+    }
+  }
+
   return (
     <LoginContext.Provider
-      value={{ state, dispatch, postLoginData, postSignUpData }}
+      value={{ state, dispatch, postLoginData, postSignUpData, postTestUser }}
     >
       {children}
     </LoginContext.Provider>

@@ -29,7 +29,16 @@ const Home = () => {
       <hr />
       {postData.map((post) => (
         <div key={post.id} className="post-container">
-          <h4>user : {post.username}</h4>
+          <div className="userDetails">
+            <div className="userImg">
+              <img src={post.userImage} alt="user-image" className="userImage"/>
+            </div>
+            <div className="userInfo">
+              <h4>@{post.username}</h4>
+            </div>
+            
+          </div>
+          
           <img src={post.img} alt="sportyImage" className="postImage" />
           <p>content : {post.content}</p>
         </div>

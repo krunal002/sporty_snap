@@ -18,6 +18,8 @@ export const posts = [
       dislikedBy: [],
     },
     username: "adarshbalika",
+    userImage:"https://media.istockphoto.com/id/610664694/photo/isolated-athlete-runner.jpg?s=612x612&w=0&k=20&c=c6Yks7L_0V-UZCpJPn-9ZkDhX7vTPHADrcZvg6OTtKU=",
+
     createdAt: formatDate(),
     updatedAt: formatDate(),
     comments: [
@@ -41,6 +43,7 @@ export const posts = [
       },
     ],
   },
+
   {
     _id: uuid(),
     img:"https://www.tennis.nl/media/jcqj1lkk/mf-nojk2021-3-dec-12-en-16-jaardsc01902.jpeg?width=2500&height=1097&rnd=133102128324230000",
@@ -52,7 +55,8 @@ export const posts = [
       dislikedBy: [],
     },
     username: "shubhamsoni",
-
+    userImage: "https://media.istockphoto.com/id/497279633/photo/sending-a-fast-ball-down-the-pitch.jpg?s=612x612&w=0&k=20&c=M4tlLzQFYupKa8sylo0zdKPWrC5uZ23IaO2ZILwf1Pg=",
+    
     comments: [
       {
         _id: uuid(),
@@ -76,6 +80,7 @@ export const posts = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
+
   {
     _id: uuid(),
     img:"https://images.livemint.com/rf/Image-621x414/LiveMint/Period2/2017/10/11/Photos/Processed/nana-kKp--621x414@LiveMint.jpg",
@@ -87,6 +92,8 @@ export const posts = [
       dislikedBy: [],
     },
     username: "rahulsharma",
+    userImage: "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3BvcnRzJTIwcGxheWVyfGVufDB8fDB8fHww&w=1000&q=80",
+
     createdAt: formatDate(),
     updatedAt: formatDate(),
     comments: [

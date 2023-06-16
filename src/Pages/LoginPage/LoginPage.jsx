@@ -4,15 +4,20 @@ import { Link, useNavigate } from "react-router-dom";
 import { LoginContext } from "../../SportySnap";
 
 const Login = () => {
-  const navigate = useNavigate(); 
-  const { dispatch, postLoginData } = useContext(LoginContext)
+  const navigate = useNavigate();
+  const { dispatch, postLoginData, postTestUser } = useContext(LoginContext);
 
   const clickHandler = () => {
     postLoginData();
     navigate("/home");
     console.log(localStorage.getItem("encodedToken"));
-  }
+  };
 
+  const testUserHandler = () => {
+    postTestUser();
+    navigate("/home");
+    console.log(localStorage.getItem("encodedToken"));
+  };
 
   return (
     <div className="loginDiv">
@@ -26,7 +31,9 @@ const Login = () => {
             type="text"
             className="loginInputs"
             placeholder="sidharth@gmail.com"
-            onChange={(e) => dispatch({type:"username", payload:e.target.value})}
+            onChange={(e) =>
+              dispatch({ type: "username", payload: e.target.value })
+            }
           />
         </div>
         <div>
@@ -37,15 +44,22 @@ const Login = () => {
             type="password"
             className="loginInputs"
             placeholder="********"
-            onChange={(e) => dispatch({type:"password", payload:e.target.value})}
+            onChange={(e) =>
+              dispatch({ type: "password", payload: e.target.value })
+            }
           />
         </div>
-        <button className="loginBtn" onClick={() => clickHandler()}>
-          Sign In
-        </button>
-        <Link to="/signup" className="login-landing">
-          Create new account
-        </Link>
+        <div className="button-container">
+          <button className="loginBtn" onClick={clickHandler}>
+            Sign In
+          </button>
+          <button className="loginBtn" onClick={testUserHandler}>
+            Login as Test User
+          </button>
+          <Link to="/signup" className="login-landing">
+            Create new account
+          </Link>
+        </div>
       </div>
     </div>
   );
