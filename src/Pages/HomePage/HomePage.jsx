@@ -1,3 +1,4 @@
+import "./HomePage.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { PostContext } from "../../SportySnap";
@@ -15,16 +16,21 @@ const Home = () => {
       <hr />
       {userData.map((user) => (
         <div key={user.id}>
-          <h4>userId : {user.username}</h4>
-          <p>name : {user.firstName} {user.lastName}</p>
+          <div>
+            <b>
+              {user.firstName} {user.lastName}
+            </b>
+          </div>
+          <div>@{user.username}</div>
         </div>
       ))}
       <hr />
 
       <hr />
       {postData.map((post) => (
-        <div key={post.id}>
+        <div key={post.id} className="post-container">
           <h4>user : {post.username}</h4>
+          <img src={post.img} alt="sportyImage" className="postImage" />
           <p>content : {post.content}</p>
         </div>
       ))}
