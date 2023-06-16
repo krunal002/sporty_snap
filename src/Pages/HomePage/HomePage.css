@@ -5,12 +5,16 @@
   --tertiary-color: #fcfefe;
 }
 
-body {
+.home-container {
   background-color: var(--background-color);
 }
-
+.primary-container{
+    display: flex;
+    gap: 3rem;
+    justify-content: space-around;
+}
 .post-container {
-    max-width: 1000px;
+    max-width: 800px;
   margin: 2rem auto;
   padding: 1rem;
   text-align: left;
