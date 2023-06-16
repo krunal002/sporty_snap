@@ -5,7 +5,8 @@ import { LoginContext } from "../../SportySnap";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { dispatch, postLoginData, postTestUser } = useContext(LoginContext);
+  const { dispatch, postLoginData, postTestUser, token, setToken } =
+    useContext(LoginContext);
 
   const clickHandler = () => {
     postLoginData();
@@ -19,50 +20,68 @@ const Login = () => {
     console.log(localStorage.getItem("encodedToken"));
   };
 
+  const logoutHandler = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setToken(false)
+  }
+
   return (
-    <div className="loginDiv">
-      <h1>Login</h1>
-      <div className="login-input-div">
+    <div>
+      {token ? (
         <div>
-          <label className="loginLabels">
-            <b>Username : </b>
-          </label>
-          <input
-            type="text"
-            className="loginInputs"
-            placeholder="sidharth002"
-            value={""}
-            onChange={(e) =>
-              dispatch({ type: "username", payload: e.target.value })
-            }
-          />
-        </div>
-        <div>
-          <label className="loginLabels">
-            <b>Password : </b>
-          </label>
-          <input
-            type="password"
-            className="loginInputs"
-            placeholder="********"
-            value={""}
-            onChange={(e) =>
-              dispatch({ type: "password", payload: e.target.value })
-            }
-          />
-        </div>
-        <div className="button-container">
-          <button className="loginBtn" onClick={clickHandler}>
-            Sign In
+          <button
+            onClick={logoutHandler}
+          >
+            Logout
           </button>
-          <button className="loginBtn" onClick={testUserHandler}>
-            Login as Test User
-          </button>
-          <Link to="/signup" className="login-landing">
-            Create new account
-          </Link>
         </div>
-      </div>
+      ) : (
+        <div className="loginDiv">
+          <h1>Login</h1>
+          <div className="login-input-div">
+            <div>
+              <label className="loginLabels">
+                <b>Username : </b>
+              </label>
+              <input
+                type="text"
+                className="loginInputs"
+                placeholder="sidharth002"
+                // value={""}
+                onChange={(e) =>
+                  dispatch({ type: "username", payload: e.target.value })
+                }
+              />
+            </div>
+            <div>
+              <label className="loginLabels">
+                <b>Password : </b>
+              </label>
+              <input
+                type="password"
+                className="loginInputs"
+                placeholder="********"
+                // value={""}
+                onChange={(e) =>
+                  dispatch({ type: "password", payload: e.target.value })
+                }
+              />
+            </div>
+            <div className="button-container">
+              <button className="loginBtn" onClick={clickHandler}>
+                Sign In
+              </button>
+              <button className="loginBtn" onClick={testUserHandler}>
+                Login as Test User
+              </button>
+              <Link to="/signup" className="login-landing">
+                Create new account
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

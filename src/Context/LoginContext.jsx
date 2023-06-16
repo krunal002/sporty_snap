@@ -1,7 +1,9 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
 export const LoginContext = createContext();
 
 export const LoginContextHandler = ({ children }) => {
+  const [ token, setToken ] = useState(false)
+
   //   Reducer
   const reducerFun = (state, action) => {
     switch (action.type) {
@@ -38,13 +40,18 @@ export const LoginContextHandler = ({ children }) => {
       const result = await res.json();
       localStorage.setItem("encodedToken", result.encodedToken);
       localStorage.setItem("user", result.foundUser.firstName);
-      dispatch({ type: "isLoggedIn", payload: true });
+      setToken(result.encodedToken)
+
+      result.encodedToken !== undefined
+        ? dispatch({ type: "isLoggedIn", payload: true })
+        : dispatch({ type: "isLoggedIn", payload: false });
     } catch (e) {
       console.log(e);
       dispatch({ type: "isLoggedIn", payload: true });
     }
   };
 
+  useEffect(() => console.log("Token : ",token), [token])
   const postSignUpData = async () => {
     const cred = {
       firstName: state.firstName,
@@ -53,7 +60,7 @@ export const LoginContextHandler = ({ children }) => {
       password: state.password,
     };
     try {
-        await fetch("/api/auth/signup", {
+      await fetch("/api/auth/signup", {
         method: "POST",
         body: JSON.stringify(cred),
       });
@@ -71,18 +78,23 @@ export const LoginContextHandler = ({ children }) => {
       });
 
       const result = await res.json();
+      console.log(result);
       localStorage.setItem("encodedToken", result.encodedToken);
       localStorage.setItem("user", result.foundUser.firstName);
-      dispatch({ type: "isLoggedIn", payload: true });
+      setToken(result.encodedToken)
+
+      result.encodedToken !== undefined
+        ? dispatch({ type: "isLoggedIn", payload: true })
+        : dispatch({ type: "isLoggedIn", payload: false });
     } catch (e) {
       console.log(e);
       dispatch({ type: "isLoggedIn", payload: true });
     }
-  }
+  };
 
   return (
     <LoginContext.Provider
-      value={{ state, dispatch, postLoginData, postSignUpData, postTestUser }}
+      value={{ state, token, setToken, dispatch, postLoginData, postSignUpData, postTestUser }}
     >
       {children}
     </LoginContext.Provider>
