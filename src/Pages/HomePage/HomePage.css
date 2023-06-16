@@ -1,29 +1,38 @@
 :root {
-    --primary-color: #66bfbf;
-    --secondary-color: #f76b8a;
-    --background-color: #eaf6f6;
-    --tertiary-color: #fcfefe;
-  }
-
-.post-container{
-    margin: 1rem;
-    padding: 1rem;
-    text-align: left;
-    background-color: var(--tertiary-color);
-    border: 1px solid var(--secondary-color);
+  --primary-color: #66bfbf;
+  --secondary-color: #f76b8a;
+  --background-color: #eaf6f6;
+  --tertiary-color: #fcfefe;
 }
 
-.userDetails{
-    display: flex;
-    align-items: center;
+body {
+  background-color: var(--background-color);
 }
-.userImage{
-    margin-right: 5px;
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
-    border: 0.5px solid var(--primary-color);
+
+.post-container {
+    max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: left;
+  background-color: var(--tertiary-color);
+  border-bottom: 1px solid var(--secondary-color);
+  border-right: 1px solid var(--secondary-color);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
 }
-.postImage{
-    width: 400px;
+
+.userDetails {
+  display: flex;
+  align-items: center;
+}
+.userImage {
+  margin-right: 5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  border: 0.5px solid var(--primary-color);
+}
+.postImage {
+  width: 400px;
 }
