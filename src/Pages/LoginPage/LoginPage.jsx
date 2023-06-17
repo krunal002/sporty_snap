@@ -10,13 +10,13 @@ const Login = () => {
 
   const clickHandler = () => {
     postLoginData();
-    navigate("/home");
+    setTimeout(() => navigate("/home"),500);
     console.log(localStorage.getItem("encodedToken"));
   };
 
   const testUserHandler = () => {
     postTestUser();
-    navigate("/home");
+    setTimeout(() => navigate("/home"),500);
     console.log(localStorage.getItem("encodedToken"));
   };
 
