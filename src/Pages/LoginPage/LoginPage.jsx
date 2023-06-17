@@ -6,35 +6,29 @@ import { LoginContext } from "../../SportySnap";
 const Login = () => {
   const navigate = useNavigate();
   const { dispatch, postLoginData, postTestUser, token, setToken } =
-    useContext(LoginContext);
+  useContext(LoginContext);
 
   const clickHandler = () => {
     postLoginData();
-    setTimeout(() => navigate("/home"),500);
-    console.log(localStorage.getItem("encodedToken"));
+    setTimeout(() => navigate("/home"), 500);
   };
 
   const testUserHandler = () => {
     postTestUser();
-    setTimeout(() => navigate("/home"),500);
-    console.log(localStorage.getItem("encodedToken"));
+    setTimeout(() => navigate("/home"), 500);
   };
 
   const logoutHandler = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    setToken(false)
-  }
+    setToken(false);
+  };
 
   return (
     <div>
       {token ? (
         <div>
-          <button
-            onClick={logoutHandler}
-          >
-            Logout
-          </button>
+          <button onClick={logoutHandler}>Logout</button>
         </div>
       ) : (
         <div className="loginDiv">
