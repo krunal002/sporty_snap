@@ -7,8 +7,8 @@
 
 .loginDiv {
   background-color: var(--background-color);
-  border-right: 1px solid var(--secondary-color);
-  border-bottom: 1px solid var(--secondary-color);
+  border-right: 2px solid var(--secondary-color);
+  border-bottom: 2px solid var(--secondary-color);
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
   border-bottom-left-radius: 50px;
@@ -72,9 +72,41 @@
   text-align: center;
 }
 
+/* logout */
 .login-userImage{
   width: 10rem;
   height: 10rem;
   border-radius: 5rem;
-  border: 1px solid var(--primary-color);
+  border-right: 3px solid var(--primary-color);
+  border-bottom: 3px solid var(--secondary-color);
+  box-shadow: 1px 1px 5px 2px gray;
+}
+.logoutDiv{
+  background-color: var(--background-color);
+  border-right: 2px solid var(--secondary-color);
+  border-bottom: 2px solid var(--secondary-color);
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  max-width: 600px;
+  margin: auto;
+  padding: 3rem;
+}
+.logoutBtn {
+  display: block;
+  margin: auto;
+  width: 80%;
+  padding: 0.5rem;
+  background-color: var(--primary-color);
+  border-radius: 0.5rem;
+  border: none;
+  margin-top: 3rem;
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--primary-color);
+}
+
+.logoutBtn:hover {
+  border-bottom: 2px solid var(--secondary-color);
+  box-shadow: 1px 1px 5px 2px gray;
 }

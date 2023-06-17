@@ -27,11 +27,11 @@ const Login = () => {
   return (
     <div>
       {token ? (
-        <div className="loginDiv">
+        <div className="logoutDiv">
           <img src={state.userData.userImage} alt="userImage" className="login-userImage" />
           <p><b>Name : </b>{state.userData.firstName} {state.userData.lastName}</p>
           <p><b>Username : </b>{state.userData.username}</p>
-          <button className="loginBtn" onClick={logoutHandler}>Logout</button>
+          <button className="logoutBtn" onClick={logoutHandler}>Logout</button>
         </div>
       ) : (
         <div className="loginDiv">
