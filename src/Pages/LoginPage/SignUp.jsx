@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { LoginContext } from "../../SportySnap";
 
 const SignUp = () => {
-  const { dispatch, postSignUpData } = useContext(LoginContext);
+  const { state, dispatch, postSignUpData } = useContext(LoginContext);
   const navigate = useNavigate();
 
   const signUpHandler = () => {
@@ -24,7 +24,7 @@ const SignUp = () => {
             type="text"
             className="loginInputs"
             placeholder="Sidharth"
-            value={""}
+            value={state.firstName}
             onChange={(e) =>
               dispatch({ type: "firstName", payload: e.target.value })
             }
@@ -38,7 +38,7 @@ const SignUp = () => {
             type="text"
             className="loginInputs"
             placeholder="Shikhare"
-            value={""}
+            value={state.lastName}
             onChange={(e) =>
               dispatch({ type: "lastName", payload: e.target.value })
             }
@@ -52,7 +52,7 @@ const SignUp = () => {
             type="email"
             className="loginInputs"
             placeholder="sidharth002"
-            value={""}
+            value={state.userame}
             onChange={(e) =>
               dispatch({ type: "username", payload: e.target.value })
             }
@@ -66,7 +66,7 @@ const SignUp = () => {
             type="password"
             className="loginInputs"
             placeholder="********"
-            value={""}
+            value={state.password}
             onChange={(e) =>
               dispatch({ type: "password", payload: e.target.value })
             }
