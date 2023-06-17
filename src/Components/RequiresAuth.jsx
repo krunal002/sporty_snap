@@ -4,9 +4,8 @@ import { LoginContext } from "../Context/LoginContext";
 
 const RequiresAuth = ({ children }) => {
     const location = useLocation();
-    const { state } = useContext( LoginContext )
-    console.log("isLoggedIn : ",state.isLoggedIn)
+    const { token } = useContext( LoginContext )
 
-    return state.isLoggedIn ? children : <Navigate to="/login" state={{ from:location }} />
+    return token ? children : <Navigate to="/login" state={{ from:location }} />
 }
 export default RequiresAuth;

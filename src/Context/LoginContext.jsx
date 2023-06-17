@@ -22,7 +22,6 @@ export const LoginContextHandler = ({ children }) => {
     }
   };
   const [state, dispatch] = useReducer(reducerFun, {
-    isLoggedIn: false,
     username: "",
     password: "",
     firstName: "",
@@ -39,15 +38,11 @@ export const LoginContextHandler = ({ children }) => {
 
       const result = await res.json();
       localStorage.setItem("encodedToken", result.encodedToken);
-      localStorage.setItem("user", result.foundUser.firstName);
+      localStorage.setItem("user", result.foundUser);
       setToken(result.encodedToken)
 
-      result.encodedToken !== undefined
-        ? dispatch({ type: "isLoggedIn", payload: true })
-        : dispatch({ type: "isLoggedIn", payload: false });
     } catch (e) {
       console.log(e);
-      dispatch({ type: "isLoggedIn", payload: true });
     }
   };
 
@@ -83,12 +78,8 @@ export const LoginContextHandler = ({ children }) => {
       localStorage.setItem("user", result.foundUser.firstName);
       setToken(result.encodedToken)
 
-      result.encodedToken !== undefined
-        ? dispatch({ type: "isLoggedIn", payload: true })
-        : dispatch({ type: "isLoggedIn", payload: false });
     } catch (e) {
       console.log(e);
-      dispatch({ type: "isLoggedIn", payload: true });
     }
   };
 
