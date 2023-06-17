@@ -1,4 +1,4 @@
-import { createContext, useEffect, useReducer, useState } from "react";
+import { createContext, useReducer, useState } from "react";
 export const LoginContext = createContext();
 
 export const LoginContextHandler = ({ children }) => {
@@ -7,8 +7,8 @@ export const LoginContextHandler = ({ children }) => {
   //   Reducer
   const reducerFun = (state, action) => {
     switch (action.type) {
-      case "isLoggedIn":
-        return { ...state, isLoggedIn: action.payload };
+      case "userData":
+        return { ...state, userData: action.payload };
       case "firstName":
         return { ...state, firstName: action.payload };
       case "lastName":
@@ -22,6 +22,7 @@ export const LoginContextHandler = ({ children }) => {
     }
   };
   const [state, dispatch] = useReducer(reducerFun, {
+    userData:{},
     username: "",
     password: "",
     firstName: "",
@@ -38,7 +39,7 @@ export const LoginContextHandler = ({ children }) => {
 
       const result = await res.json();
       localStorage.setItem("encodedToken", result.encodedToken);
-      localStorage.setItem("user", result.foundUser);
+      dispatch({ type: "userData", payload: result.foundUser})
       setToken(result.encodedToken)
 
     } catch (e) {
@@ -46,7 +47,6 @@ export const LoginContextHandler = ({ children }) => {
     }
   };
 
-  useEffect(() => console.log("Token : ",token), [token])
   const postSignUpData = async () => {
     const cred = {
       firstName: state.firstName,
@@ -73,9 +73,9 @@ export const LoginContextHandler = ({ children }) => {
       });
 
       const result = await res.json();
-      console.log(result);
+      console.log(result.foundUser);
       localStorage.setItem("encodedToken", result.encodedToken);
-      localStorage.setItem("user", result.foundUser.firstName);
+      dispatch({ type: "userData", payload: result.foundUser})
       setToken(result.encodedToken)
 
     } catch (e) {

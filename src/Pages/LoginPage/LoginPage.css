@@ -71,3 +71,10 @@
   cursor: pointer;
   text-align: center;
 }
+
+.login-userImage{
+  width: 10rem;
+  height: 10rem;
+  border-radius: 5rem;
+  border: 1px solid var(--primary-color);
+}

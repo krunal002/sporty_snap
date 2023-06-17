@@ -5,7 +5,7 @@ import { LoginContext } from "../../SportySnap";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { dispatch, postLoginData, postTestUser, token, setToken } =
+  const { state, dispatch, postLoginData, postTestUser, token, setToken } =
   useContext(LoginContext);
 
   const clickHandler = () => {
@@ -19,7 +19,7 @@ const Login = () => {
   };
 
   const logoutHandler = () => {
-    localStorage.removeItem("token");
+    localStorage.removeItem("encodedToken");
     localStorage.removeItem("user");
     setToken(false);
   };
@@ -27,8 +27,11 @@ const Login = () => {
   return (
     <div>
       {token ? (
-        <div>
-          <button onClick={logoutHandler}>Logout</button>
+        <div className="loginDiv">
+          <img src={state.userData.userImage} alt="userImage" className="login-userImage" />
+          <p><b>Name : </b>{state.userData.firstName} {state.userData.lastName}</p>
+          <p><b>Username : </b>{state.userData.username}</p>
+          <button className="loginBtn" onClick={logoutHandler}>Logout</button>
         </div>
       ) : (
         <div className="loginDiv">
