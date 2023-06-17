@@ -21,6 +21,8 @@ const Login = () => {
   const logoutHandler = () => {
     localStorage.removeItem("encodedToken");
     localStorage.removeItem("user");
+    dispatch({ type: "username", payload: "" })
+    dispatch({ type: "password", payload: "" })
     setToken(false);
   };
 
