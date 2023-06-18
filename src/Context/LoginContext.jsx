@@ -73,7 +73,7 @@ export const LoginContextHandler = ({ children }) => {
       });
 
       const result = await res.json();
-      console.log(result.foundUser);
+      
       localStorage.setItem("encodedToken", result.encodedToken);
       dispatch({ type: "userData", payload: result.foundUser})
       setToken(result.encodedToken)
