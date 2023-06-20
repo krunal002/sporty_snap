@@ -1,12 +1,16 @@
 import "./HomePage.css";
 
 import { useContext, useState } from "react";
-import { PostContext } from "../../SportySnap";
+import { BookmarkContext, LoginContext, PostContext } from "../../SportySnap";
 import Links from "../../Components/Links";
 import Users from "../../Components/Users";
 
 const Home = () => {
   const { postData, likeIncreament, likeDecreament } = useContext(PostContext);
+
+  const { state } = useContext(LoginContext);
+  const { saveBookmark } = useContext(BookmarkContext);
+
   const [likeValue, setLikeValue] = useState(false);
 
   const likeHandler = (post) => {
@@ -17,7 +21,8 @@ const Home = () => {
   return (
     <div className="home-container">
       <h1>Home Page</h1>
-
+      <p>Hello, {state.firstName}</p>
+      saveBookmark
       <div className="primary-container">
         {/* Linnks */}
         <Links />
@@ -52,14 +57,17 @@ const Home = () => {
                       onClick={() => likeHandler(post)}
                     >
                       {likeValue ? (
-                        <i class="fa fa-heart" aria-hidden="true">
-                          {" "}
-                        </i>
+                        <span className="redHeart">
+                          <i class="fa fa-heart" aria-hidden="true">
+                            {" "}
+                          </i>
+                        </span>
                       ) : (
                         <i class="fa fa-heart-o" aria-hidden="true"></i>
                       )}{" "}
                       {post.likes.likeCount}
                     </div>
+
                     <div className="comment sign">
                       <i class="fa fa-comment-o" aria-hidden="true">
                         {" "}
@@ -71,7 +79,10 @@ const Home = () => {
                     </div>
                   </div>
 
-                  <div className="bookmark sign">
+                  <div
+                    className="bookmark sign"
+                    onClick={() => saveBookmark(post)}
+                  >
                     <i class="fa fa-bookmark-o" aria-hidden="true"></i>
                   </div>
                 </div>

@@ -10,9 +10,11 @@ import RequiresAuth from "./Components/RequiresAuth";
 import { LoginContext } from "./Context/LoginContext";
 import { PostContext } from "./Context/PostContext";
 import { UserContext } from "./Context/userContext";
+import { BookmarkContext } from "./Context/bookmarkContext";
 export { LoginContext };
 export { PostContext };
 export { UserContext };
+export { BookmarkContext };
 
 const SportySnap = () => {
   return (

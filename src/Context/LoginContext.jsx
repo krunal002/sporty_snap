@@ -1,4 +1,4 @@
-import { createContext, useReducer, useState } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
 export const LoginContext = createContext();
 
 export const LoginContextHandler = ({ children }) => {
@@ -28,6 +28,7 @@ export const LoginContextHandler = ({ children }) => {
     firstName: "",
     lastName: "",
   });
+  useEffect(() => console.log(state))
 
   const postLoginData = async () => {
     const cred = { username: state.username, password: state.password };
