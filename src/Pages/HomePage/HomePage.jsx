@@ -1,6 +1,6 @@
 import "./HomePage.css";
 
-import { useContext, useEffect, useState } from "react";
+import { useContext,  useState } from "react";
 import { BookmarkContext, PostContext } from "../../SportySnap";
 import Links from "../../Components/Links";
 import Users from "../../Components/Users";

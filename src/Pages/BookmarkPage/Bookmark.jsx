@@ -33,7 +33,7 @@ const Bookmark = () => {
           <Link to="/home" className="bookmark-links">
             <i class="fa fa-home" aria-hidden="true"></i>
           </Link>
-          <Link to="/#" className="bookmark-links">
+          <Link to="/explore" className="bookmark-links">
             <i class="fa fa-suitcase" aria-hidden="true"></i>
           </Link>
           <Link to="/profile" className="bookmark-links">

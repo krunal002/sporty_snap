@@ -5,6 +5,12 @@
   --tertiary-color: #fcfefe;
 }
 
+.login-home-link{
+  margin: 1rem;
+}
+
+.login-home-link
+
 .loginDiv {
   background-color: var(--background-color);
   border-right: 2px solid var(--secondary-color);
