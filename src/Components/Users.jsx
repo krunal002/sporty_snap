@@ -7,6 +7,7 @@ const Users = () => {
   return (
     <div className="user-container-div">
       <div className="user-container container-format">
+        <h3 className="user-heading">Suggested Users</h3>
         {userData.map((user) => (
           <div key={user.id} className="userDetails userDetails-margin">
             <div>

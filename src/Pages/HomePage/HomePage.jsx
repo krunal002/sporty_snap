@@ -1,14 +1,16 @@
 import "./HomePage.css";
 
 import { useContext, useState } from "react";
-import { BookmarkContext, LoginContext, PostContext } from "../../SportySnap";
+import { BookmarkContext, PostContext } from "../../SportySnap";
 import Links from "../../Components/Links";
 import Users from "../../Components/Users";
 
 const Home = () => {
+  const currUser = JSON.parse(localStorage.getItem("user"))
+
   const { postData, likeIncreament, likeDecreament } = useContext(PostContext);
 
-  const { state } = useContext(LoginContext);
+  // const { state } = useContext(LoginContext);
   const { saveBookmark } = useContext(BookmarkContext);
 
   const [likeValue, setLikeValue] = useState(false);
@@ -18,10 +20,11 @@ const Home = () => {
     setLikeValue(!likeValue);
     likeValue ? likeDecreament(post) : likeIncreament(post);
   };
+  
   return (
     <div className="home-container">
       <h1>Home Page</h1>
-      <p>Hello, {state.firstName}</p>
+      <p>Hello, {currUser.firstName}</p>
       saveBookmark
       <div className="primary-container">
         {/* Linnks */}
@@ -79,12 +82,20 @@ const Home = () => {
                     </div>
                   </div>
 
+                  
+                  
                   <div
                     className="bookmark sign"
                     onClick={() => saveBookmark(post)}
                   >
+                  {}
                     <i class="fa fa-bookmark-o" aria-hidden="true"></i>
                   </div>
+
+
+
+
+
                 </div>
               </div>
             );

@@ -2,7 +2,7 @@ import { createContext, useEffect, useReducer, useState } from "react";
 export const LoginContext = createContext();
 
 export const LoginContextHandler = ({ children }) => {
-  const [ token, setToken ] = useState(false)
+  const [ token, setToken ] = useState(localStorage.getItem("encodedToken"))
 
   //   Reducer
   const reducerFun = (state, action) => {
@@ -28,7 +28,7 @@ export const LoginContextHandler = ({ children }) => {
     firstName: "",
     lastName: "",
   });
-  useEffect(() => console.log(state))
+  useEffect(() => console.log("UserData : ",state.userData))
 
   const postLoginData = async () => {
     const cred = { username: state.username, password: state.password };
@@ -39,7 +39,9 @@ export const LoginContextHandler = ({ children }) => {
       });
 
       const result = await res.json();
+      
       localStorage.setItem("encodedToken", result.encodedToken);
+      localStorage.setItem("user", result.foundUser);
       dispatch({ type: "userData", payload: result.foundUser})
       setToken(result.encodedToken)
 
@@ -74,8 +76,8 @@ export const LoginContextHandler = ({ children }) => {
       });
 
       const result = await res.json();
-      
       localStorage.setItem("encodedToken", result.encodedToken);
+      localStorage.setItem("user", JSON.stringify(result.foundUser));
       dispatch({ type: "userData", payload: result.foundUser})
       setToken(result.encodedToken)
 
