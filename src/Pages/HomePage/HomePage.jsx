@@ -1,6 +1,6 @@
 import "./HomePage.css";
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BookmarkContext, PostContext } from "../../SportySnap";
 import Links from "../../Components/Links";
 import Users from "../../Components/Users";
@@ -11,7 +11,7 @@ const Home = () => {
   const { postData, likeIncreament, likeDecreament } = useContext(PostContext);
 
   // const { state } = useContext(LoginContext);
-  const { saveBookmark } = useContext(BookmarkContext);
+  const { saveBookmark, removeBookmark, bookmarkData } = useContext(BookmarkContext);
 
   const [likeValue, setLikeValue] = useState(false);
 
@@ -25,7 +25,7 @@ const Home = () => {
     <div className="home-container">
       <h1>Home Page</h1>
       <p>Hello, {currUser.firstName}</p>
-      saveBookmark
+      
       <div className="primary-container">
         {/* Linnks */}
         <Links />
@@ -84,15 +84,54 @@ const Home = () => {
 
                   
                   
+
+
+
                   <div
                     className="bookmark sign"
-                    onClick={() => saveBookmark(post)}
+                    onClick={() => bookmarkData.includes(post._id)
+                      ?removeBookmark(post)
+                      :saveBookmark(post)
+                      }
                   >
-                  {}
-                    <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+                  {
+                    bookmarkData.includes(post._id)
+                      ?<i class="fa fa-bookmark" aria-hidden="true"></i>
+                      :<i class="fa fa-bookmark-o" aria-hidden="true"></i>
+                  }
                   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+                  {/* <div
+                    className="bookmark sign"
+                    onClick={() => saveBookmark(post)
+                      }
+                  >
+                  {
+                   <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+                  }
+                  </div>
+
+
+                  <div
+                    className="bookmark sign"
+                    onClick={() => removeBookmark(post)}
+                  >
+                  {
+                   <i class="fa fa-bookmark" aria-hidden="true"></i>
+                  }
+                  </div> */}
 
 
 

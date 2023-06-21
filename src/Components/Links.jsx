@@ -7,7 +7,7 @@ const Links = () => {
         <Link to="/home" className="home-links">
           <i class="fa fa-home" aria-hidden="true"></i> Home
         </Link>
-        <Link to="/#" className="home-links">
+        <Link to="/explore" className="home-links">
           <i class="fa fa-suitcase" aria-hidden="true"></i> Explore
         </Link>
         <Link to="/bookmark" className="home-links">

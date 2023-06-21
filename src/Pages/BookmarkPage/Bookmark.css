@@ -1,0 +1,13 @@
+.nav-container{
+    background-color: #fcfefe;
+    border: 3px solid #eaf6f6;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.bookmark-links{
+    color: black;
+    font-size: x-large;
+    padding: 1rem;
+}

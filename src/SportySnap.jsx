@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import Home from "./Pages/HomePage/HomePage";
+import Explore from "./Pages/Explore/Explore";
 import Bookmark from "./Pages/BookmarkPage/Bookmark"
 import Profile from "./Pages/ProfilePage/ProfilePage";
 import Login from "./Pages/LoginPage/LoginPage";
@@ -28,6 +29,7 @@ const SportySnap = () => {
         <Route path="/home" element={
           <RequiresAuth><Home /></RequiresAuth>
         } />
+        <Route path="/explore" element={<Explore />} />
         <Route path="/bookmark" element={<Bookmark />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<Login />} />

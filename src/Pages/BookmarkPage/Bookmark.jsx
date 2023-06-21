@@ -1,25 +1,58 @@
-import { useContext, useState } from "react"
-import { BookmarkContext, PostContext } from "../../SportySnap"
-import Links from "../../Components/Links";
+import "./Bookmark.css";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { BookmarkContext, PostContext } from "../../SportySnap";
+// import Links from "../../Components/Links";
+import Users from "../../Components/Users";
+
 const Bookmark = () => {
-    const [likeValue, setLikeValue] = useState(false);
-    const { postData } = useContext(PostContext)
+  const currUser = JSON.parse(localStorage.getItem("user"));
+  const [likeValue, setLikeValue] = useState(false);
+  const { postData } = useContext(PostContext);
 
-    const { bookmarkData, saveBookmark } = useContext(BookmarkContext)
-    const { likeIncreament, likeDecreament } = useContext( PostContext )
+  const { bookmarkData, saveBookmark } = useContext(BookmarkContext);
+  const { likeIncreament, likeDecreament } = useContext(PostContext);
 
-    const likeHandler = (post) => {
-        // console.log(postData.likes.likeCount)
-        setLikeValue(!likeValue);
-        likeValue ? likeDecreament(post) : likeIncreament(post);
-      };
+  const likeHandler = (post) => {
+    // console.log(postData.likes.likeCount)
+    setLikeValue(!likeValue);
+    likeValue ? likeDecreament(post) : likeIncreament(post);
+  };
 
-    const newBD = postData.filter((post) => (
-        bookmarkData.includes(post._id)
-    ))
+  const newBD = postData.filter((post) => bookmarkData.includes(post._id));
 
-    return <div>
-        <Links/>
+  return (
+    <div className="home-container">
+      <div className="nav-container">
+        <div className="nav-heading">
+          <h1>
+            <i class="fa fa-bookmark" aria-hidden="true"></i> Bookmarks
+          </h1>
+        </div>
+        <div className="b-links">
+          <Link to="/home" className="bookmark-links">
+            <i class="fa fa-home" aria-hidden="true"></i>
+          </Link>
+          <Link to="/#" className="bookmark-links">
+            <i class="fa fa-suitcase" aria-hidden="true"></i>
+          </Link>
+          <Link to="/profile" className="bookmark-links">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+          </Link>
+        </div>
+        <div>
+          <b className="bookmark-links">Hi, {currUser.firstName}</b>
+          <Link to="/login" className="bookmark-links">
+            <i class="fa fa-sign-in" aria-hidden="true"></i>
+          </Link>
+        </div>
+      </div>
+
+      <div className="primary-container">
+        {/* Linnks */}
+        {/* <Links /> */}
+
+        {/* post */}
         <div className="post-container-div">
           {newBD.map((post) => {
             return (
@@ -75,6 +108,7 @@ const Bookmark = () => {
                     className="bookmark sign"
                     onClick={() => saveBookmark(post)}
                   >
+                    {}
                     <i class="fa fa-bookmark-o" aria-hidden="true"></i>
                   </div>
                 </div>
@@ -82,6 +116,11 @@ const Bookmark = () => {
             );
           })}
         </div>
+
+        {/* user */}
+        <Users />
+      </div>
     </div>
-}
+  );
+};
 export default Bookmark;
