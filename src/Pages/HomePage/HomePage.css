@@ -112,3 +112,20 @@
 .redHeart{
   color: red;
 }
+
+
+/* userComment */
+.userComment-container{
+  display: flex;
+}
+.userComment-image{
+  margin: 0 1rem;
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+  border-radius: 20px;
+}
+.userComment-input{
+  background-color: var(--tertiary-color);
+  border: none;
+}

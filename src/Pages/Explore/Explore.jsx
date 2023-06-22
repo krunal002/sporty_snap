@@ -1,7 +1,7 @@
 import "./Explore.css";
 import { Link } from "react-router-dom";
 // import Users from "../../Components/Users";
-import { useContext } from "react";
+import { useContext, useReducer } from "react";
 import { PostContext } from "../../SportySnap";
 
 const Explore = () => {
@@ -9,6 +9,68 @@ const Explore = () => {
   const { postData, likeValue } = useContext(PostContext);
   const likeHandler = () => {};
   const saveBookmark = () => {};
+
+  const reducerFun = (state, action) => {
+    const cat = {
+      trending: false,
+      latest: false,
+      miscellaneous: false,
+      football: false,
+      cricket: false,
+      tennis: false,
+      hockey: false,
+    };
+    switch (action.type) {
+      case "trending":
+        return { ...cat, trending: true };
+      case "miscellaneous":
+        return { ...cat, miscellaneous: true };
+      case "football":
+        return { ...cat, football: true };
+      case "cricket":
+        return { ...cat, cricket: true };
+      case "tennis":
+        return { ...cat, tennis: true };
+      case "hockey":
+        return { ...cat, hockey: true };
+      default:
+        return state;
+    }
+  };
+  const [state, dispatch] = useReducer(reducerFun, {
+    trending: false,
+    latest: false,
+    miscellaneous: false,
+    football: false,
+    cricket: false,
+    tennis: false,
+    hockey: false,
+  });
+
+  const trenData = state.trending ? postData : postData;
+
+  const latestData = trenData;
+
+  const miscellaneousData = latestData;
+
+  const footballData = state.football
+    ? miscellaneousData.filter(({ category }) => category === "football")
+    : miscellaneousData;
+
+  const cricketData = state.cricket
+    ? footballData.filter(({ category }) => category === "cricket")
+    : footballData;
+
+  const tennisData = state.tennis
+    ? cricketData.filter(({ category }) => category === "tennis")
+    : cricketData;
+
+  const hockeyData = state.hockey
+    ? tennisData.filter(({ category }) => category === "hockey")
+    : tennisData;
+
+  const exploreData = hockeyData;
+
   return (
     <div className="home-container">
       <div className="nav-container">
@@ -38,19 +100,55 @@ const Explore = () => {
 
       <div className="primary-category-container">
         <div className="category-container">
-          <div className="categoryBtn">Trending</div>
-          <div className="categoryBtn">Latest</div>
-          <div className="categoryBtn">Miscellaneous</div>
-          <div className="categoryBtn">Football</div>
-          <div className="categoryBtn">Cricket</div>
-          <div className="categoryBtn">Basketball</div>
+          <div
+            className="categoryBtn"
+            onClick={() => dispatch({ type: "trending" })}
+          >
+            Trending
+          </div>
+          <div
+            className="categoryBtn"
+            onClick={() => dispatch({ type: "latest" })}
+          >
+            Latest
+          </div>
+          <div
+            className="categoryBtn"
+            onClick={() => dispatch({ type: "miscellaneous" })}
+          >
+            Miscellaneous
+          </div>
+          <div
+            className="categoryBtn"
+            onClick={() => dispatch({ type: "football" })}
+          >
+            Football
+          </div>
+          <div
+            className="categoryBtn"
+            onClick={() => dispatch({ type: "cricket" })}
+          >
+            Cricket
+          </div>
+          <div
+            className="categoryBtn"
+            onClick={() => dispatch({ type: "tennis" })}
+          >
+            Tennis
+          </div>
+          <div
+            className="categoryBtn"
+            onClick={() => dispatch({ type: "hockey" })}
+          >
+            Hockey
+          </div>
         </div>
       </div>
 
       <div className="primary-container explore-container">
         {/* post */}
         <div className="post-container-div">
-          {postData.map((post) => {
+          {exploreData.map((post) => {
             return (
               <div
                 key={post.id}
@@ -73,7 +171,7 @@ const Explore = () => {
                 <div className="postImage-container">
                   <img src={post.img} alt="sportyImage" className="postImage" />
                 </div>
-                <p>content : {post.content}</p>
+
                 <div className="opertionalBtn">
                   <div className="leftBtn">
                     <div
@@ -89,7 +187,6 @@ const Explore = () => {
                       ) : (
                         <i class="fa fa-heart-o" aria-hidden="true"></i>
                       )}{" "}
-                      {post.likes.likeCount}
                     </div>
 
                     <div className="comment sign">
@@ -110,6 +207,28 @@ const Explore = () => {
                     {}
                     <i class="fa fa-bookmark-o" aria-hidden="true"></i>
                   </div>
+                </div>
+
+                <p>
+                  <b>{post.likes.likeCount} likes</b>
+                </p>
+                <p>
+                  <b>{post.username}__</b> {post.content}
+                </p>
+
+                <div className="userComment-container">
+                  <div>
+                    <img
+                      src={currUser.userImage}
+                      alt="userImg"
+                      className="userComment-image"
+                    />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Add a comment..."
+                    className="userComment-input"
+                  />
                 </div>
               </div>
             );
