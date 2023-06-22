@@ -9,10 +9,8 @@
   margin: 1rem;
 }
 
-.login-home-link
-
 .loginDiv {
-  background-color: var(--background-color);
+  background-color: #eaf6f6;
   border-right: 2px solid var(--secondary-color);
   border-bottom: 2px solid var(--secondary-color);
   border-top-left-radius: 50px;

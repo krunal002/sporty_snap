@@ -37,7 +37,7 @@ const Login = () => {
       {token ? (
         <div className="logoutDiv">
           <img
-            src={currUser.userImage}
+            // src={currUser.userImage}
             alt="userImage"
             className="login-userImage"
           />
