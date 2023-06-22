@@ -36,8 +36,8 @@ const Login = () => {
       </div>
       {token ? (
         <div className="logoutDiv">
-          <img
-            // src={currUser.userImage}
+          {/* <img
+            src={currUser.userImage}
             alt="userImage"
             className="login-userImage"
           />
@@ -48,7 +48,7 @@ const Login = () => {
           <p>
             <b>Username : </b>
             {currUser.username}
-          </p>
+          </p> */}
           <button className="logoutBtn" onClick={logoutHandler}>
             Logout
           </button>
