@@ -2,7 +2,7 @@ import { createContext, useReducer, useState } from "react";
 export const LoginContext = createContext();
 
 export const LoginContextHandler = ({ children }) => {
-  const [ token, setToken ] = useState(JSON.parse(localStorage.getItem("encodedToken")))
+  const [token, setToken] = useState(false);
 
   //   Reducer
   const reducerFun = (state, action) => {
@@ -22,7 +22,7 @@ export const LoginContextHandler = ({ children }) => {
     }
   };
   const [state, dispatch] = useReducer(reducerFun, {
-    userData:{},
+    userData: {},
     username: "",
     password: "",
     firstName: "",
@@ -38,12 +38,11 @@ export const LoginContextHandler = ({ children }) => {
       });
 
       const result = await res.json();
-      
-      localStorage.setItem("encodedToken", result.encodedToken);
-      localStorage.setItem("user", result.foundUser);
-      dispatch({ type: "userData", payload: result.foundUser})
-      setToken(result.encodedToken)
 
+      localStorage.setItem("encodedToken", result.encodedToken);
+      localStorage.setItem("user", JSON.stringify(result.foundUser));
+      dispatch({ type: "userData", payload: result.foundUser });
+      setToken(result.encodedToken);
     } catch (e) {
       console.log(e);
     }
@@ -51,10 +50,13 @@ export const LoginContextHandler = ({ children }) => {
 
   const postSignUpData = async () => {
     const cred = {
+      userImage:
+        "https://cdn2.f-cdn.com/contestentries/419315/20012414/5758a41a4c256_thumb900.jpg",
       firstName: state.firstName,
       lastName: state.lastName,
-      userame: state.userame,
+      username: state.username,
       password: state.password,
+      bookmarks: [],
     };
     try {
       await fetch("/api/auth/signup", {
@@ -77,9 +79,8 @@ export const LoginContextHandler = ({ children }) => {
       const result = await res.json();
       localStorage.setItem("encodedToken", result.encodedToken);
       localStorage.setItem("user", JSON.stringify(result.foundUser));
-      dispatch({ type: "userData", payload: result.foundUser})
-      setToken(result.encodedToken)
-
+      dispatch({ type: "userData", payload: result.foundUser });
+      setToken(result.encodedToken);
     } catch (e) {
       console.log(e);
     }
@@ -87,7 +88,15 @@ export const LoginContextHandler = ({ children }) => {
 
   return (
     <LoginContext.Provider
-      value={{ state, token, setToken, dispatch, postLoginData, postSignUpData, postTestUser }}
+      value={{
+        state,
+        token,
+        setToken,
+        dispatch,
+        postLoginData,
+        postSignUpData,
+        postTestUser,
+      }}
     >
       {children}
     </LoginContext.Provider>
