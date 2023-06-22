@@ -4,11 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { LoginContext } from "../../SportySnap";
 
 const Login = () => {
-  const currUser = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
   const { state, dispatch, postLoginData, postTestUser, token, setToken } =
     useContext(LoginContext);
 
+  const currUser = state.userData
   const clickHandler = () => {
     postLoginData();
     setTimeout(() => navigate("/home"), 500);
@@ -36,7 +36,7 @@ const Login = () => {
       </div>
       {token ? (
         <div className="logoutDiv">
-          {/* <img
+          <img
             src={currUser.userImage}
             alt="userImage"
             className="login-userImage"
@@ -48,7 +48,7 @@ const Login = () => {
           <p>
             <b>Username : </b>
             {currUser.username}
-          </p> */}
+          </p>
           <button className="logoutBtn" onClick={logoutHandler}>
             Logout
           </button>
