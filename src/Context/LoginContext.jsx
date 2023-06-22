@@ -1,8 +1,8 @@
-import { createContext, useEffect, useReducer, useState } from "react";
+import { createContext, useReducer, useState } from "react";
 export const LoginContext = createContext();
 
 export const LoginContextHandler = ({ children }) => {
-  const [ token, setToken ] = useState(localStorage.getItem("encodedToken"))
+  const [ token, setToken ] = useState(JSON.parse(localStorage.getItem("encodedToken")))
 
   //   Reducer
   const reducerFun = (state, action) => {
@@ -28,7 +28,6 @@ export const LoginContextHandler = ({ children }) => {
     firstName: "",
     lastName: "",
   });
-  useEffect(() => console.log("UserData : ",state.userData))
 
   const postLoginData = async () => {
     const cred = { username: state.username, password: state.password };
