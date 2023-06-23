@@ -24,6 +24,18 @@
   border-bottom-left-radius: 1rem;
 }
 
+/* Create post */
+.createPost-container{
+  margin-top: -1rem;
+}
+.createPost-textarea{
+  width: 90%;
+}
+.createPost-button{
+  margin: 1rem;
+  padding: 1rem 3rem;
+}
+
 /* Link container */
 .link-container {
   padding: 2rem;

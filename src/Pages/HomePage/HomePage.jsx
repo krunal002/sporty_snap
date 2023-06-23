@@ -1,37 +1,52 @@
 import "./HomePage.css";
 
-import { useContext,  useState } from "react";
+import { useContext, useState } from "react";
 import { BookmarkContext, PostContext } from "../../SportySnap";
 import Links from "../../Components/Links";
 import Users from "../../Components/Users";
 
 const Home = () => {
-  const currUser = JSON.parse(localStorage.getItem("user"))
+  const currUser = JSON.parse(localStorage.getItem("user"));
 
-  const { postData, likeIncreament, likeDecreament } = useContext(PostContext);
+  const { postData, likeIncreament, likeDecreament, createPost } = useContext(PostContext);
 
   // const { state } = useContext(LoginContext);
-  const { saveBookmark, removeBookmark, bookmarkData } = useContext(BookmarkContext);
+  const { saveBookmark, removeBookmark, bookmarkData } =
+    useContext(BookmarkContext);
 
   const [likeValue, setLikeValue] = useState(false);
+  const [ contentHandler, setContentHandler ] = useState("")
 
   const likeHandler = (post) => {
     // console.log(postData.likes.likeCount)
     setLikeValue(!likeValue);
     likeValue ? likeDecreament(post) : likeIncreament(post);
   };
-  
+
   return (
     <div className="home-container">
       <h1>Home Page</h1>
       <p>Hello, {currUser.firstName}</p>
-      
+
       <div className="primary-container">
         {/* Linnks */}
         <Links />
 
         {/* post */}
         <div className="post-container-div">
+
+          <div className="createPost-container"> 
+            <textarea 
+                id="text-input" 
+                rows="8" 
+                cols="40" 
+                value={contentHandler}
+                onChange={(e) => setContentHandler(e.target.value)}
+                placeholder="Create Sporty_snap...." 
+                className="createPost-textarea"></textarea>
+            <button type="submit" className="createPost-button" onClick={() => createPost(contentHandler)}>Post</button>
+          </div>
+
           {postData.map((post) => {
             return (
               <div key={post.id} className="post-container container-format">
@@ -82,59 +97,22 @@ const Home = () => {
                     </div>
                   </div>
 
-                  
-                  
-
-
-
                   <div
                     className="bookmark sign"
-                    onClick={() => bookmarkData.includes(post._id)
-                      ?removeBookmark(post)
-                      :saveBookmark(post)
-                      }
+                    onClick={() =>
+                      bookmarkData.includes(post._id)
+                        ? removeBookmark(post)
+                        : saveBookmark(post)
+                    }
                   >
-                  {
-                    bookmarkData.includes(post._id)
-                      ?<i class="fa fa-bookmark" aria-hidden="true"></i>
-                      :<i class="fa fa-bookmark-o" aria-hidden="true"></i>
-                  }
+                    {bookmarkData.includes(post._id) ? (
+                      <i class="fa fa-bookmark" aria-hidden="true"></i>
+                    ) : (
+                      <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+                    )}
                   </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-                  {/* <div
-                    className="bookmark sign"
-                    onClick={() => saveBookmark(post)
-                      }
-                  >
-                  {
-                   <i class="fa fa-bookmark-o" aria-hidden="true"></i>
-                  }
-                  </div>
-
-
-                  <div
-                    className="bookmark sign"
-                    onClick={() => removeBookmark(post)}
-                  >
-                  {
-                   <i class="fa fa-bookmark" aria-hidden="true"></i>
-                  }
-                  </div> */}
-
-
-
+                 
                 </div>
               </div>
             );
