@@ -16,6 +16,8 @@ const Home = () => {
 
   const [contentHandler, setContentHandler] = useState("");
 
+  const homeData = [...postData].sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt))
+
   return (
     <div className="home-container">
       <h1>Home Page</h1>
@@ -46,7 +48,7 @@ const Home = () => {
             </button>
           </div>
 
-          {postData.map((post) => {
+          {homeData.map((post) => {
             return (
               <div key={post.id} className="post-container container-format">
                 <div className="userDetails">
@@ -59,7 +61,8 @@ const Home = () => {
                   </div>
 
                   <div className="userInfo">
-                    <h4>@{post.username}</h4>
+                    <p><b>@{post.username}</b></p>
+                    <small>__{post.category}</small>
                   </div>
                 </div>
 
@@ -139,6 +142,7 @@ const Home = () => {
                     className="userComment-input"
                   />
                 </div>
+                <div style={{textAlign:"right"}}>posted on : {post.createdAt}</div>
               </div>
             );
           })}

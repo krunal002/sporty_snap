@@ -59,7 +59,7 @@ export const posts = [
     username: "rajat_j55",
     userImage:"https://static.vecteezy.com/system/resources/thumbnails/007/032/658/small/a-half-thai-indian-boy-play-secretly-behind-a-big-tree-in-a-park-while-learning-outside-of-school-free-photo.jpg",
 
-    createdAt: "2023-05-03",
+    createdAt: "2023-05-13",
     updatedAt: formatDate(),
     comments: [
       {
@@ -346,7 +346,7 @@ export const posts = [
         },
       },
     ],
-    createdAt: "2023-05-10",
+    createdAt: "2023-05-15",
     updatedAt: formatDate(),
   },
 
