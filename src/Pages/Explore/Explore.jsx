@@ -1,14 +1,15 @@
 import "./Explore.css";
 import { Link } from "react-router-dom";
-// import Users from "../../Components/Users";
 import { useContext, useReducer } from "react";
-import { PostContext } from "../../SportySnap";
+import { BookmarkContext, PostContext } from "../../SportySnap";
 
 const Explore = () => {
   const currUser = JSON.parse(localStorage.getItem("user"));
-  const { postData, likeValue } = useContext(PostContext);
-  const likeHandler = () => {};
-  const saveBookmark = () => {};
+
+  const { saveBookmark, removeBookmark, bookmarkData } =
+    useContext(BookmarkContext);
+
+  const { postData, likeIncreament, likeDecreament } = useContext(PostContext);
 
   const reducerFun = (state, action) => {
     const cat = {
@@ -47,7 +48,9 @@ const Explore = () => {
     hockey: false,
   });
 
-  const trenData = state.trending ? [...postData].sort((a,b) => (b.likes.likeCount - a.likes.likeCount)) : postData;
+  const trenData = state.trending
+    ? [...postData].sort((a, b) => b.likes.likeCount - a.likes.likeCount)
+    : postData;
 
   const latestData = trenData;
 
@@ -176,9 +179,17 @@ const Explore = () => {
                   <div className="leftBtn">
                     <div
                       className="like sign"
-                      onClick={() => likeHandler(post)}
+                      onClick={() =>
+                        post.likes.likedBy.find(
+                          ({ username }) => username === currUser.username
+                        )
+                          ? likeDecreament(post)
+                          : likeIncreament(post)
+                      }
                     >
-                      {likeValue ? (
+                      {post.likes.likedBy.find(
+                        ({ username }) => username === currUser.username
+                      ) ? (
                         <span className="redHeart">
                           <i class="fa fa-heart" aria-hidden="true">
                             {" "}
@@ -186,7 +197,7 @@ const Explore = () => {
                         </span>
                       ) : (
                         <i class="fa fa-heart-o" aria-hidden="true"></i>
-                      )}{" "}
+                      )}
                     </div>
 
                     <div className="comment sign">
@@ -202,10 +213,17 @@ const Explore = () => {
 
                   <div
                     className="bookmark sign"
-                    onClick={() => saveBookmark(post)}
+                    onClick={() =>
+                      bookmarkData.includes(post._id)
+                        ? removeBookmark(post)
+                        : saveBookmark(post)
+                    }
                   >
-                    {}
-                    <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+                    {bookmarkData.includes(post._id) ? (
+                      <i class="fa fa-bookmark" aria-hidden="true"></i>
+                    ) : (
+                      <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+                    )}
                   </div>
                 </div>
 

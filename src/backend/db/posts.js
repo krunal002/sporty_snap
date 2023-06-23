@@ -21,7 +21,7 @@ export const posts = [
     username: "adarshbalika",
     userImage:"https://media.istockphoto.com/id/610664694/photo/isolated-athlete-runner.jpg?s=612x612&w=0&k=20&c=c6Yks7L_0V-UZCpJPn-9ZkDhX7vTPHADrcZvg6OTtKU=",
 
-    createdAt: formatDate(),
+    createdAt: "2023-05-02",
     updatedAt: formatDate(),
     comments: [
       {
@@ -59,7 +59,7 @@ export const posts = [
     username: "rajat_j55",
     userImage:"https://static.vecteezy.com/system/resources/thumbnails/007/032/658/small/a-half-thai-indian-boy-play-secretly-behind-a-big-tree-in-a-park-while-learning-outside-of-school-free-photo.jpg",
 
-    createdAt: formatDate(),
+    createdAt: "2023-05-03",
     updatedAt: formatDate(),
     comments: [
       {
@@ -117,7 +117,7 @@ export const posts = [
         },
       },
     ],
-    createdAt: formatDate(),
+    createdAt: "2023-05-04",
     updatedAt: formatDate(),
   },
 
@@ -135,7 +135,7 @@ export const posts = [
     username: "rahulsharma",
     userImage: "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3BvcnRzJTIwcGxheWVyfGVufDB8fDB8fHww&w=1000&q=80",
 
-    createdAt: formatDate(),
+    createdAt: "2023-05-05",
     updatedAt: formatDate(),
     comments: [
       {
@@ -173,7 +173,7 @@ export const posts = [
     username: "kedarj20",
     userImage: "https://www.planetsport.com/image-library/square/1200/k/kylian-mbappe-psg-france-3-april-2022.jpg",
 
-    createdAt: formatDate(),
+    createdAt: "2023-05-06",
     updatedAt: formatDate(),
     comments: [
       {
@@ -211,7 +211,7 @@ export const posts = [
     username: "kedarj20",
     userImage: "https://www.planetsport.com/image-library/square/1200/k/kylian-mbappe-psg-france-3-april-2022.jpg",
 
-    createdAt: formatDate(),
+    createdAt: "2023-05-07",
     updatedAt: formatDate(),
     comments: [
       {
@@ -249,7 +249,7 @@ export const posts = [
     username: "gunjann20",
     userImage:"https://img.freepik.com/premium-photo/profile-view-beautiful-athletic-girl-exercising-fitness-concept_2221-2275.jpg",
 
-    createdAt: formatDate(),
+    createdAt: "2023-05-08",
     updatedAt: formatDate(),
     comments: [
       {
@@ -307,7 +307,7 @@ export const posts = [
         },
       },
     ],
-    createdAt: formatDate(),
+    createdAt: "2023-05-09",
     updatedAt: formatDate(),
   },
 
@@ -346,7 +346,7 @@ export const posts = [
         },
       },
     ],
-    createdAt: formatDate(),
+    createdAt: "2023-05-10",
     updatedAt: formatDate(),
   },
 
@@ -364,7 +364,7 @@ export const posts = [
     username: "rahulsharma",
     userImage: "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3BvcnRzJTIwcGxheWVyfGVufDB8fDB8fHww&w=1000&q=80",
 
-    createdAt: formatDate(),
+    createdAt: "2023-05-11",
     updatedAt: formatDate(),
     comments: [
       {

@@ -8,20 +8,13 @@ import Users from "../../Components/Users";
 const Home = () => {
   const currUser = JSON.parse(localStorage.getItem("user"));
 
-  const { postData, likeIncreament, likeDecreament, createPost } = useContext(PostContext);
+  const { postData, likeIncreament, likeDecreament, createPost } =
+    useContext(PostContext);
 
-  // const { state } = useContext(LoginContext);
   const { saveBookmark, removeBookmark, bookmarkData } =
     useContext(BookmarkContext);
 
-  const [likeValue, setLikeValue] = useState(false);
-  const [ contentHandler, setContentHandler ] = useState("")
-
-  const likeHandler = (post) => {
-    // console.log(postData.likes.likeCount)
-    setLikeValue(!likeValue);
-    likeValue ? likeDecreament(post) : likeIncreament(post);
-  };
+  const [contentHandler, setContentHandler] = useState("");
 
   return (
     <div className="home-container">
@@ -34,17 +27,23 @@ const Home = () => {
 
         {/* post */}
         <div className="post-container-div">
-
-          <div className="createPost-container"> 
-            <textarea 
-                id="text-input" 
-                rows="8" 
-                cols="40" 
-                value={contentHandler}
-                onChange={(e) => setContentHandler(e.target.value)}
-                placeholder="Create Sporty_snap...." 
-                className="createPost-textarea"></textarea>
-            <button type="submit" className="createPost-button" onClick={() => createPost(contentHandler)}>Post</button>
+          <div className="createPost-container">
+            <textarea
+              id="text-input"
+              rows="8"
+              cols="40"
+              value={contentHandler}
+              onChange={(e) => setContentHandler(e.target.value)}
+              placeholder="Create Sporty_snap...."
+              className="createPost-textarea"
+            ></textarea>
+            <button
+              type="submit"
+              className="createPost-button"
+              onClick={() => createPost(contentHandler)}
+            >
+              Post
+            </button>
           </div>
 
           {postData.map((post) => {
@@ -67,14 +66,21 @@ const Home = () => {
                 <div className="postImage-container">
                   <img src={post.img} alt="sportyImage" className="postImage" />
                 </div>
-                <p>content : {post.content}</p>
                 <div className="opertionalBtn">
                   <div className="leftBtn">
                     <div
                       className="like sign"
-                      onClick={() => likeHandler(post)}
+                      onClick={() =>
+                        post.likes.likedBy.find(
+                          ({ username }) => username === currUser.username
+                        )
+                          ? likeDecreament(post)
+                          : likeIncreament(post)
+                      }
                     >
-                      {likeValue ? (
+                      {post.likes.likedBy.find(
+                        ({ username }) => username === currUser.username
+                      ) ? (
                         <span className="redHeart">
                           <i class="fa fa-heart" aria-hidden="true">
                             {" "}
@@ -82,8 +88,7 @@ const Home = () => {
                         </span>
                       ) : (
                         <i class="fa fa-heart-o" aria-hidden="true"></i>
-                      )}{" "}
-                      {post.likes.likeCount}
+                      )}
                     </div>
 
                     <div className="comment sign">
@@ -111,8 +116,28 @@ const Home = () => {
                       <i class="fa fa-bookmark-o" aria-hidden="true"></i>
                     )}
                   </div>
+                </div>
 
-                 
+                <p>
+                  <b>{post.likes.likeCount} likes</b>
+                </p>
+                <p>
+                  <b>{post.username}__</b> {post.content}
+                </p>
+
+                <div className="userComment-container">
+                  <div>
+                    <img
+                      src={currUser.userImage}
+                      alt="userImg"
+                      className="userComment-image"
+                    />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Add a comment..."
+                    className="userComment-input"
+                  />
                 </div>
               </div>
             );
