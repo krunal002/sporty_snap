@@ -3,7 +3,7 @@ import { createContext, useReducer, useState } from "react";
 export const LoginContext = createContext();
 
 export const LoginContextHandler = ({ children }) => {
-  const [token, setToken] = useState(false);
+  const [token, setToken] = useState(false)
 
   //   Reducer
   const reducerFun = (state, action) => {
@@ -32,20 +32,18 @@ export const LoginContextHandler = ({ children }) => {
 
   const postLoginData = async () => {
     const cred = { username: state.username, password: state.password };
+    console.log(cred)
     try {
-      const res = await fetch("/api/auth/login", {
-        method: "POST",
-        body: JSON.stringify(cred),
-      });
+      const res = await axios.post("/api/auth/login", cred );
 
-      const result = await res.json();
+      const result = res.data;
 
       localStorage.setItem("encodedToken", result.encodedToken);
       localStorage.setItem("user", JSON.stringify(result.foundUser));
       dispatch({ type: "userData", payload: result.foundUser });
       setToken(result.encodedToken);
     } catch (e) {
-      console.log(e);
+      console.log("Something wrong...");
     }
   };
 
@@ -60,22 +58,16 @@ export const LoginContextHandler = ({ children }) => {
       bookmarks: [],
     };
     try {
-      await fetch("/api/auth/signup", {
-        method: "POST",
-        body: JSON.stringify(cred),
-      });
+      await axios.post("/api/auth/signup", cred );
     } catch (e) {
       console.log(e);
     }
   };
 
   const postTestUser = async () => {
-    // const cred = { username: "spidy_003", password: "spiderman" };
+    const cred = { username: "spidy_003", password: "spiderman" };
     try {
-      const res = await axios.post("/api/auth/login", {
-        username: "spidy_003", 
-        password: "spiderman"
-      });
+      const res = await axios.post("/api/auth/login", cred);
 
       const result = res.data;
       
