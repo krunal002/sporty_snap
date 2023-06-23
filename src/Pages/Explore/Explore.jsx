@@ -47,7 +47,7 @@ const Explore = () => {
     hockey: false,
   });
 
-  const trenData = state.trending ? postData : postData;
+  const trenData = state.trending ? [...postData].sort((a,b) => (b.likes.likeCount - a.likes.likeCount)) : postData;
 
   const latestData = trenData;
 

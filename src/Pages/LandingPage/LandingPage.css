@@ -8,9 +8,6 @@
   --tertiary-color: #fcfefe;
 }
 
-body{
-  background-image: linear-gradient(to right, var(--background-color) , var(--tertiary-color), var(--background-color));
-}
 .landingDiv {
   border-top: 2px solid var(--secondary-color);
   border-bottom-left-radius: 2rem;

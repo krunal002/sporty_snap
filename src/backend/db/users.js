@@ -51,4 +51,15 @@ export const users = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
+  {
+    _id: uuid(),
+    userImage:"https://cdn.dribbble.com/users/2813138/screenshots/5594486/media/e84dfbfcd859e7c5ec6c92d0861e64a2.jpg?compress=1&resize=400x300&vertical=center",
+    firstName: "Peter",
+    lastName: "Parker",
+    username: "spidy_003",
+    password: "spiderman",
+    bookmarks: [],
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  }
 ];

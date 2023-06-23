@@ -90,7 +90,7 @@ const Login = () => {
                 Sign In
               </button>
               <button className="loginBtn" onClick={testUserHandler}>
-                Login as Test User
+                Login as <b>spidy_003</b>
               </button>
               <Link to="/signup" className="login-landing">
                 Create new account

@@ -1,3 +1,4 @@
+import axios from "axios";
 import { createContext, useReducer, useState } from "react";
 export const LoginContext = createContext();
 
@@ -69,14 +70,15 @@ export const LoginContextHandler = ({ children }) => {
   };
 
   const postTestUser = async () => {
-    const cred = { username: "adarshbalika", password: "adarshBalika123" };
+    // const cred = { username: "spidy_003", password: "spiderman" };
     try {
-      const res = await fetch("/api/auth/login", {
-        method: "POST",
-        body: JSON.stringify(cred),
+      const res = await axios.post("/api/auth/login", {
+        username: "spidy_003", 
+        password: "spiderman"
       });
 
-      const result = await res.json();
+      const result = res.data;
+      
       localStorage.setItem("encodedToken", result.encodedToken);
       localStorage.setItem("user", JSON.stringify(result.foundUser));
       dispatch({ type: "userData", payload: result.foundUser });
