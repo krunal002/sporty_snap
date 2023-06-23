@@ -24,6 +24,8 @@ const Explore = () => {
     switch (action.type) {
       case "trending":
         return { ...cat, trending: true };
+      case "latest":
+        return { ...cat, latest: true };
       case "miscellaneous":
         return { ...cat, miscellaneous: true };
       case "football":
@@ -52,7 +54,9 @@ const Explore = () => {
     ? [...postData].sort((a, b) => b.likes.likeCount - a.likes.likeCount)
     : postData;
 
-  const latestData = trenData;
+  const latestData = state.latest
+    ? [...trenData].sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt))
+    :trenData;
 
   const miscellaneousData = latestData;
 
