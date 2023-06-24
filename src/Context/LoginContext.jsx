@@ -9,7 +9,7 @@ export const LoginContextHandler = ({ children }) => {
   const reducerFun = (state, action) => {
     switch (action.type) {
       case "userData":
-        return { ...state, userData: action.payload };
+        return { ...state, userLoggedIn: action.payload };
       case "firstName":
         return { ...state, firstName: action.payload };
       case "lastName":
@@ -23,7 +23,7 @@ export const LoginContextHandler = ({ children }) => {
     }
   };
   const [state, dispatch] = useReducer(reducerFun, {
-    userData: {},
+    userLoggedIn: {},
     username: "",
     password: "",
     firstName: "",

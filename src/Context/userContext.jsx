@@ -4,6 +4,7 @@ export const UserContext = createContext();
 
 export const UserContextHandler = ({ children }) => {
   const [userData, setUserData] = useState([]);
+  const token = localStorage.getItem("encodedToken")
 
   const getUserData = async () => {
     try {
@@ -19,7 +20,20 @@ export const UserContextHandler = ({ children }) => {
     getUserData();
   });
 
+  const followUser = async (user) => {
+    try{
+      const res = await axios.post(`/api/users/follow/${user._id}`, {},{headers:{authorization:token}})
+      console.log("follow", res.data)
+    }catch(e) { console.log(e)}
+  }
+
+  const unfollowUser = async ( user ) => {
+    try {
+      const res = await axios.post(`/api/users/unfollow/${user._id}`,{},{headers:{authorization:token}})
+      console.log("unfollow", res.data)
+    } catch(e) { console.log(e)}
+  }
   return (
-    <UserContext.Provider value={{ userData }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ userData, followUser, unfollowUser }}>{children}</UserContext.Provider>
   );
 };

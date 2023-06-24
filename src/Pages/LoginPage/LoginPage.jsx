@@ -8,7 +8,7 @@ const Login = () => {
   const { state, dispatch, postLoginData, postTestUser, token, setToken } =
     useContext(LoginContext);
 
-  const currUser = state.userData
+  const currUser = state.userLoggedIn
   const clickHandler = () => {
     postLoginData();
     setTimeout(() => navigate("/home"), 500);
@@ -43,7 +43,7 @@ const Login = () => {
           />
           <p>
             <b>Name : </b>
-            {currUser.firstName} {state.userData.lastName}
+            {currUser.firstName} {currUser.lastName}
           </p>
           <p>
             <b>Username : </b>
@@ -65,7 +65,7 @@ const Login = () => {
                 type="text"
                 className="loginInputs"
                 placeholder="sidharth002"
-                value={state.userame}
+                value={state.username}
                 onChange={(e) =>
                   dispatch({ type: "username", payload: e.target.value })
                 }

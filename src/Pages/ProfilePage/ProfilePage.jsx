@@ -1,14 +1,16 @@
 import { useContext } from "react";
 import "./ProfilePage.css";
-import { useNavigate } from "react-router-dom";
-import { BookmarkContext, PostContext } from "../../SportySnap";
+import { Link, useNavigate } from "react-router-dom";
+import { BookmarkContext, LoginContext, PostContext } from "../../SportySnap";
 
 const Profile = () => {
   const navigate = useNavigate();
-  const currUser = JSON.parse(localStorage.getItem("user"));
+  
+  const { state } = useContext(LoginContext)
   const { postData, likeIncreament, likeDecreament } = useContext(PostContext);
   const { bookmarkData, saveBookmark, removeBookmark } = useContext(BookmarkContext)
 
+  const currUser = state.userLoggedIn;
   const totalPosts = postData.filter(
     ({ username }) => username === currUser.username
   );
@@ -38,7 +40,7 @@ const Profile = () => {
           <p>
             <b>{currUser.bio}</b>
           </p>
-          <p className="user-link">https://krunal002.netlify.app/</p>
+          <Link to="https://krunal002.netlify.app/" className="user-link">krunal002.netlify.app/</Link>
 
           <div className="userData-container">
             <div className="userData">

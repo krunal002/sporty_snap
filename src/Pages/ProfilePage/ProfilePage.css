@@ -65,6 +65,9 @@
 }
 .user-link {
   color: var(--secondary-color);
+  text-decoration: none;
+  padding: 0.5rem;
+  font-size: larger;
 }
 .userData-container {
   background-color: var(--tertiary-color);
