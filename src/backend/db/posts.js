@@ -284,8 +284,8 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    username: "shubhamsoni",
-    userImage: "https://media.istockphoto.com/id/497279633/photo/sending-a-fast-ball-down-the-pitch.jpg?s=612x612&w=0&k=20&c=M4tlLzQFYupKa8sylo0zdKPWrC5uZ23IaO2ZILwf1Pg=",
+    username: "spidy_003",
+    userImage: "https://cdn.dribbble.com/users/2813138/screenshots/5594486/media/e84dfbfcd859e7c5ec6c92d0861e64a2.jpg?compress=1&resize=400x300&vertical=center",
     
     comments: [
       {

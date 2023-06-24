@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Belanosima&family=Foldit&family=Girassol&family=Raleway:wght@100&family=Red+Hat+Display:wght@600&family=Tajawal:wght@300;500&display=swap");
+
+:root {
+  --primary-color: #66bfbf;
+  --secondary-color: #f76b8a;
+  --background-color: #eaf6f6;
+  --tertiary-color: #fcfefe;
+}
+
+.container {
+  position: relative;
+  font-family: "Tajawal", sans-serif;
+}
+.homeLink {
+  background-color: var(--secondary-color);
+  border: 3px solid var(--primary-color);
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  font-size: xx-large;
+  position: fixed;
+  bottom: 40px;
+  right: 50px;
+  cursor: pointer;
+}
+.homeLink :hover {
+  color: var(--tertiary-color);
+}
+
+.profile-container {
+  background-color: var(--background-color);
+  padding: 1rem;
+}
+.profileImage {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  border-bottom: 4px solid var(--secondary-color);
+  border-right: 6px solid var(--primary-color);
+  box-shadow: 2px -2px 6px 3px gray;
+}
+
+.profileUsername {
+  color: gray;
+  font-size: larger;
+}
+.profileName {
+  font-size: x-large;
+}
+
+.profileEditBtn {
+  margin: 1rem;
+  padding: 1rem 2rem;
+  background-color: var(--primary-color);
+  border: none;
+  border-right: 2px solid var(--secondary-color);
+  border-bottom: 2px solid var(--secondary-color);
+  border-bottom-left-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  cursor: pointer;
+}
+.profileEditBtn:hover {
+  box-shadow: 1px 2px 6px 3px gray;
+}
+.user-link {
+  color: var(--secondary-color);
+}
+.userData-container {
+  background-color: var(--tertiary-color);
+  padding: 1rem;
+  width: 400px;
+  margin: auto;
+  border-bottom: 2px solid var(--secondary-color);
+  display: flex;
+  justify-content: space-around;
+}
+.userData {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.profile-postsDetails{
+    color: gray;
+}

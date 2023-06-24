@@ -78,7 +78,7 @@ const Bookmark = () => {
                         className="postImage"
                       />
                     </div>
-                    <p>content : {post.content}</p>
+                    <p><b>{post.username}__</b> {post.content}</p>
                     <div className="opertionalBtn">
                       <div className="leftBtn">
                         <div
@@ -96,11 +96,13 @@ const Bookmark = () => {
                           ) ? (
                             <span className="redHeart">
                               <i class="fa fa-heart" aria-hidden="true">
-                                {" "}
+                                {" "}{post.likes.likeCount}
                               </i>
                             </span>
                           ) : (
-                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i class="fa fa-heart-o" aria-hidden="true">
+                              {" "}{post.likes.likeCount}
+                            </i>
                           )}
                         </div>
 

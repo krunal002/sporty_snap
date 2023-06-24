@@ -142,7 +142,7 @@ const Home = () => {
                     className="userComment-input"
                   />
                 </div>
-                <div style={{textAlign:"right"}}>posted on : {post.createdAt}</div>
+                <div style={{textAlign:"right"}}><small>posted on : {post.createdAt}</small></div>
               </div>
             );
           })}
