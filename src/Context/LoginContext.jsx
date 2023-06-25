@@ -3,7 +3,7 @@ import { createContext, useReducer, useState } from "react";
 export const LoginContext = createContext();
 
 export const LoginContextHandler = ({ children }) => {
-  const [token, setToken] = useState(JSON.parse(localStorage.getItem("user") || ""));
+  const [token, setToken] = useState(JSON.parse(localStorage.getItem("user")) || "");
 
   //   Reducer
   const reducerFun = (state, action) => {
