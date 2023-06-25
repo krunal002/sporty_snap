@@ -7,7 +7,7 @@ import { formatDate } from "../utils/authUtils";
 
 export const users = [
   {
-    _id: uuid(),
+    _id: 1,
     bio:"Adventurer 🌍 | Nature Lover 🌿 | Coffee Addict ☕️ | Cat Mom 🐾 | Dreamer ✨",
     userImage:"https://media.istockphoto.com/id/610664694/photo/isolated-athlete-runner.jpg?s=612x612&w=0&k=20&c=c6Yks7L_0V-UZCpJPn-9ZkDhX7vTPHADrcZvg6OTtKU=",
     firstName: "Adarsh",
@@ -20,7 +20,7 @@ export const users = [
     followers:[2,3,4]
   },
   {
-    _id: uuid(),
+    _id: 2,
     bio:"Adventurer 🌍 | Nature Lover 🌿 | Coffee Addict ☕️ | Cat Mom 🐾 | Dreamer ✨",
     userImage:"https://www.planetsport.com/image-library/square/1200/k/kylian-mbappe-psg-france-3-april-2022.jpg",
     firstName: "Kedar",
@@ -32,7 +32,7 @@ export const users = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
+    _id: 3,
     bio:"Adventurer 🌍 | Nature Lover 🌿 | Coffee Addict ☕️ | Cat Mom 🐾 | Dreamer ✨",
     userImage:"https://images.unsplash.com/photo-1560272564-c83b66b1ad12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3BvcnRzJTIwcGxheWVyfGVufDB8fDB8fHww&w=1000&q=80",
     firstName: "Rahul",
@@ -44,7 +44,7 @@ export const users = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
+    _id: 4,
     bio:"Adventurer 🌍 | Nature Lover 🌿 | Coffee Addict ☕️ | Cat Mom 🐾 | Dreamer ✨",
     userImage:"https://img.freepik.com/premium-photo/profile-view-beautiful-athletic-girl-exercising-fitness-concept_2221-2275.jpg",
     firstName: "Gunjan",
