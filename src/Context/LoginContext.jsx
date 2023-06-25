@@ -1,10 +1,14 @@
 import axios from "axios";
-import { createContext, useReducer, useState } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
 export const LoginContext = createContext();
 
 export const LoginContextHandler = ({ children }) => {
   const [token, setToken] = useState(false);
 
+  useEffect(() => {
+    if(localStorage.getItem("user"))
+    setToken(JSON.parse(localStorage.getItem("user")))
+  },[])
   //   Reducer
   const reducerFun = (state, action) => {
     switch (action.type) {
