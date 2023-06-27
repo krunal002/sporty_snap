@@ -95,8 +95,13 @@ body{
   margin: 0 -1rem;
   padding: 0 1rem;
   display: flex;
+  justify-content: space-between;
   align-content: center;
   border-bottom: 1px solid var(--secondary-color);
+}
+.right-userDetails{
+  display: flex;
+  
 }
 .userDetails-margin {
   margin: 1rem auto;

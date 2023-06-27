@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { BookmarkContext, PostContext } from "../../SportySnap";
 import Links from "../../Components/Links";
 import Users from "../../Components/Users";
+import FunButttons from "../../Components/FunButtons";
 
 const Home = () => {
   const currUser = JSON.parse(localStorage.getItem("user"));
@@ -51,8 +52,9 @@ const Home = () => {
           {homeData.map((post) => {
             return (
               <div key={post.id} className="post-container container-format">
-                <div>
+                
                 <div className="userDetails">
+                  <div className="right-userDetails">
                   <div className="userImg">
                     <img
                       src={post.userImage}
@@ -65,10 +67,18 @@ const Home = () => {
                     <p><b>@{post.username}</b></p>
                     <small>__{post.category}</small>
                   </div>
+                  </div>
+                   {/* functional Buttons */}
+                   {
+                    post.username===currUser.username
+                      ?<div><FunButttons item={post}/></div>
+                      :<div></div>
+                   }
+                   
                 </div>
 
-                {/* functional Buttons */}
-                </div>
+               
+               
 
                 <div className="postImage-container">
                   <img src={post.img} alt="sportyImage" className="postImage" />

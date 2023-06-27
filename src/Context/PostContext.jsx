@@ -73,9 +73,30 @@ export const PostContextHandler = ({ children }) => {
     }
   };
 
+  const deleteHandler = async (postId) => {
+    const url = `/api/posts/${postId}`;
+    try {
+      await axios.delete(
+        url,
+        {
+          headers: { authorization: token },
+        }
+      );
+    } catch (e) {
+      console.log(e);
+    }
+    console.log("this is delete!", `/api/posts/${postId}`);
+  };
+
   return (
     <PostContext.Provider
-      value={{ postData, likeIncreament, likeDecreament, createPost }}
+      value={{
+        postData,
+        likeIncreament,
+        likeDecreament,
+        createPost,
+        deleteHandler,
+      }}
     >
       {children}
     </PostContext.Provider>

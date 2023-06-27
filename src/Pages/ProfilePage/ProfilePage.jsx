@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import "./ProfilePage.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { BookmarkContext, PostContext, UserContext } from "../../SportySnap";
+import FunButttons from "../../Components/FunButtons";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -119,21 +120,28 @@ const Profile = () => {
                     className="post-container container-format"
                   >
                     <div className="userDetails">
-                      <div className="userImg">
-                        <img
-                          src={post.userImage}
-                          alt="userImage"
-                          className="userImage"
-                        />
-                      </div>
+                  <div className="right-userDetails">
+                  <div className="userImg">
+                    <img
+                      src={post.userImage}
+                      alt="userImage"
+                      className="userImage"
+                    />
+                  </div>
 
-                      <div className="userInfo">
-                        <p>
-                          <b>@{post.username}</b>
-                        </p>
-                        <small>__{post.category}</small>
-                      </div>
-                    </div>
+                  <div className="userInfo">
+                    <p><b>@{post.username}</b></p>
+                    <small>__{post.category}</small>
+                  </div>
+                  </div>
+                   {/* functional Buttons */}
+                   {
+                    post.username===currUser.username
+                      ?<div><FunButttons item={post}/></div>
+                      :<div></div>
+                   }
+                   
+                </div>
 
                     <div className="postImage-container">
                       <img

@@ -2,6 +2,7 @@ import "./Explore.css";
 import { Link } from "react-router-dom";
 import { useContext, useReducer } from "react";
 import { BookmarkContext, PostContext } from "../../SportySnap";
+import FunButttons from "../../Components/FunButtons";
 
 const Explore = () => {
   const currUser = JSON.parse(localStorage.getItem("user"));
@@ -162,6 +163,7 @@ const Explore = () => {
                 className="post-container container-format explore-format"
               >
                 <div className="userDetails">
+                  <div className="right-userDetails">
                   <div className="userImg">
                     <img
                       src={post.userImage}
@@ -171,8 +173,17 @@ const Explore = () => {
                   </div>
 
                   <div className="userInfo">
-                    <h4>@{post.username}</h4>
+                    <p><b>@{post.username}</b></p>
+                    <small>__{post.category}</small>
                   </div>
+                  </div>
+                   {/* functional Buttons */}
+                   {
+                    post.username===currUser.username
+                      ?<div><FunButttons item={post}/></div>
+                      :<div></div>
+                   }
+                   
                 </div>
 
                 <div className="postImage-container">

@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { BookmarkContext, PostContext } from "../../SportySnap";
 import Users from "../../Components/Users";
+import FunButttons from "../../Components/FunButtons";
 
 const Bookmark = () => {
   const currUser = JSON.parse(localStorage.getItem("user"));
@@ -58,18 +59,28 @@ const Bookmark = () => {
                     className="post-container container-format"
                   >
                     <div className="userDetails">
-                      <div className="userImg">
-                        <img
-                          src={post.userImage}
-                          alt="userImage"
-                          className="userImage"
-                        />
-                      </div>
+                  <div className="right-userDetails">
+                  <div className="userImg">
+                    <img
+                      src={post.userImage}
+                      alt="userImage"
+                      className="userImage"
+                    />
+                  </div>
 
-                      <div className="userInfo">
-                        <h4>@{post.username}</h4>
-                      </div>
-                    </div>
+                  <div className="userInfo">
+                    <p><b>@{post.username}</b></p>
+                    <small>__{post.category}</small>
+                  </div>
+                  </div>
+                   {/* functional Buttons */}
+                   {
+                    post.username===currUser.username
+                      ?<div><FunButttons item={post}/></div>
+                      :<div></div>
+                   }
+                   
+                </div>
 
                     <div className="postImage-container">
                       <img
