@@ -1,7 +1,9 @@
 import { useContext } from "react";
 import { LoginContext, UserContext } from "../SportySnap";
+import { useNavigate } from "react-router-dom";
 
 const Users = () => {
+  const navigate = useNavigate()
   const { state } = useContext(LoginContext);
   const { userData, followUser, unfollowUser } = useContext(UserContext);
 
@@ -18,7 +20,11 @@ const Users = () => {
       <div className="user-container container-format">
         <h3 className="user-heading">Suggested Users</h3>
         {userData.map((user) => (
-          <div key={user.id} className="userDetails userDetails-margin">
+          <div 
+          key={user.id} 
+          className="userDetails userDetails-margin"
+          onClick={() => navigate(`/profile/${user._id}`)}
+          >
             <div>
               <img src={user.userImage} alt="userImage" className="userImage" />
             </div>
