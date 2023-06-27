@@ -2,11 +2,11 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import "./ProfilePage.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { BookmarkContext, PostContext } from "../../SportySnap";
+import { BookmarkContext, PostContext, UserContext } from "../../SportySnap";
 
 const Profile = () => {
   const navigate = useNavigate();
-  // const currUser = JSON.parse(localStorage.getItem("user"))
+  const loggedInUser = JSON.parse(localStorage.getItem("user"));
   const [currUser, setCurrUser] = useState({});
 
   const { postData, likeIncreament, likeDecreament } = useContext(PostContext);
@@ -32,7 +32,18 @@ const Profile = () => {
   };
   useEffect(() => {
     getUser();
-  }, []);
+  });
+
+  const { followUser, unfollowUser } = useContext(UserContext);
+
+  const followHandler = (user) => {
+    console.log(user.followers);
+    user.followers.map(({ username }) =>
+      username.includes(loggedInUser.username)
+    ).length
+      ? unfollowUser(user)
+      : followUser(user);
+  };
 
   return (
     <div>
@@ -54,12 +65,26 @@ const Profile = () => {
                 {currUser.firstName} {currUser.lastName}
               </b>
             </div>
+
             <button
               className="profileEditBtn"
-              onClick={() => navigate("/edit-user")}
+              onClick={() =>
+                loggedInUser._id === currUser._id
+                  ? navigate("/edit-user")
+                  : followHandler(currUser)/*console.log("right")*/
+              }
             >
-              <b>Edit Profile</b>
+              {loggedInUser._id === currUser._id ? (
+                <b>Edit Profile</b>
+              ) : currUser?.followers?.map(({ username }) =>
+                  username.includes(loggedInUser.username)
+                ).length ? (
+                <b>Unfollow</b>
+              ) : (
+                <b>Follow</b>
+              )}
             </button>
+
             <p>
               <b>{currUser.bio}</b>
             </p>
