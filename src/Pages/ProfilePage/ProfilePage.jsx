@@ -8,8 +8,7 @@ const Profile = () => {
   const navigate = useNavigate();
   // const currUser = JSON.parse(localStorage.getItem("user"))
   const [currUser, setCurrUser] = useState({});
-  
-  
+
   const { postData, likeIncreament, likeDecreament } = useContext(PostContext);
   const { bookmarkData, saveBookmark, removeBookmark } =
     useContext(BookmarkContext);
@@ -20,15 +19,12 @@ const Profile = () => {
 
   // Get required user
   const { userId } = useParams();
-  console.log("curr", currUser)
-
 
   const getUser = async () => {
     try {
       const res = await axios.get(`/api/users/${userId}`);
       const result = res.data.user;
-    
-      console.log("currUser", result.following.length);
+
       setCurrUser(result);
     } catch (e) {
       console.log(e);
@@ -36,7 +32,7 @@ const Profile = () => {
   };
   useEffect(() => {
     getUser();
-  },[]);
+  }, []);
 
   return (
     <div>
@@ -58,7 +54,10 @@ const Profile = () => {
                 {currUser.firstName} {currUser.lastName}
               </b>
             </div>
-            <button className="profileEditBtn">
+            <button
+              className="profileEditBtn"
+              onClick={() => navigate("/edit-user")}
+            >
               <b>Edit Profile</b>
             </button>
             <p>

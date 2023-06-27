@@ -274,7 +274,7 @@ export const posts = [
   },
 
   {
-    _id: uuid(),
+    _id: 3,
     img:"https://smartcdn.gprod.postmedia.digital/calgaryherald/wp-content/uploads/2019/03/aptopix-mud-day.jpg?quality=90&strip=all&w=400&sig=VPYmuTxtgVMB1j2yTLlavg",
     category:"outdoor",
     content:

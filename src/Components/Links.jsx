@@ -4,7 +4,6 @@ import { LoginContext } from "../SportySnap";
 
 const Links = () => {
   const { state } = useContext(LoginContext)
-  console.log("yt", state.userLoggedIn)
   return (
     <div className="link-container-div">
       <div className="link-container container-format">
