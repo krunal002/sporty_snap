@@ -32,7 +32,6 @@ export const LoginContextHandler = ({ children }) => {
 
   const postLoginData = async () => {
     const cred = { username: state.username, password: state.password };
-    console.log(cred);
     try {
       const res = await axios.post("/api/auth/login", cred);
 

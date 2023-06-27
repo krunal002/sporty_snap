@@ -15,11 +15,12 @@ const Users = () => {
       ? unfollowUser(user)
       : followUser(user);
   };
+
   return (
     <div className="user-container-div">
       <div className="user-container container-format">
         <h3 className="user-heading">Suggested Users</h3>
-        {userData.map((user) => (
+        {userData.filter(({_id}) => (_id!==state.userLoggedIn._id)).map((user) => (
           <div key={user.id} className="userDetails userDetails-margin">
             <div onClick={() => navigate(`/profile/${user._id}`)}>
               <img src={user.userImage} alt="userImage" className="userImage" />
