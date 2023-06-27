@@ -51,6 +51,7 @@ const Home = () => {
           {homeData.map((post) => {
             return (
               <div key={post.id} className="post-container container-format">
+                <div>
                 <div className="userDetails">
                   <div className="userImg">
                     <img
@@ -64,6 +65,9 @@ const Home = () => {
                     <p><b>@{post.username}</b></p>
                     <small>__{post.category}</small>
                   </div>
+                </div>
+
+                {/* functional Buttons */}
                 </div>
 
                 <div className="postImage-container">

@@ -8,7 +8,7 @@ import { formatDate } from "../utils/authUtils";
 
 export const posts = [
   {
-    _id: uuid(),
+    _id: 1,
     img:"https://cdn.cdnparenting.com/articles/2018/03/522565846-H.webp",
     category:"football",
     content:

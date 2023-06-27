@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { LoginContext } from "../SportySnap";
 
 const Links = () => {
+  const { state } = useContext(LoginContext)
+  console.log("yt", state.userLoggedIn)
   return (
     <div className="link-container-div">
       <div className="link-container container-format">
@@ -13,7 +17,7 @@ const Links = () => {
         <Link to="/bookmark" className="home-links">
           <i class="fa fa-bookmark" aria-hidden="true"></i> Bookmark
         </Link>
-        <Link to="/profile" className="home-links">
+        <Link to={`/profile/${state.userLoggedIn._id}`} className="home-links">
           <i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile
         </Link>
         <Link to="/login" className="home-links">

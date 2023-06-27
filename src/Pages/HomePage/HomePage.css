@@ -4,6 +4,9 @@
   --background-color: #eaf6f6;
   --tertiary-color: #fcfefe;
 }
+body{
+  position: relative;
+}
 
 .home-container {
   background-color: var(--background-color);
@@ -37,6 +40,12 @@
 }
 
 /* Link container */
+.link-container-div{
+  position: sticky;
+  position: -webkit-sticky;
+  height: 80%;
+  top: 0;
+}
 .link-container {
   padding: 2rem;
   display: flex;

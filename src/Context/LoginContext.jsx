@@ -1,14 +1,10 @@
 import axios from "axios";
-import { createContext, useEffect, useReducer, useState } from "react";
+import { createContext, useReducer, useState } from "react";
 export const LoginContext = createContext();
 
 export const LoginContextHandler = ({ children }) => {
   const [token, setToken] = useState(false);
 
-  useEffect(() => {
-    if(localStorage.getItem("user"))
-    setToken(JSON.parse(localStorage.getItem("user")))
-  },[])
   //   Reducer
   const reducerFun = (state, action) => {
     switch (action.type) {
@@ -55,6 +51,7 @@ export const LoginContextHandler = ({ children }) => {
     const cred = {
       userImage:
         "https://cdn2.f-cdn.com/contestentries/419315/20012414/5758a41a4c256_thumb900.jpg",
+        bio:"New Adventurer 🌍 | Fresh Nature Lover 🌿 | Current Coffee Addict ☕️ | Cat Mom 🐾 | Unique Dreamer ✨",
       firstName: state.firstName,
       lastName: state.lastName,
       username: state.username,

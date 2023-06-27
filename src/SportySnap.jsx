@@ -8,6 +8,7 @@ import Profile from "./Pages/ProfilePage/ProfilePage";
 import Login from "./Pages/LoginPage/LoginPage";
 import SignUp from "./Pages/LoginPage/SignUp";
 import RequiresAuth from "./Components/RequiresAuth";
+import EditUser from "./Components/EditUser";
 
 import { LoginContext } from "./Context/LoginContext";
 import { PostContext } from "./Context/PostContext";
@@ -31,9 +32,10 @@ const SportySnap = () => {
         } />
         <Route path="/explore" element={<Explore />} />
         <Route path="/bookmark" element={<Bookmark />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:userId" element={<Profile />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/edit-user" element={<EditUser />} />
       </Routes>
     </div>
   );
