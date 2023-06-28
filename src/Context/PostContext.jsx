@@ -85,7 +85,7 @@ export const PostContextHandler = ({ children }) => {
     } catch (e) {
       console.log(e);
     }
-    console.log("this is delete!", `/api/posts/${postId}`);
+    console.log("this is delete!");
   };
 
   return (

@@ -25,7 +25,6 @@ const Profile = () => {
     try {
       const res = await axios.get(`/api/users/${userId}`);
       const result = res.data.user;
-      console.log("getUser called!")
       setCurrUser(result);
     } catch (e) {
       console.log(e);
@@ -51,6 +50,12 @@ const Profile = () => {
       <div className="container">
         <div className="homeLink" onClick={() => navigate("/home")}>
           <i class="fa fa-home" aria-hidden="true"></i>
+        </div>
+        <div className="exploreLink" onClick={() => navigate("/explore")}>
+          <i class="fa fa-suitcase" aria-hidden="true"></i>
+        </div>
+        <div className="bookmarkLink" onClick={() => navigate("/bookmark")}>
+          <i class="fa fa-bookmark" aria-hidden="true"></i>
         </div>
 
         <div className="profile-container">

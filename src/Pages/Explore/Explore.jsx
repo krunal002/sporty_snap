@@ -94,7 +94,7 @@ const Explore = () => {
           <Link to="/bookmark" className="bookmark-links">
             <i class="fa fa-bookmark" aria-hidden="true"></i>
           </Link>
-          <Link to="/profile" className="bookmark-links">
+          <Link to={`/profile/${currUser._id}`} className="bookmark-links">
             <i class="fa fa-user-circle-o" aria-hidden="true"></i>
           </Link>
         </div>

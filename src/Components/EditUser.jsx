@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useReducer, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const EditUser = () => {
   const navigate = useNavigate();
-  const [ show, setShow ] = useState(false)
+  const [show, setShow] = useState(false);
   const token = localStorage.getItem("encodedToken");
   const currUser = JSON.parse(localStorage.getItem("user"));
 
@@ -16,8 +16,8 @@ const EditUser = () => {
         return { ...state, firstName: action.payload };
       case "lastName":
         return { ...state, lastName: action.payload };
-        case "password":
-          return { ...state, password: action.payload };
+      case "password":
+        return { ...state, password: action.payload };
       default:
         return state;
     }
@@ -30,7 +30,7 @@ const EditUser = () => {
   });
 
   // set edited data
-  const postEditedData = async () => {
+  const userEditedData = async () => {
     try {
       await axios.post(
         `/api/users/edit`,
@@ -40,15 +40,22 @@ const EditUser = () => {
         }
       );
       navigate(`/profile/${currUser._id}`);
-      setShow(false)
+      setShow(false);
     } catch (e) {
-      setShow(true)
+      setShow(true);
       console.log(e);
     }
   };
 
   return (
     <div>
+      <div className="login-home-link">
+        <Link to="/home">
+          <i class="fa fa-home" aria-hidden="true">
+            _Home
+          </i>
+        </Link>
+      </div>
       <div className="loginDiv">
         <h1>Edit User</h1>
         <div className="login-input-div">
@@ -110,12 +117,16 @@ const EditUser = () => {
             />
           </div>
 
-          <button className="loginBtn" onClick={postEditedData}>
+          <button className="loginBtn" onClick={userEditedData}>
             <b>Save</b>
           </button>
-          <div 
-            style={show?{}:{color:"red", textAlign:"center" ,display:"none"}}
-          >Something is wrong</div>
+          <div
+            style={
+              show ? {} : { color: "red", textAlign: "center", display: "none" }
+            }
+          >
+            Something is wrong
+          </div>
         </div>
       </div>
     </div>

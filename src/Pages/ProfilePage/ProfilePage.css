@@ -11,15 +11,17 @@
   position: relative;
   font-family: "Tajawal", sans-serif;
 }
+
+/* Links */
 .homeLink {
   background-color: var(--secondary-color);
-  border: 3px solid var(--primary-color);
+  border: 2px solid var(--primary-color);
   width: 50px;
   height: 50px;
-  border-radius: 25px;
+  border-radius: 30px;
   font-size: xx-large;
   position: fixed;
-  bottom: 40px;
+  bottom: 200px;
   right: 50px;
   cursor: pointer;
 }
@@ -27,6 +29,39 @@
   color: var(--tertiary-color);
 }
 
+.exploreLink {
+  background-color: var(--secondary-color);
+  border: 2px solid var(--primary-color);
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  font-size: xx-large;
+  position: fixed;
+  bottom: 120px;
+  right: 50px;
+  cursor: pointer;
+}
+.exploreLink :hover {
+  color: var(--tertiary-color);
+}
+
+.bookmarkLink {
+  background-color: var(--secondary-color);
+  border: 2px solid var(--primary-color);
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  font-size: xx-large;
+  position: fixed;
+  bottom: 40px;
+  right: 50px;
+  cursor: pointer;
+}
+.bookmarkLink :hover {
+  color: var(--tertiary-color);
+}
+
+/* Profile */
 .profile-container {
   background-color: var(--background-color);
   padding: 1rem;

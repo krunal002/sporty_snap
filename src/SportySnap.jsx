@@ -9,6 +9,7 @@ import Login from "./Pages/LoginPage/LoginPage";
 import SignUp from "./Pages/LoginPage/SignUp";
 import RequiresAuth from "./Components/RequiresAuth";
 import EditUser from "./Components/EditUser";
+import EditPost from "./Components/EditPost";
 
 import { LoginContext } from "./Context/LoginContext";
 import { PostContext } from "./Context/PostContext";
@@ -36,6 +37,7 @@ const SportySnap = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/edit-user" element={<EditUser />} />
+        <Route path="/edit-post/:postId" element={<EditPost />} />
       </Routes>
     </div>
   );
