@@ -60,14 +60,13 @@ export const PostContextHandler = ({ children }) => {
       comments: [],
     };
     try {
-      const res = await axios.post(
+      await axios.post(
         "/api/posts",
         { postData: cred },
         {
           headers: { authorization: token },
         }
       );
-      console.log(res.data);
     } catch (e) {
       console.log(e);
     }
@@ -85,7 +84,6 @@ export const PostContextHandler = ({ children }) => {
     } catch (e) {
       console.log(e);
     }
-    console.log("this is delete!");
   };
 
   return (

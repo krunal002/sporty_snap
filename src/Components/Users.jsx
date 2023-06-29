@@ -8,7 +8,6 @@ const Users = () => {
   const { userData, followUser, unfollowUser } = useContext(UserContext);
 
   const followHandler = (user) => {
-    console.log(user.followers);
     user.followers.map(({ username }) =>
       username.includes(state.userLoggedIn.username)
     ).length

@@ -5,6 +5,7 @@ import { BookmarkContext, PostContext } from "../../SportySnap";
 import Links from "../../Components/Links";
 import Users from "../../Components/Users";
 import FunButttons from "../../Components/FunButtons";
+import PopupView from "../../Components/Popup"
 
 const Home = () => {
   const currUser = JSON.parse(localStorage.getItem("user"));
@@ -22,6 +23,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <h1>Home Page</h1>
+      
       <p>Hello, {currUser.firstName}</p>
 
       <div className="primary-container">
@@ -109,10 +111,11 @@ const Home = () => {
                     </div>
 
                     <div className="comment sign">
-                      <i class="fa fa-comment-o" aria-hidden="true">
+                    <PopupView item={post}/>
+                      
                         {" "}
                         {post.comments.length}
-                      </i>
+                      
                     </div>
                     <div className="share sign">
                       <i class="fa fa-paper-plane-o" aria-hidden="true"></i>

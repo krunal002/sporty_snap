@@ -9,7 +9,7 @@ const FunButttons = (post) => {
     
     return (
         <div className="fun-button-containet">
-            <button onClick={() => deleteHandler(postId)}>Delete</button>
+            <button onClick={() => deleteHandler(postId)} style={{ margin:"0 10px"}}>Delete</button>
             <button onClick={() => navigate(`/edit-post/${postId}`) }>Edit</button>
         </div>
     )
