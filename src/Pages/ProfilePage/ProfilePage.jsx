@@ -32,7 +32,7 @@ const Profile = () => {
   };
   useEffect(() => {
     getUser();
-  },[]);
+  });
 
   const { followUser, unfollowUser } = useContext(UserContext);
 
