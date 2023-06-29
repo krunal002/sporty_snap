@@ -23,7 +23,7 @@ const EditPost = () => {
   };
   useEffect(() => {
     getPostData();
-  },[]);
+  });
 
   // set edited data
   const cred = {
