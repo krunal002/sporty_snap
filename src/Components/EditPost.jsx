@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 
 const EditPost = () => {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const token = localStorage.getItem("encodedToken");
   const currUser = JSON.parse(localStorage.getItem("user"));
@@ -16,7 +16,7 @@ const EditPost = () => {
     try {
       const res = await axios.get(`/api/posts/${postId}`);
       const result = res.data.post;
-      setReqPost({img: result.img, category: result.category, content: result.content});
+      setReqPost({_id: result._id, img: result.img, category: result.category, content: result.content});
     } catch (e) {
       console.log(e);
     }
@@ -26,11 +26,18 @@ const EditPost = () => {
   },[]);
 
   // set edited data
-  const postEditedData = async () => {
+  const cred = {
+    img: reqPost.img,
+    category: reqPost.category,
+    content: reqPost.content,
+}
+  const postEditedData = async (c) => {
+    
+    console.log("cred",cred)
     try {
       await axios.post(
-        `/api/posts/edit/${postId}`,
-        { userData: reqPost },
+        `/api/posts/edit/${c._id}`,
+        { postData: cred },
         {
           headers: { authorization: token },
         }
@@ -104,7 +111,7 @@ const EditPost = () => {
             />
           </div>
 
-          <button className="loginBtn" onClick={() => postEditedData()}>
+          <button className="loginBtn" onClick={() => postEditedData(reqPost)}>
             <b>Save</b>
           </button>
           <div

@@ -114,3 +114,13 @@
   border-bottom: 2px solid var(--secondary-color);
   box-shadow: 1px 1px 5px 2px gray;
 }
+
+/* post edit page image */
+.reqPostImage{
+  display: block;
+  margin: 1rem auto;
+  width: 400px;
+  height: 300px;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 3px 2px gray;
+}
