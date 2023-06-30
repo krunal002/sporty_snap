@@ -8,8 +8,11 @@ const EditPost = () => {
   const token = localStorage.getItem("encodedToken");
   const currUser = JSON.parse(localStorage.getItem("user"));
 
+
+
+
   // get post data
-  const [reqPost, setReqPost] = useState("");
+  const [reqPost, setReqPost] = useState({});
 
   const { postId } = useParams();
   const getPostData = async () => {
@@ -23,7 +26,7 @@ const EditPost = () => {
   };
   useEffect(() => {
     getPostData();
-  });
+  },[]);
 
   // set edited data
   const cred = {
@@ -89,10 +92,16 @@ const EditPost = () => {
             <input
               type="text"
               className="loginInputs"
+
+
+
               value={reqPost.category}
               onChange={(e) =>
-                setReqPost({...reqPost, category:e.target.value})
+                setReqPost({...reqPost, category: e.target.value})
               }
+
+
+
             />
           </div>
 
