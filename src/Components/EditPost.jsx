@@ -15,18 +15,23 @@ const EditPost = () => {
   const [reqPost, setReqPost] = useState({});
 
   const { postId } = useParams();
-  const getPostData = async () => {
-    try {
-      const res = await axios.get(`/api/posts/${postId}`);
-      const result = res.data.post;
-      setReqPost({_id: result._id, img: result.img, category: result.category, content: result.content});
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  
   useEffect(() => {
-    getPostData();
-  },[]);
+    const getPostData = async () => {
+      try {
+        const res = await axios.get(`/api/posts/${postId}`);
+        const result = res.data.post;
+        setReqPost({_id: result._id, img: result.img, category: result.category, content: result.content});
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    getPostData()
+  },[postId]);
+
+
+
+
 
   // set edited data
   const cred = {
