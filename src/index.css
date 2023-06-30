@@ -11,3 +11,18 @@ body {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
+
+  /* App */
+  .app-container{
+    position: relative;
+  }
+  .appTitle{
+    color: gray;
+    position: sticky;
+    top: 0;
+    margin: 0;
+    background-color: white;
+    padding: 1.5rem;
+    z-index: 5;
+    border: 0.5px solid lightgray;
+  }

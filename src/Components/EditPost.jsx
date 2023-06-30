@@ -8,40 +8,37 @@ const EditPost = () => {
   const token = localStorage.getItem("encodedToken");
   const currUser = JSON.parse(localStorage.getItem("user"));
 
-
-
-
   // get post data
   const [reqPost, setReqPost] = useState({});
 
   const { postId } = useParams();
-  
+
   useEffect(() => {
     const getPostData = async () => {
       try {
         const res = await axios.get(`/api/posts/${postId}`);
         const result = res.data.post;
-        setReqPost({_id: result._id, img: result.img, category: result.category, content: result.content});
+        setReqPost({
+          _id: result._id,
+          img: result.img,
+          category: result.category,
+          content: result.content,
+        });
       } catch (e) {
         console.log(e);
       }
     };
-    getPostData()
-  },[postId]);
-
-
-
-
+    getPostData();
+  }, [postId]);
 
   // set edited data
   const cred = {
     img: reqPost.img,
     category: reqPost.category,
     content: reqPost.content,
-}
+  };
   const postEditedData = async (c) => {
-    
-    console.log("cred",cred)
+    console.log("cred", cred);
     try {
       await axios.post(
         `/api/posts/edit/${c._id}`,
@@ -80,14 +77,16 @@ const EditPost = () => {
               type="text"
               className="loginInputs"
               value={reqPost.img}
-              onChange={(e) =>
-                setReqPost({...reqPost, img:e.target.value})
-              }  
+              onChange={(e) => setReqPost({ ...reqPost, img: e.target.value })}
             />
           </div>
 
           <div>
-            <img src={reqPost.img} alt="reqPostImage" className="reqPostImage" />
+            <img
+              src={reqPost.img}
+              alt="reqPostImage"
+              className="reqPostImage"
+            />
           </div>
           {/* Category */}
           <div>
@@ -97,16 +96,10 @@ const EditPost = () => {
             <input
               type="text"
               className="loginInputs"
-
-
-
               value={reqPost.category}
               onChange={(e) =>
-                setReqPost({...reqPost, category: e.target.value})
+                setReqPost({ ...reqPost, category: e.target.value })
               }
-
-
-
             />
           </div>
 
@@ -120,7 +113,7 @@ const EditPost = () => {
               className="loginInputs"
               value={reqPost.content}
               onChange={(e) =>
-                setReqPost({...reqPost, content:e.target.value})
+                setReqPost({ ...reqPost, content: e.target.value })
               }
             />
           </div>
