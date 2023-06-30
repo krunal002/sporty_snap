@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Foldit&family=Raleway:wght@100&family=Red+Hat+Display:wght@600&family=Tajawal:wght@300;500&display=swap");
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -17,12 +19,49 @@ body {
     position: relative;
   }
   .appTitle{
-    color: gray;
     position: sticky;
     top: 0;
     margin: 0;
-    background-color: white;
+    background-color: #fcfefe;
     padding: 1.5rem;
     z-index: 5;
     border: 0.5px solid lightgray;
+    font-family: "Girassol", cursive;
+    color: #66bfbf;
+  }
+
+  /* LoggedIn User */
+  .loggedInUser{
+    margin: 0.5rem auto;
+    border: 1px solid #f76b8a;
+    border-bottom: 3px solid #f76b8a;
+    border-radius: 0.5rem;
+    background-color: #fcfefe;
+    background-image: linear-gradient(#fcfefe, #eaf6f6);
+    display: flex;
+    padding: 0.5rem;
+    position: fixed;
+    bottom: 10px;
+  }
+  .loggedInUser .pic{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 2rem;
+  }
+  .loggedInUser .details{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-left: 1rem;
+  }
+
+  /* function buttons */
+  .fun-button-containet{
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .funBtn{
+    font-size: larger;
+    margin: 1rem;
   }

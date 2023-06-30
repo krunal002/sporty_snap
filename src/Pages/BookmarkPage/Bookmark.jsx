@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { BookmarkContext, PostContext } from "../../SportySnap";
 import Users from "../../Components/Users";
+import Links from "../../Components/Links";
 import FunButttons from "../../Components/FunButtons";
 import PopupView from "../../Components/Popup";
 
@@ -51,6 +52,7 @@ const Bookmark = () => {
           </div>
         ) : (
           <div className="primary-container">
+          <Links/>
             {/* post */}
             <div className="post-container-div">
               {newBD.map((post) => {

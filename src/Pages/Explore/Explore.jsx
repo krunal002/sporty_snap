@@ -2,6 +2,8 @@ import "./Explore.css";
 import { Link } from "react-router-dom";
 import { useContext, useReducer } from "react";
 import { BookmarkContext, PostContext } from "../../SportySnap";
+import Users from "../../Components/Users";
+import Links from "../../Components/Links";
 import FunButttons from "../../Components/FunButtons";
 import PopupView from "../../Components/Popup";
 
@@ -156,7 +158,8 @@ const Explore = () => {
         </div>
       </div>
 
-      <div className="primary-container explore-container">
+      <div className="primary-container">
+      <Links/>
         {/* post */}
         <div className="post-container-div">
           {exploreData.map((post) => {
@@ -272,7 +275,7 @@ const Explore = () => {
         </div>
 
         {/* user */}
-        {/* <Users /> */}
+        <Users />
       </div>
     </div>
   );

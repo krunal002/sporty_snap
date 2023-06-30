@@ -9,8 +9,9 @@ const FunButttons = (post) => {
     
     return (
         <div className="fun-button-containet">
-            <button onClick={() => deleteHandler(postId)} style={{ margin:"0 10px"}}>Delete</button>
-            <button onClick={() => navigate(`/edit-post/${postId}`) }>Edit</button>
+        {/* style in index.css */}
+            <div className="funBtn" onClick={() => deleteHandler(postId)}><i class="fa fa-trash-o fa-1.5x" aria-hidden="true"></i></div>
+            <div className="funBtn" onClick={() => navigate(`/edit-post/${postId}`) }><i class="fa fa-pencil-square-o fa-1.5x" aria-hidden="true"></i></div>
         </div>
     )
 }

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { LoginContext } from "../SportySnap";
 
 const Links = () => {
+  const loggedInUser = JSON.parse(localStorage.getItem("user"))
   const { state } = useContext(LoginContext)
   return (
     <div className="link-container-div">
@@ -22,6 +23,18 @@ const Links = () => {
         <Link to="/login" className="home-links">
           <i class="fa fa-sign-in" aria-hidden="true"></i> Login
         </Link>
+      </div>
+
+      {/* css in index.css */}
+      <div className="loggedInUser">
+        <div >
+          <img src={loggedInUser.userImage} alt="userImage" className="pic"/>
+        </div>
+        <div className="details">
+        <span>@{loggedInUser.username}</span>
+        <span><b>{loggedInUser.firstName} {loggedInUser.lastName}</b></span>
+        </div>
+        
       </div>
     </div>
   );

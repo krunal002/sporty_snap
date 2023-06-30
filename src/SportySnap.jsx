@@ -23,7 +23,7 @@ export { BookmarkContext };
 const SportySnap = () => {
   return (
     <div className="app-container">
-      <h1 className="appTitle">Sporty_Snap..!</h1>
+      <h1 className="appTitle"><span style={{color:"#f76b8a"}}>Sporty</span>_Snap..!</h1>
 
       <Routes>
         <Route path="/mockman" element={<Mockman />} />

@@ -26,7 +26,7 @@ const Home = () => {
     <div className="home-container">
       {/* <h1>Home  Page</h1> */}
 
-      <p>Hello, {currUser.firstName}</p>
+      {/* <p>Hello, {currUser.firstName}</p> */}
 
       <div className="primary-container">
         {/* Linnks */}
@@ -42,12 +42,13 @@ const Home = () => {
               value={contentHandler}
               onChange={(e) => setContentHandler(e.target.value)}
               placeholder="Create Sporty_snap...."
-              className="createPost-textarea"
+              className="createPost-textarea container-format"
             ></textarea>
             <button
               type="submit"
               className="createPost-button"
               onClick={() => createPost(contentHandler)}
+              disabled={ contentHandler === "" }
             >
               Post
             </button>
