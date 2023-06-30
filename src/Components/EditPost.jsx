@@ -74,7 +74,7 @@ const EditPost = () => {
               value={reqPost.img}
               onChange={(e) =>
                 setReqPost({...reqPost, img:e.target.value})
-              }
+              }  
             />
           </div>
 

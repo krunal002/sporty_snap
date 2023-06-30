@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useContext, useReducer } from "react";
 import { BookmarkContext, PostContext } from "../../SportySnap";
 import FunButttons from "../../Components/FunButtons";
+import PopupView from "../../Components/Popup";
 
 const Explore = () => {
   const currUser = JSON.parse(localStorage.getItem("user"));
@@ -56,8 +57,10 @@ const Explore = () => {
     : postData;
 
   const latestData = state.latest
-    ? [...trenData].sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt))
-    :trenData;
+    ? [...trenData].sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      )
+    : trenData;
 
   const miscellaneousData = latestData;
 
@@ -164,26 +167,29 @@ const Explore = () => {
               >
                 <div className="userDetails">
                   <div className="right-userDetails">
-                  <div className="userImg">
-                    <img
-                      src={post.userImage}
-                      alt="userImage"
-                      className="userImage"
-                    />
-                  </div>
+                    <div className="userImg">
+                      <img
+                        src={post.userImage}
+                        alt="userImage"
+                        className="userImage"
+                      />
+                    </div>
 
-                  <div className="userInfo">
-                    <p><b>@{post.username}</b></p>
-                    <small>__{post.category}</small>
+                    <div className="userInfo">
+                      <p>
+                        <b>@{post.username}</b>
+                      </p>
+                      <small>__{post.category}</small>
+                    </div>
                   </div>
-                  </div>
-                   {/* functional Buttons */}
-                   {
-                    post.username===currUser.username
-                      ?<div><FunButttons item={post}/></div>
-                      :<div></div>
-                   }
-                   
+                  {/* functional Buttons */}
+                  {post.username === currUser.username ? (
+                    <div>
+                      <FunButttons item={post} />
+                    </div>
+                  ) : (
+                    <div></div>
+                  )}
                 </div>
 
                 <div className="postImage-container">
@@ -216,10 +222,7 @@ const Explore = () => {
                     </div>
 
                     <div className="comment sign">
-                      <i class="fa fa-comment-o" aria-hidden="true">
-                        {" "}
-                        {post.comments.length}
-                      </i>
+                      <PopupView item={post} /> {post.comments.length}
                     </div>
                     <div className="share sign">
                       <i class="fa fa-paper-plane-o" aria-hidden="true"></i>

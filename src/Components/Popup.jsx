@@ -1,12 +1,10 @@
+import "./Popup.css";
+
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
-import FunButttons from "./FunButtons";
-// import { useContext } from "react";
-// import { BookmarkContext, PostContext } from "../SportySnap";
 
 const PopupView = (reqPost) => {
   const postComments = reqPost.item.comments;
-  const currUser = JSON.parse(localStorage.getItem("user"));
   return (
     <span>
       <Popup
@@ -19,40 +17,47 @@ const PopupView = (reqPost) => {
         nested
       >
         {(close) => (
-          <div className="modal" style={{ overflow: "auto" }}>
-            <div className="content">Welcome to GFG!!!</div>
+          <div className="popup-modal">
+            <header className="content">
+              <h1>COMMENTS</h1>
+            </header>
             {postComments.map((post) => (
-              <div key={post.id} className="post-container container-format">
-                <div className="userDetails">
-                  <div className="right-userDetails">
-                    <div className="userImg">
+              <div key={post.id} className="commentBox">
+                <div className="">
+                  <div className="comment-user">
+                    <div className="">
                       <img
-                        src={post.userImage}
+                        src="https://cdn2.f-cdn.com/contestentries/419315/20012414/5758a41a4c256_thumb900.jpg"
                         alt="userImage"
-                        className="userImage"
+                        className="comment-userImage"
                       />
                     </div>
 
-                    <div className="userInfo">
+                    <div className="">
                       <p>
                         <b>@{post.username}</b>
                       </p>
-                      <small>__{post.text}</small>
                     </div>
                   </div>
-                  {/* functional Buttons */}
-                  {post.username === currUser.username ? (
-                    <div>
-                      <FunButttons item={post} />
-                    </div>
-                  ) : (
-                    <div></div>
-                  )}
+                  <h2 className="comment-text">{post.text}</h2>
                 </div>
+                <footer className="comment-buttons">
+                  <span>
+                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                  </span>
+                  <span>
+                    <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+                  </span>
+                  <span>
+                    <i class="fa fa-comment-o" aria-hidden="true"></i>
+                  </span>
+                </footer>
               </div>
             ))}
             <div>
-              <button onClick={() => close()}>Close comments</button>
+              <button onClick={() => close()} className="commentBtn">
+                Close Comments
+              </button>
             </div>
           </div>
         )}

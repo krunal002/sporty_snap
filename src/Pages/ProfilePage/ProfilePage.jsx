@@ -4,6 +4,7 @@ import "./ProfilePage.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { BookmarkContext, PostContext, UserContext } from "../../SportySnap";
 import FunButttons from "../../Components/FunButtons";
+import PopupView from "../../Components/Popup";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -74,10 +75,11 @@ const Profile = () => {
 
             <button
               className="profileEditBtn"
-              onClick={() =>
-                loggedInUser._id === currUser._id
-                  ? navigate("/edit-user")
-                  : followHandler(currUser)/*console.log("right")*/
+              onClick={
+                () =>
+                  loggedInUser._id === currUser._id
+                    ? navigate("/edit-user")
+                    : followHandler(currUser) /*console.log("right")*/
               }
             >
               {loggedInUser._id === currUser._id ? (
@@ -125,28 +127,31 @@ const Profile = () => {
                     className="post-container container-format"
                   >
                     <div className="userDetails">
-                  <div className="right-userDetails">
-                  <div className="userImg">
-                    <img
-                      src={post.userImage}
-                      alt="userImage"
-                      className="userImage"
-                    />
-                  </div>
+                      <div className="right-userDetails">
+                        <div className="userImg">
+                          <img
+                            src={post.userImage}
+                            alt="userImage"
+                            className="userImage"
+                          />
+                        </div>
 
-                  <div className="userInfo">
-                    <p><b>@{post.username}</b></p>
-                    <small>__{post.category}</small>
-                  </div>
-                  </div>
-                   {/* functional Buttons */}
-                   {
-                    post.username===currUser.username
-                      ?<div><FunButttons item={post}/></div>
-                      :<div></div>
-                   }
-                   
-                </div>
+                        <div className="userInfo">
+                          <p>
+                            <b>@{post.username}</b>
+                          </p>
+                          <small>__{post.category}</small>
+                        </div>
+                      </div>
+                      {/* functional Buttons */}
+                      {post.username === currUser.username ? (
+                        <div>
+                          <FunButttons item={post} />
+                        </div>
+                      ) : (
+                        <div></div>
+                      )}
+                    </div>
 
                     <div className="postImage-container">
                       <img
@@ -181,10 +186,7 @@ const Profile = () => {
                         </div>
 
                         <div className="comment sign">
-                          <i class="fa fa-comment-o" aria-hidden="true">
-                            {" "}
-                            {post.comments.length}
-                          </i>
+                          <PopupView item={post} /> {post.comments.length}
                         </div>
                         <div className="share sign">
                           <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
