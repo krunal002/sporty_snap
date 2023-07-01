@@ -8,7 +8,7 @@ import { formatDate } from "../utils/authUtils";
 
 export const posts = [
   {
-    _id: 1,
+    _id: uuid(),
     img:"https://cdn.cdnparenting.com/articles/2018/03/522565846-H.webp",
     category:"football",
     content:
@@ -26,8 +26,8 @@ export const posts = [
     comments: [
       {
         _id: uuid(),
-        username: "shubhamsoni",
-        text: "Interesting",
+        username: "rahul_J44",
+        text: "Keep going keeds!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -35,8 +35,8 @@ export const posts = [
       },
       {
         _id: uuid(),
-        username: "sohamshah",
-        text: "Wow!",
+        username: "akshsingh8",
+        text: "Awesome",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -73,7 +73,7 @@ export const posts = [
       },
       {
         _id: uuid(),
-        username: "sohamshah",
+        username: "jagga88",
         text: "Wow!",
         votes: {
           upvotedBy: [],
@@ -100,8 +100,8 @@ export const posts = [
     comments: [
       {
         _id: uuid(),
-        username: "shubhamsoni",
-        text: "Interesting",
+        username: "meenu_arora",
+        text: "Favorite game!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -178,8 +178,8 @@ export const posts = [
     comments: [
       {
         _id: uuid(),
-        username: "shubhamsoni",
-        text: "Interesting",
+        username: "rastogi23",
+        text: "Enjoy the game",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -187,8 +187,8 @@ export const posts = [
       },
       {
         _id: uuid(),
-        username: "sohamshah",
-        text: "Wow!",
+        username: "jeena_rane",
+        text: "Nice!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -216,8 +216,8 @@ export const posts = [
     comments: [
       {
         _id: uuid(),
-        username: "shubhamsoni",
-        text: "Interesting",
+        username: "adarshbalika",
+        text: "Swim deep",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -255,7 +255,7 @@ export const posts = [
       {
         _id: uuid(),
         username: "shubhamsoni",
-        text: "Interesting",
+        text: "Setting ground on fire",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -264,7 +264,7 @@ export const posts = [
       {
         _id: uuid(),
         username: "sohamshah",
-        text: "Wow!",
+        text: "Mindblowing!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -274,7 +274,7 @@ export const posts = [
   },
 
   {
-    _id: 3,
+    _id: uuid(),
     img:"https://smartcdn.gprod.postmedia.digital/calgaryherald/wp-content/uploads/2019/03/aptopix-mud-day.jpg?quality=90&strip=all&w=400&sig=VPYmuTxtgVMB1j2yTLlavg",
     category:"outdoor",
     content:
@@ -291,7 +291,7 @@ export const posts = [
       {
         _id: uuid(),
         username: "shubhamsoni",
-        text: "Interesting",
+        text: "Mudplay is dream",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -299,8 +299,8 @@ export const posts = [
       },
       {
         _id: uuid(),
-        username: "sohamshah",
-        text: "Wow!",
+        username: "lovely007",
+        text: "Love soil!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -330,7 +330,7 @@ export const posts = [
       {
         _id: uuid(),
         username: "shubhamsoni",
-        text: "Interesting",
+        text: "Interesting, Interesting, Interesting",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -339,7 +339,7 @@ export const posts = [
       {
         _id: uuid(),
         username: "sohamshah",
-        text: "Wow!",
+        text: "beauty!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
