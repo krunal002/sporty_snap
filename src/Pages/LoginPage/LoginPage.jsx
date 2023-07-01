@@ -1,9 +1,22 @@
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useContext } from "react";
 import "./LoginPage.css";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginContext } from "../../SportySnap";
 
 const Login = () => {
+  const logoutNotify = () => toast.success('User Logout!', {
+    position: "bottom-right",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    });
+
   const navigate = useNavigate();
   const { state, dispatch, postLoginData, postTestUser, token, setToken } =
     useContext(LoginContext);
@@ -25,10 +38,12 @@ const Login = () => {
     dispatch({ type: "username", payload: "" });
     dispatch({ type: "password", payload: "" });
     setToken(false);
+    logoutNotify();
   };
 
   return (
     <div>
+    <ToastContainer />
       <div className="login-home-link">
         <Link to="/home">
           <i class="fa fa-home" aria-hidden="true">_Home</i>

@@ -10,8 +10,8 @@ const EditUser = () => {
 
   const redFunction = (state, action) => {
     switch (action.type) {
-      case "username":
-        return { ...state, username: action.payload };
+      case "userImage":
+        return { ...state, userImage: action.payload };
       case "firstName":
         return { ...state, firstName: action.payload };
       case "lastName":
@@ -23,7 +23,7 @@ const EditUser = () => {
     }
   };
   const [state, dispatch] = useReducer(redFunction, {
-    username: currUser.username,
+    userImage: currUser.userImage,
     firstName: currUser.firstName,
     lastName: currUser.lastName,
     password: currUser.password,
@@ -62,18 +62,24 @@ const EditUser = () => {
           {/* username */}
           <div>
             <label className="loginLabels">
-              <b>Username : </b>
+              <b>Profile picture : </b>
             </label>
             <input
               type="text"
               className="loginInputs"
-              value={state.username}
+              value={state.userImage}
               onChange={(e) =>
-                dispatch({ type: "username", payload: e.target.value })
+                dispatch({ type: "userImage", payload: e.target.value })
               }
             />
           </div>
-
+              <img src={state.userImage} alt="userImage"  style={{
+                display:"block",
+                margin:"auto",
+                width:"200px",
+                height:"200px",
+                borderRadius:"100px"
+              }}/>
           {/* first name */}
           <div>
             <label className="loginLabels">

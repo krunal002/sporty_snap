@@ -12,7 +12,16 @@ import PopupView from "../../Components/Popup";
 const Home = () => {
   const currUser = JSON.parse(localStorage.getItem("user"));
 
-  const notify = () => toast("Your post is Empty!");
+  const notify = () => toast.warn('Your post is Empty!', {
+position: "top-center",
+autoClose: 3000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "dark",
+});
 
   const { postData, likeIncreament, likeDecreament, createPost } =
     useContext(PostContext);
@@ -52,7 +61,7 @@ const Home = () => {
               type="submit"
               className="createPost-button"
               onClick={() =>
-                createPost(contentHandler === "" ? notify() : contentHandler)
+                contentHandler === "" ? notify() : createPost(contentHandler)
               }
             >
               Post
