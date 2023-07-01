@@ -52,7 +52,7 @@ const Home = () => {
               type="submit"
               className="createPost-button"
               onClick={() =>
-                createPost(contentHandler === "" ? notify : contentHandler)
+                createPost(contentHandler === "" ? notify() : contentHandler)
               }
             >
               Post
