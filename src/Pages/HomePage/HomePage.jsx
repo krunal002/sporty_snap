@@ -1,5 +1,7 @@
 import "./HomePage.css";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useContext, useState } from "react";
 import { BookmarkContext, PostContext } from "../../SportySnap";
 import Links from "../../Components/Links";
@@ -9,6 +11,8 @@ import PopupView from "../../Components/Popup";
 
 const Home = () => {
   const currUser = JSON.parse(localStorage.getItem("user"));
+
+  const notify = () => toast("Your post is Empty!");
 
   const { postData, likeIncreament, likeDecreament, createPost } =
     useContext(PostContext);
@@ -25,7 +29,7 @@ const Home = () => {
   return (
     <div className="home-container">
       {/* <h1>Home  Page</h1> */}
-
+      <ToastContainer />
       {/* <p>Hello, {currUser.firstName}</p> */}
 
       <div className="primary-container">
@@ -47,8 +51,9 @@ const Home = () => {
             <button
               type="submit"
               className="createPost-button"
-              onClick={() => createPost(contentHandler)}
-              disabled={ contentHandler === "" }
+              onClick={() =>
+                createPost(contentHandler === "" ? notify : contentHandler)
+              }
             >
               Post
             </button>
