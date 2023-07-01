@@ -49,7 +49,11 @@ const EditUser = () => {
 
   return (
     <div>
-      <div className="login-home-link">
+      <div className="editUser-links">
+      {/* profilePage.css */}
+        <Link to={`/profile/${currUser._id}`}>
+          <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+        </Link>
         <Link to="/home">
           <i class="fa fa-home" aria-hidden="true">
             _Home
@@ -73,13 +77,17 @@ const EditUser = () => {
               }
             />
           </div>
-              <img src={state.userImage} alt="userImage"  style={{
-                display:"block",
-                margin:"auto",
-                width:"200px",
-                height:"200px",
-                borderRadius:"100px"
-              }}/>
+          <img
+            src={state.userImage}
+            alt="userImage"
+            style={{
+              display: "block",
+              margin: "auto",
+              width: "200px",
+              height: "200px",
+              borderRadius: "100px",
+            }}
+          />
           {/* first name */}
           <div>
             <label className="loginLabels">
