@@ -63,12 +63,17 @@ body{
   flex-direction: column;
 }
 .home-links {
-  margin: 1rem;
+  padding: 1rem;
   text-align: left;
   text-decoration: none;
   color: black;
 }
 
+.home-links:hover {
+  background-color: var(--secondary-color);
+  color: var(--tertiary-color);
+  border-radius: 0.5rem;
+}
 /* Post container */
 .post-container {
   max-width: 700px;
@@ -108,6 +113,7 @@ body{
   display: flex;
   flex-direction: column;
 }
+
 .userDetails {
   margin: 0 -1rem;
   padding: 0 1rem;
@@ -116,15 +122,23 @@ body{
   align-content: center;
   border-bottom: 1px solid var(--secondary-color);
 }
+
 .right-userDetails{
   display: flex;
   
 }
 .userDetails-margin {
-  margin: 1rem auto;
+  margin: 0.5rem auto;
   justify-content: space-between;
   gap: 1rem;
   border: none;
+  cursor: pointer;
+  padding-top: 5px;
+}
+.userDetails-margin:hover {
+  background-color: var(--primary-color);
+  color: var(--tertiary-color);
+  border-radius: 0.5rem;
 }
 .userImage {
   margin-right: 5px;
@@ -139,7 +153,7 @@ body{
   line-height: 2px;
 }
 .follow-user {
-  color: var(--primary-color);
+  color: var(--secondary-color);
   cursor: pointer;
   display: flex;
   align-items: center;
