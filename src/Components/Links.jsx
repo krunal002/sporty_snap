@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LoginContext } from "../SportySnap";
 
 const Links = () => {
   const loggedInUser = JSON.parse(localStorage.getItem("user"))
   const { state } = useContext(LoginContext)
+  const navigate = useNavigate()
   return (
     <div className="link-container-div">
       <div className="link-container container-format">
@@ -26,7 +27,7 @@ const Links = () => {
       </div>
 
       {/* css in index.css */}
-      <div className="loggedInUser">
+      <div className="loggedInUser" onClick={() => navigate(`/profile/${state.userLoggedIn._id}`)}>
         <div >
           <img src={loggedInUser.userImage} alt="userImage" className="pic"/>
         </div>

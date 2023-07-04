@@ -12,19 +12,18 @@
     z-index: 7;
     top: 12%;
     display: block;
-    max-width: 800px;
     margin: 1rem auto ;
+    background-color: var(--background-color);
 }
 .category-container{
-    text-align: left;
+    max-width: 700px;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
 }
-.categoryBtn{
-    
+.categoryBtn{ 
     padding: 0.3rem 0.7rem;
     margin: 0.5rem;
-    /* border: 1px solid gray; */
     border-radius: 5px;
     background-color: var(--tertiary-color);
     box-shadow: 1px 1px 5px 2px gray;

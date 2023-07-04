@@ -26,7 +26,7 @@ const Bookmark = () => {
               <i class="fa fa-bookmark" aria-hidden="true"></i> Bookmarks
             </h1>
           </div>
-          <div className="b-links">
+          {/* <div className="b-links">
             <Link to="/home" className="bookmark-links">
               <i class="fa fa-home" aria-hidden="true"></i>
             </Link>
@@ -36,7 +36,7 @@ const Bookmark = () => {
             <Link to={`/profile/${currUser._id}`} className="bookmark-links">
               <i class="fa fa-user-circle-o" aria-hidden="true"></i>
             </Link>
-          </div>
+          </div> */}
           <div>
             <b className="bookmark-links">Hi, {currUser.firstName}</b>
             <Link to="/login" className="bookmark-links">

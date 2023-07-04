@@ -42,6 +42,7 @@ body {
     padding: 0.5rem;
     position: fixed;
     bottom: 10px;
+    cursor: pointer;
   }
   .loggedInUser .pic{
     width: 3rem;

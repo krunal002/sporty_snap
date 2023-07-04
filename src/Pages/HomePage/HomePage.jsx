@@ -12,16 +12,17 @@ import PopupView from "../../Components/Popup";
 const Home = () => {
   const currUser = JSON.parse(localStorage.getItem("user"));
 
-  const notify = () => toast.warn('Your post is Empty!', {
-position: "top-center",
-autoClose: 3000,
-hideProgressBar: false,
-closeOnClick: true,
-pauseOnHover: true,
-draggable: true,
-progress: undefined,
-theme: "dark",
-});
+  const notify = () =>
+    toast.warn("Your post is Empty!", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
 
   const { postData, likeIncreament, likeDecreament, createPost } =
     useContext(PostContext);
@@ -47,16 +48,23 @@ theme: "dark",
 
         {/* post */}
         <div className="post-container-div">
-          <div className="createPost-container">
-            <textarea
-              id="text-input"
-              rows="8"
-              cols="40"
-              value={contentHandler}
-              onChange={(e) => setContentHandler(e.target.value)}
-              placeholder="Create Sporty_snap...."
-              className="createPost-textarea container-format"
-            ></textarea>
+          <div className="createPost-container  container-format">
+            <div>
+              <img
+                src="https://img.freepik.com/free-vector/sport-equipment-concept_1284-13034.jpg?w=360"
+                alt="userImg"
+                className="createPost-image"
+              />
+              <textarea
+                id="text-input"
+                rows="8"
+                cols="40"
+                value={contentHandler}
+                onChange={(e) => setContentHandler(e.target.value)}
+                placeholder="Create Sporty_snap...."
+                className="createPost-textarea"
+              ></textarea>
+            </div>
             <button
               type="submit"
               className="createPost-button"
