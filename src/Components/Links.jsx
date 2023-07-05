@@ -3,9 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { LoginContext } from "../SportySnap";
 
 const Links = () => {
-  const loggedInUser = JSON.parse(localStorage.getItem("user"))
   const { state } = useContext(LoginContext)
   const navigate = useNavigate()
+
   return (
     <div className="link-container-div">
       <div className="link-container container-format">
@@ -18,7 +18,7 @@ const Links = () => {
         <Link to="/bookmark" className="home-links">
           <i class="fa fa-bookmark" aria-hidden="true"></i> Bookmark
         </Link>
-        <Link to={`/profile/${state.userLoggedIn._id}`} className="home-links">
+        <Link to={`/profile/${state.userLoggedIn?._id}`} className="home-links">
           <i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile
         </Link>
         <Link to="/login" className="home-links">
@@ -29,11 +29,11 @@ const Links = () => {
       {/* css in index.css */}
       <div className="loggedInUser" onClick={() => navigate(`/profile/${state.userLoggedIn._id}`)}>
         <div >
-          <img src={loggedInUser.userImage} alt="userImage" className="pic"/>
+          <img src={state.userLoggedIn.userImage} alt="userImage" className="pic"/>
         </div>
         <div className="details">
-        <span>@{loggedInUser.username}</span>
-        <span><b>{loggedInUser.firstName} {loggedInUser.lastName}</b></span>
+        <span>@{state.userLoggedIn.username}</span>
+        <span><b>{state.userLoggedIn.firstName} {state.userLoggedIn.lastName}</b></span>
         </div>
         
       </div>

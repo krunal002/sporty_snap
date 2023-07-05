@@ -92,6 +92,7 @@ const Explore = () => {
             <i class="fa fa-suitcase" aria-hidden="true"></i> Explore_
           </h1>
         </div>
+
         {/* <div className="b-links">
           <Link to="/home" className="bookmark-links">
             <i class="fa fa-home" aria-hidden="true"></i>
@@ -103,6 +104,7 @@ const Explore = () => {
             <i class="fa fa-user-circle-o" aria-hidden="true"></i>
           </Link>
         </div> */}
+        
         <div>
           <b className="bookmark-links">Hi, {currUser.firstName}</b>
           <Link to="/login" className="bookmark-links">

@@ -3,14 +3,15 @@ import "./HomePage.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useContext, useState } from "react";
-import { BookmarkContext, PostContext } from "../../SportySnap";
+import { BookmarkContext, LoginContext, PostContext } from "../../SportySnap";
 import Links from "../../Components/Links";
 import Users from "../../Components/Users";
 import FunButttons from "../../Components/FunButtons";
 import PopupView from "../../Components/Popup";
 
 const Home = () => {
-  const currUser = JSON.parse(localStorage.getItem("user"));
+  const { state } = useContext(LoginContext)
+  const currUser = state.userLoggedIn;
 
   const notify = () =>
     toast.warn("Your post is Empty!", {
@@ -137,7 +138,10 @@ const Home = () => {
                     <div className="comment sign">
                       <PopupView item={post} /> {post.comments.length}
                     </div>
-                    <div className="share sign">
+                    <div 
+                      className="share sign"
+                      // onClick={navigator.clipboard.writeText("url")}
+                    >
                       <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
                     </div>
                   </div>

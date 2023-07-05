@@ -2,7 +2,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import "./ProfilePage.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { BookmarkContext, PostContext, UserContext } from "../../SportySnap";
+import { BookmarkContext, LoginContext, PostContext, UserContext } from "../../SportySnap";
 import FunButttons from "../../Components/FunButtons";
 import PopupView from "../../Components/Popup";
 
@@ -11,6 +11,7 @@ const Profile = () => {
   const loggedInUser = JSON.parse(localStorage.getItem("user"));
   const [currUser, setCurrUser] = useState({});
 
+  const { dispatch } = useContext(LoginContext)
   const { postData, likeIncreament, likeDecreament } = useContext(PostContext);
   const { bookmarkData, saveBookmark, removeBookmark } =
     useContext(BookmarkContext);
@@ -26,6 +27,7 @@ const Profile = () => {
     try {
       const res = await axios.get(`/api/users/${userId}`);
       const result = res.data.user;
+      dispatch({ type: "userData", payload: result });
       setCurrUser(result);
     } catch (e) {
       console.log(e);
