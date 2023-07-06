@@ -2,18 +2,15 @@ import "./Bookmark.css";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { BookmarkContext, PostContext } from "../../SportySnap";
-import Users from "../../Cards/UserCard";
-import Links from "../../Cards/LinkCard";
-import FunButttons from "../../Components/FunButtons";
-import PopupView from "../../Components/Popup";
+import UserCard from "../../Cards/UserCard";
+import LinkCard from "../../Cards/LinkCard";
+import PostCard from "../../Cards/PostCard";
 
 const Bookmark = () => {
   const currUser = JSON.parse(localStorage.getItem("user"));
   const { postData } = useContext(PostContext);
 
-  const { bookmarkData, saveBookmark, removeBookmark } =
-    useContext(BookmarkContext);
-  const { likeIncreament, likeDecreament } = useContext(PostContext);
+  const { bookmarkData } = useContext(BookmarkContext);
 
   const newBD = postData.filter((post) => bookmarkData.includes(post._id));
 
@@ -26,17 +23,7 @@ const Bookmark = () => {
               <i class="fa fa-bookmark" aria-hidden="true"></i> Bookmarks
             </h1>
           </div>
-          {/* <div className="b-links">
-            <Link to="/home" className="bookmark-links">
-              <i class="fa fa-home" aria-hidden="true"></i>
-            </Link>
-            <Link to="/explore" className="bookmark-links">
-              <i class="fa fa-suitcase" aria-hidden="true"></i>
-            </Link>
-            <Link to={`/profile/${currUser._id}`} className="bookmark-links">
-              <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-            </Link>
-          </div> */}
+
           <div>
             <b className="bookmark-links">Hi, {currUser.firstName}</b>
             <Link to="/login" className="bookmark-links">
@@ -45,119 +32,23 @@ const Bookmark = () => {
           </div>
         </div>
 
-        {!newBD.length ? (
-          <div className="emptyBookmark">
-            <h3>No post Bookmarked yet!</h3>
-            <p>Please add some post to Bookmark</p>
-          </div>
-        ) : (
-          <div className="primary-container">
-          <Links/>
-            {/* post */}
-            <div className="post-container-div">
-              {newBD.map((post) => {
-                return (
-                  <div
-                    key={post.id}
-                    className="post-container container-format"
-                  >
-                    <div className="userDetails">
-                      <div className="right-userDetails">
-                        <div className="userImg">
-                          <img
-                            src={post.userImage}
-                            alt="userImage"
-                            className="userImage"
-                          />
-                        </div>
+        <div className="primary-container">
+          {/* links */}
+          <LinkCard />
 
-                        <div className="userInfo">
-                          <p>
-                            <b>@{post.username}</b>
-                          </p>
-                          <small>__{post.category}</small>
-                        </div>
-                      </div>
-                      {/* functional Buttons */}
-                      {post.username === currUser.username ? (
-                        <div>
-                          <FunButttons item={post} />
-                        </div>
-                      ) : (
-                        <div></div>
-                      )}
-                    </div>
-
-                    <div className="postImage-container">
-                      <img
-                        src={post.img}
-                        alt="sportyImage"
-                        className="postImage"
-                      />
-                    </div>
-                    <p>
-                      <b>{post.username}__</b> {post.content}
-                    </p>
-                    <div className="opertionalBtn">
-                      <div className="leftBtn">
-                        <div
-                          className="like sign"
-                          onClick={() =>
-                            post.likes.likedBy.find(
-                              ({ username }) => username === currUser.username
-                            )
-                              ? likeDecreament(post)
-                              : likeIncreament(post)
-                          }
-                        >
-                          {post.likes.likedBy.find(
-                            ({ username }) => username === currUser.username
-                          ) ? (
-                            <span className="redHeart">
-                              <i class="fa fa-heart" aria-hidden="true">
-                                {" "}
-                                {post.likes.likeCount}
-                              </i>
-                            </span>
-                          ) : (
-                            <i class="fa fa-heart-o" aria-hidden="true">
-                              {" "}
-                              {post.likes.likeCount}
-                            </i>
-                          )}
-                        </div>
-
-                        <div className="comment sign">
-                          <PopupView item={post} /> {post.comments.length}
-                        </div>
-                        <div className="share sign">
-                          <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                        </div>
-                      </div>
-
-                      <div
-                        className="bookmark sign"
-                        onClick={() =>
-                          bookmarkData.includes(post._id)
-                            ? removeBookmark(post)
-                            : saveBookmark(post)
-                        }
-                      >
-                        {bookmarkData.includes(post._id) ? (
-                          <i class="fa fa-bookmark" aria-hidden="true"></i>
-                        ) : (
-                          <i class="fa fa-bookmark-o" aria-hidden="true"></i>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+          {/* post */}
+          {!newBD.length ? (
+            <div className="emptyBookmark">
+              <h3>Nothing to show!</h3>
+              <p>Please add some post to Bookmark</p>
             </div>
-            {/* user */}
-            <Users />
-          </div>
-        )}
+          ) : (
+            <PostCard item={newBD}/>
+          )}
+
+          {/* user */}
+          <UserCard />
+        </div>
       </div>
     </div>
   );

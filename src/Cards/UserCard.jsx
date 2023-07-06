@@ -16,39 +16,51 @@ const Users = () => {
   };
 
   return (
-    <div className="user-container-div">
+    <div className="primary-userContainer">
+      <div className="user-container-div">
+      <div className="searchUser container-format">
+        <input type="text" className="input-searchUser" placeholder="Search..."/> <i class="fa fa-search" aria-hidden="true"></i>
+      </div>
+
       <div className="user-container container-format">
         <h3 className="user-heading">Suggested Users</h3>
-        {userData.filter(({_id}) => (_id!==state.userLoggedIn._id)).map((user) => (
-          <div key={user.id} className="userDetails userDetails-margin">
-            <div onClick={() => navigate(`/profile/${user._id}`)}>
-              <img src={user.userImage} alt="userImage" className="userImage" />
-            </div>
+        {userData
+          .filter(({ _id }) => _id !== state.userLoggedIn._id)
+          .map((user) => (
+            <div key={user.id} className="userDetails userDetails-margin">
+              <div onClick={() => navigate(`/profile/${user._id}`)}>
+                <img
+                  src={user.userImage}
+                  alt="userImage"
+                  className="userImage"
+                />
+              </div>
 
-            <div
-              className="userInfo"
-              onClick={() => navigate(`/profile/${user._id}`)}
-            >
-              <p>
-                <b>
-                  {user.firstName} {user.lastName}
-                </b>
-              </p>
-              <p>@{user.username}</p>
-            </div>
+              <div
+                className="userInfo"
+                onClick={() => navigate(`/profile/${user._id}`)}
+              >
+                <p>
+                  <b>
+                    {user.firstName} {user.lastName}
+                  </b>
+                </p>
+                <p>@{user.username}</p>
+              </div>
 
-            <div className="follow-user" onClick={() => followHandler(user)}>
-              {user.followers.map(({ username }) =>
-                username.includes(state.userLoggedIn.username)
-              ).length ? (
-                <b>Unfollow</b>
-              ) : (
-                <b>Follow</b>
-              )}
+              <div className="follow-user" onClick={() => followHandler(user)}>
+                {user.followers.map(({ username }) =>
+                  username.includes(state.userLoggedIn.username)
+                ).length ? (
+                  <b>Unfollow</b>
+                ) : (
+                  <b>Follow</b>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
+    </div>
     </div>
   );
 };

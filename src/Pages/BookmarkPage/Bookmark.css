@@ -1,3 +1,7 @@
+.bookmark-container{
+    height: 100vh;
+    background-color: #eaf6f6;
+}
 .nav-container{
     background-color: #fcfefe;
     border: 3px solid #eaf6f6;

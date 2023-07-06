@@ -1,70 +1,22 @@
-import { useContext, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useContext } from "react";
+
 import { BookmarkContext, LoginContext, PostContext } from "../SportySnap";
 import FunButttons from "../Components/FunButtons";
 import PopupView from "../Components/Popup";
 
-const PostCard = () => {
+const PostCard = (item, CreatPost) => {
+  console.log(item);
   const { state } = useContext(LoginContext);
   const currUser = state.userLoggedIn;
 
-  const notify = () =>
-    toast.warn("Your post is Empty!", {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
-
-  const { postData, likeIncreament, likeDecreament, createPost } =
-    useContext(PostContext);
+  const { likeIncreament, likeDecreament } = useContext(PostContext);
 
   const { saveBookmark, removeBookmark, bookmarkData } =
     useContext(BookmarkContext);
 
-  const [contentHandler, setContentHandler] = useState("");
-
-  const homeData = [...postData].sort(
-    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-  );
-
   return (
     <div className="post-container-div">
-    <ToastContainer />
-      <div className="createPost-container  container-format">
-        <div>
-          <img
-            src="https://img.freepik.com/free-vector/sport-equipment-concept_1284-13034.jpg?w=360"
-            alt="userImg"
-            className="createPost-image"
-          />
-          <textarea
-            id="text-input"
-            rows="8"
-            cols="40"
-            value={contentHandler}
-            onChange={(e) => setContentHandler(e.target.value)}
-            placeholder="Create Sporty_snap...."
-            className="createPost-textarea"
-          ></textarea>
-        </div>
-        <button
-          type="submit"
-          className="createPost-button"
-          onClick={() =>
-            contentHandler === "" ? notify() : createPost(contentHandler)
-          }
-        >
-          Post
-        </button>
-      </div>
-
-      {homeData.map((post) => {
+      {item.item.map((post) => {
         return (
           <div key={post.id} className="post-container container-format">
             <div className="userDetails">
