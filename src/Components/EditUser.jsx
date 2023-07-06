@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useReducer, useState } from "react";
+import { useContext, useReducer, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { PostContext } from "../SportySnap";
 
 const EditUser = () => {
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ const EditUser = () => {
   });
 
   // set edited data
+  const { getPostData } = useContext(PostContext);
   const userEditedData = async () => {
     try {
       await axios.post(
@@ -44,6 +46,7 @@ const EditUser = () => {
       );
       navigate(`/profile/${currUser._id}`);
       setShow(false);
+      getPostData();
     } catch (e) {
       setShow(true);
       console.log(e);

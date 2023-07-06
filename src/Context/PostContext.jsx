@@ -90,6 +90,7 @@ export const PostContextHandler = ({ children }) => {
     <PostContext.Provider
       value={{
         postData,
+        getPostData,
         likeIncreament,
         likeDecreament,
         createPost,

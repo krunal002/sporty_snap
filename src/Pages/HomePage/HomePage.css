@@ -121,7 +121,10 @@ body {
 
 .searchUser{
   margin: 1rem auto;
-  padding: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 .input-searchUser{
   border: none;

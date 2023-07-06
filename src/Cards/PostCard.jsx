@@ -4,8 +4,7 @@ import { BookmarkContext, LoginContext, PostContext } from "../SportySnap";
 import FunButttons from "../Components/FunButtons";
 import PopupView from "../Components/Popup";
 
-const PostCard = (item, CreatPost) => {
-  console.log(item);
+const PostCard = (item) => {
   const { state } = useContext(LoginContext);
   const currUser = state.userLoggedIn;
 
@@ -23,7 +22,11 @@ const PostCard = (item, CreatPost) => {
               <div className="right-userDetails">
                 <div className="userImg">
                   <img
-                    src={post.userImage}
+                    src={
+                      currUser.username === post.username
+                        ? currUser.userImage
+                        : post.userImage
+                    }
                     alt="userImage"
                     className="userImage"
                   />
