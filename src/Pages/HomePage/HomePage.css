@@ -129,6 +129,7 @@ body {
 .input-searchUser{
   border: none;
   padding: 0.5rem;
+  background-color: var(--tertiary-color);
 }
 .input-searchUser:focus{
   outline: none;
