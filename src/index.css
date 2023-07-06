@@ -28,6 +28,7 @@ body {
     border: 0.5px solid lightgray;
     font-family: "Girassol", cursive;
     color: #66bfbf;
+    cursor: pointer;
   }
 
   /* LoggedIn User */

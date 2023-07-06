@@ -3,7 +3,7 @@ import Mockman from "mockman-js";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import Home from "./Pages/HomePage/HomePage";
 import Explore from "./Pages/Explore/Explore";
-import Bookmark from "./Pages/BookmarkPage/Bookmark"
+import Bookmark from "./Pages/BookmarkPage/Bookmark";
 import Profile from "./Pages/ProfilePage/ProfilePage";
 import Login from "./Pages/LoginPage/LoginPage";
 import SignUp from "./Pages/LoginPage/SignUp";
@@ -23,14 +23,21 @@ export { BookmarkContext };
 const SportySnap = () => {
   return (
     <div className="app-container">
-      <h1 className="appTitle"><span style={{color:"#f76b8a"}}>Sporty</span>_Snap..!</h1>
+      <h1 className="appTitle">
+        <span style={{ color: "#f76b8a" }}>Sporty</span>_Snap..!
+      </h1>
 
       <Routes>
         <Route path="/mockman" element={<Mockman />} />
         <Route path="/" element={<LandingPage />} />
-        <Route path="/home" element={
-          <RequiresAuth><Home /></RequiresAuth>
-        } />
+        <Route
+          path="/home"
+          element={
+            <RequiresAuth>
+              <Home />
+            </RequiresAuth>
+          }
+        />
         <Route path="/explore" element={<Explore />} />
         <Route path="/bookmark" element={<Bookmark />} />
         <Route path="/profile/:userId" element={<Profile />} />

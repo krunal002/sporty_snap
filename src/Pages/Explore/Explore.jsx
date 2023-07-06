@@ -1,19 +1,15 @@
 import "./Explore.css";
 import { Link } from "react-router-dom";
 import { useContext, useReducer } from "react";
-import { BookmarkContext, PostContext } from "../../SportySnap";
+import { PostContext } from "../../SportySnap";
 import Users from "../../Cards/UserCard";
 import Links from "../../Cards/LinkCard";
-import FunButttons from "../../Components/FunButtons";
-import PopupView from "../../Components/Popup";
+import PostCard from "../../Cards/PostCard";
 
 const Explore = () => {
   const currUser = JSON.parse(localStorage.getItem("user"));
 
-  const { saveBookmark, removeBookmark, bookmarkData } =
-    useContext(BookmarkContext);
-
-  const { postData, likeIncreament, likeDecreament } = useContext(PostContext);
+  const { postData } = useContext(PostContext);
 
   const reducerFun = (state, action) => {
     const cat = {
@@ -92,18 +88,6 @@ const Explore = () => {
             <i class="fa fa-suitcase" aria-hidden="true"></i> Explore_
           </h1>
         </div>
-
-        {/* <div className="b-links">
-          <Link to="/home" className="bookmark-links">
-            <i class="fa fa-home" aria-hidden="true"></i>
-          </Link>
-          <Link to="/bookmark" className="bookmark-links">
-            <i class="fa fa-bookmark" aria-hidden="true"></i>
-          </Link>
-          <Link to={`/profile/${currUser._id}`} className="bookmark-links">
-            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-          </Link>
-        </div> */}
         
         <div>
           <b className="bookmark-links">Hi, {currUser.firstName}</b>
@@ -163,118 +147,7 @@ const Explore = () => {
       <div className="primary-container">
       <Links/>
         {/* post */}
-        <div className="post-container-div">
-          {exploreData.map((post) => {
-            return (
-              <div
-                key={post.id}
-                className="post-container container-format explore-format"
-              >
-                <div className="userDetails">
-                  <div className="right-userDetails">
-                    <div className="userImg">
-                      <img
-                        src={post.userImage}
-                        alt="userImage"
-                        className="userImage"
-                      />
-                    </div>
-
-                    <div className="userInfo">
-                      <p>
-                        <b>@{post.username}</b>
-                      </p>
-                      <small>__{post.category}</small>
-                    </div>
-                  </div>
-                  {/* functional Buttons */}
-                  {post.username === currUser.username ? (
-                    <div>
-                      <FunButttons item={post} />
-                    </div>
-                  ) : (
-                    <div></div>
-                  )}
-                </div>
-
-                <div className="postImage-container">
-                  <img src={post.img} alt="sportyImage" className="postImage" />
-                </div>
-
-                <div className="opertionalBtn">
-                  <div className="leftBtn">
-                    <div
-                      className="like sign"
-                      onClick={() =>
-                        post.likes.likedBy.find(
-                          ({ username }) => username === currUser.username
-                        )
-                          ? likeDecreament(post)
-                          : likeIncreament(post)
-                      }
-                    >
-                      {post.likes.likedBy.find(
-                        ({ username }) => username === currUser.username
-                      ) ? (
-                        <span className="redHeart">
-                          <i class="fa fa-heart" aria-hidden="true">
-                            {" "}
-                          </i>
-                        </span>
-                      ) : (
-                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                      )}
-                    </div>
-
-                    <div className="comment sign">
-                      <PopupView item={post} /> {post.comments.length}
-                    </div>
-                    <div className="share sign">
-                      <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                    </div>
-                  </div>
-
-                  <div
-                    className="bookmark sign"
-                    onClick={() =>
-                      bookmarkData.includes(post._id)
-                        ? removeBookmark(post)
-                        : saveBookmark(post)
-                    }
-                  >
-                    {bookmarkData.includes(post._id) ? (
-                      <i class="fa fa-bookmark" aria-hidden="true"></i>
-                    ) : (
-                      <i class="fa fa-bookmark-o" aria-hidden="true"></i>
-                    )}
-                  </div>
-                </div>
-
-                <p>
-                  <b>{post.likes.likeCount} likes</b>
-                </p>
-                <p>
-                  <b>{post.username}__</b> {post.content}
-                </p>
-
-                <div className="userComment-container">
-                  <div>
-                    <img
-                      src={currUser.userImage}
-                      alt="userImg"
-                      className="userComment-image"
-                    />
-                  </div>
-                  <input
-                    type="text"
-                    placeholder="Add a comment..."
-                    className="userComment-input"
-                  />
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        <PostCard item={exploreData}/>
 
         {/* user */}
         <Users />

@@ -16,6 +16,8 @@ const EditUser = () => {
         return { ...state, firstName: action.payload };
       case "lastName":
         return { ...state, lastName: action.payload };
+      case "bio":
+        return { ...state, bio: action.payload };
       case "password":
         return { ...state, password: action.payload };
       default:
@@ -26,6 +28,7 @@ const EditUser = () => {
     userImage: currUser.userImage,
     firstName: currUser.firstName,
     lastName: currUser.lastName,
+    bio: currUser.bio,
     password: currUser.password,
   });
 
@@ -50,7 +53,7 @@ const EditUser = () => {
   return (
     <div>
       <div className="editUser-links">
-      {/* profilePage.css */}
+        {/* profilePage.css */}
         <Link to={`/profile/${currUser._id}`}>
           <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
         </Link>
@@ -117,6 +120,23 @@ const EditUser = () => {
               }
             />
           </div>
+
+          {/* bio */}
+          <div>
+            <label className="loginLabels">
+              <b>Bio : </b>
+            </label>
+            <input
+              type="text"
+              className="loginInputs"
+              value={state.bio}
+              onChange={(e) =>
+                dispatch({ type: "bio", payload: e.target.value })
+              }
+            />
+          </div>
+
+          {/* password */}
           <div>
             <label className="loginLabels">
               <b>Password : </b>

@@ -2,19 +2,17 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import "./ProfilePage.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { BookmarkContext, LoginContext, PostContext, UserContext } from "../../SportySnap";
-import FunButttons from "../../Components/FunButtons";
-import PopupView from "../../Components/Popup";
+import { LoginContext, PostContext, UserContext } from "../../SportySnap";
+
+import PostCard from "../../Cards/PostCard";
 
 const Profile = () => {
   const navigate = useNavigate();
   const loggedInUser = JSON.parse(localStorage.getItem("user"));
   const [currUser, setCurrUser] = useState({});
 
-  const { dispatch } = useContext(LoginContext)
-  const { postData, likeIncreament, likeDecreament } = useContext(PostContext);
-  const { bookmarkData, saveBookmark, removeBookmark } =
-    useContext(BookmarkContext);
+  const { dispatch } = useContext(LoginContext);
+  const { postData } = useContext(PostContext);
 
   const totalPosts = postData.filter(
     ({ username }) => username === currUser.username
@@ -27,7 +25,10 @@ const Profile = () => {
     try {
       const res = await axios.get(`/api/users/${userId}`);
       const result = res.data.user;
-      dispatch({ type: "userData", payload: result });
+
+      if (loggedInUser.username === result.username) {
+        dispatch({ type: "userData", payload: result });
+      }
       setCurrUser(result);
     } catch (e) {
       console.log(e);
@@ -122,123 +123,9 @@ const Profile = () => {
               <h2 className="profile-postsDetails">
                 Your Posts : {totalPosts.length}
               </h2>
-              {totalPosts.map((post) => {
-                return (
-                  <div
-                    key={post.id}
-                    className="post-container container-format"
-                  >
-                    <div className="userDetails">
-                      <div className="right-userDetails">
-                        <div className="userImg">
-                          <img
-                            src={post.userImage}
-                            alt="userImage"
-                            className="userImage"
-                          />
-                        </div>
-
-                        <div className="userInfo">
-                          <p>
-                            <b>@{post.username}</b>
-                          </p>
-                          <small>__{post.category}</small>
-                        </div>
-                      </div>
-                      {/* functional Buttons */}
-                      {post.username === currUser.username ? (
-                        <div>
-                          <FunButttons item={post} />
-                        </div>
-                      ) : (
-                        <div></div>
-                      )}
-                    </div>
-
-                    <div className="postImage-container">
-                      <img
-                        src={post.img}
-                        alt="sportyImage"
-                        className="postImage"
-                      />
-                    </div>
-                    <div className="opertionalBtn">
-                      <div className="leftBtn">
-                        <div
-                          className="like sign"
-                          onClick={() =>
-                            post.likes.likedBy.find(
-                              ({ username }) => username === currUser.username
-                            )
-                              ? likeDecreament(post)
-                              : likeIncreament(post)
-                          }
-                        >
-                          {post.likes.likedBy.find(
-                            ({ username }) => username === currUser.username
-                          ) ? (
-                            <span className="redHeart">
-                              <i class="fa fa-heart" aria-hidden="true">
-                                {" "}
-                              </i>
-                            </span>
-                          ) : (
-                            <i class="fa fa-heart-o" aria-hidden="true"></i>
-                          )}
-                        </div>
-
-                        <div className="comment sign">
-                          <PopupView item={post} /> {post.comments.length}
-                        </div>
-                        <div className="share sign">
-                          <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                        </div>
-                      </div>
-
-                      <div
-                        className="bookmark sign"
-                        onClick={() =>
-                          bookmarkData.includes(post._id)
-                            ? removeBookmark(post)
-                            : saveBookmark(post)
-                        }
-                      >
-                        {bookmarkData.includes(post._id) ? (
-                          <i class="fa fa-bookmark" aria-hidden="true"></i>
-                        ) : (
-                          <i class="fa fa-bookmark-o" aria-hidden="true"></i>
-                        )}
-                      </div>
-                    </div>
-
-                    <p>
-                      <b>{post.likes.likeCount} likes</b>
-                    </p>
-                    <p>
-                      <b>{post.username}__</b> {post.content}
-                    </p>
-
-                    <div className="userComment-container">
-                      <div>
-                        <img
-                          src={currUser.userImage}
-                          alt="userImg"
-                          className="userComment-image"
-                        />
-                      </div>
-                      <input
-                        type="text"
-                        placeholder="Add a comment..."
-                        className="userComment-input"
-                      />
-                    </div>
-                    <div style={{ textAlign: "right" }}>
-                      <small>posted on : {post.createdAt}</small>
-                    </div>
-                  </div>
-                );
-              })}
+              <PostCard item={totalPosts} />
             </div>
+            
           </div>
         </div>
       </div>
