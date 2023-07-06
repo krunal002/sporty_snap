@@ -2,8 +2,8 @@ import "./Explore.css";
 import { Link } from "react-router-dom";
 import { useContext, useReducer } from "react";
 import { BookmarkContext, PostContext } from "../../SportySnap";
-import Users from "../../Components/Users";
-import Links from "../../Components/Links";
+import Users from "../../Cards/UserCard";
+import Links from "../../Cards/LinkCard";
 import FunButttons from "../../Components/FunButtons";
 import PopupView from "../../Components/Popup";
 

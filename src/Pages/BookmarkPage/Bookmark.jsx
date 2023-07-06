@@ -2,8 +2,8 @@ import "./Bookmark.css";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { BookmarkContext, PostContext } from "../../SportySnap";
-import Users from "../../Components/Users";
-import Links from "../../Components/Links";
+import Users from "../../Cards/UserCard";
+import Links from "../../Cards/LinkCard";
 import FunButttons from "../../Components/FunButtons";
 import PopupView from "../../Components/Popup";
 
