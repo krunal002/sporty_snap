@@ -28,7 +28,7 @@ export const UserContextHandler = ({ children }) => {
       const res = await axios.post(`/api/users/follow/${user._id}`, {},{headers:{authorization:token}})
       const result = res.data
       setUserProfile(result.user)
-      // console.log("follow", result)
+      console.log("follow", result)
     }catch(e) { console.log(e)}
   }
 
@@ -37,7 +37,7 @@ export const UserContextHandler = ({ children }) => {
       const res = await axios.post(`/api/users/unfollow/${user._id}`,{},{headers:{authorization:token}})
       const result = res.data
       setUserProfile(result.user)
-      // console.log("unfollow", result)
+      console.log("unfollow", result)
     } catch(e) { console.log(e)}
   }
   

@@ -94,7 +94,7 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    username: "shubhamsoni",
+    username: "spidy_003",
     userImage: "https://media.istockphoto.com/id/497279633/photo/sending-a-fast-ball-down-the-pitch.jpg?s=612x612&w=0&k=20&c=M4tlLzQFYupKa8sylo0zdKPWrC5uZ23IaO2ZILwf1Pg=",
     
     comments: [
@@ -132,7 +132,7 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    username: "rahulsharma",
+    username: "rahuls20",
     userImage: "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3BvcnRzJTIwcGxheWVyfGVufDB8fDB8fHww&w=1000&q=80",
 
     createdAt: "2023-05-05",
@@ -361,7 +361,7 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    username: "rahulsharma",
+    username: "rahuls20",
     userImage: "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3BvcnRzJTIwcGxheWVyfGVufDB8fDB8fHww&w=1000&q=80",
 
     createdAt: "2023-05-11",

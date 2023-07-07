@@ -191,6 +191,7 @@ body {
   cursor: pointer;
   display: flex;
   align-items: center;
+  width: 3.5rem;
 }
 
 .opertionalBtn,
