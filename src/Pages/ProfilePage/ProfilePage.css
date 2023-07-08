@@ -119,11 +119,11 @@
   font-weight: bold;
 }
 
-.profile-postsDetails{
-    color: gray;
+.profile-postsDetails {
+  color: gray;
 }
 
-.editUser-links{
+.editUser-links {
   border-radius: 0.5rem;
   margin: 1rem auto;
   max-width: 500px;
@@ -132,4 +132,16 @@
   justify-content: space-between;
   background-color: var(--background-color);
   box-shadow: 1px 1px 2px 1px gray;
+}
+.avtaar-container {
+  margin: auto;
+}
+.avtaar {
+  margin: 0.7rem;
+  width: 100px;
+  height: 100px;
+  border-bottom: 1px solid var(--secondary-color);
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 1px -1px 2px 1px gray;
 }

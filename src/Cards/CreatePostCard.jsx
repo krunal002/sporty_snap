@@ -18,19 +18,27 @@ const CreatePost = () => {
 
   const { createPost } = useContext(PostContext);
 
+  const [uploadedPic, setUploadedPic ] = useState("")
   const [contentHandler, setContentHandler] = useState("");
 
   const clickHandler = () => {
     setContentHandler("");
-    contentHandler === "" ? notify() : createPost(contentHandler);
+    contentHandler === "" ? notify() : createPost(contentHandler, uploadedPic);
   };
-  
+
+
+  const uploadImage = (e) => {
+    const file = e.target.files[0]
+    const imgUrl = URL.createObjectURL(file);
+    setUploadedPic(imgUrl)
+    console.log("hjc ", imgUrl)
+  }
   return (
     <div className="createPost-container  container-format">
       <ToastContainer />
       <div>
         <img
-          src="https://img.freepik.com/free-vector/sport-equipment-concept_1284-13034.jpg?w=360"
+          src={ uploadedPic==="" ?"https://img.freepik.com/free-vector/sport-equipment-concept_1284-13034.jpg?w=360" :uploadedPic}
           alt="userImg"
           className="createPost-image"
         />
@@ -44,13 +52,27 @@ const CreatePost = () => {
           className="createPost-textarea"
         ></textarea>
       </div>
-      <button
-        type="submit"
-        className="createPost-button"
-        onClick={clickHandler}
-      >
-        Post
-      </button>
+
+      <div className="createPost-bottom">
+        <label htmlFor="fileInput" className="file-input-label">
+          <i class="fa fa-picture-o fa-2x" aria-hidden="true"></i>
+        </label>
+        <input
+          type="file"
+          id="fileInput"
+          className="custom-file-input"
+          style={{ display: "none" }}
+          onChange={uploadImage}
+        />
+
+        <button
+          type="submit"
+          className="createPost-button"
+          onClick={clickHandler}
+        >
+          Post
+        </button>
+      </div>
     </div>
   );
 };

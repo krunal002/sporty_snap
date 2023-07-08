@@ -49,11 +49,11 @@ export const PostContextHandler = ({ children }) => {
     }
   };
 
-  const createPost = async (value) => {
-    console.log(value);
+  const createPost = async (value, pic) => {
+    console.log(pic);
     const currUser = JSON.parse(localStorage.getItem("user"));
     const cred = {
-      img: "https://t3.ftcdn.net/jpg/02/78/42/76/360_F_278427683_zeS9ihPAO61QhHqdU1fOaPk2UClfgPcW.jpg",
+      img: pic==="" ?"https://t3.ftcdn.net/jpg/02/78/42/76/360_F_278427683_zeS9ihPAO61QhHqdU1fOaPk2UClfgPcW.jpg": pic,
       category: "sports",
       content: value,
       userImage: currUser.userImage,
@@ -90,6 +90,7 @@ export const PostContextHandler = ({ children }) => {
     <PostContext.Provider
       value={{
         postData,
+        token,
         getPostData,
         likeIncreament,
         likeDecreament,

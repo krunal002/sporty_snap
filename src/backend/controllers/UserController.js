@@ -224,6 +224,12 @@ export const followUserHandler = function (schema, request) {
       return new Response(400, {}, { errors: ["User Already following"] });
     }
 
+
+    console.log("from backend", user);
+        console.log("from backend", followUser);
+        console.log("from backend", [...user.following]);
+        console.log("from backend", [...followUser.followers]);
+
     const updatedUser = {
       ...user,
       following: [...user.following, { ...followUser }],

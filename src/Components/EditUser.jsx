@@ -69,7 +69,7 @@ const EditUser = () => {
       <div className="loginDiv">
         <h1>Edit User</h1>
         <div className="login-input-div">
-          {/* username */}
+          {/* profile pic */}
           <div>
             <label className="loginLabels">
               <b>Profile picture : </b>
@@ -94,6 +94,47 @@ const EditUser = () => {
               borderRadius: "100px",
             }}
           />
+
+          <div className="avtaar-container">
+            <img
+              src="https://img.freepik.com/premium-vector/cute-boy-thinking-cartoon-avatar_138676-2439.jpg"
+              alt="Avtaar"
+              className="avtaar"
+              onClick={() =>
+                dispatch({
+                  type: "userImage",
+                  payload:
+                    "https://img.freepik.com/premium-vector/cute-boy-thinking-cartoon-avatar_138676-2439.jpg",
+                })
+              }
+            />
+            <img
+              src="https://thumbs.dreamstime.com/b/female-avatar-profile-icon-round-woman-face-flat-vector-illustration-female-avatar-profile-icon-round-woman-face-102767948.jpg"
+              alt="male-Avtaar"
+              className="avtaar"
+              onClick={() =>
+                dispatch({
+                  type: "userImage",
+                  payload:
+                    "https://thumbs.dreamstime.com/b/female-avatar-profile-icon-round-woman-face-flat-vector-illustration-female-avatar-profile-icon-round-woman-face-102767948.jpg",
+                })
+              }
+            />
+
+            <img
+              src="https://png.pngtree.com/png-clipart/20200224/original/pngtree-cartoon-color-simple-male-avatar-png-image_5230557.jpg"
+              alt="female-Avtaar"
+              className="avtaar"
+              onClick={() =>
+                dispatch({
+                  type: "userImage",
+                  payload:
+                    "https://png.pngtree.com/png-clipart/20200224/original/pngtree-cartoon-color-simple-male-avatar-png-image_5230557.jpg",
+                })
+              }
+            />
+          </div>
+
           {/* first name */}
           <div>
             <label className="loginLabels">

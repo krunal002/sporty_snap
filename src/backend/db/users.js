@@ -68,6 +68,8 @@ export const users = [
     lastName: "Parker",
     username: "spidy_003",
     password: "spiderman",
+    followers:[0],
+    following:[0],
     bookmarks: [],
     createdAt: formatDate(),
     updatedAt: formatDate(),

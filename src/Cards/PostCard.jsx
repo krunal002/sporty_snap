@@ -1,5 +1,5 @@
-import { useContext } from "react";
-
+import { useContext, useState } from "react";
+import axios from "axios";
 import { BookmarkContext, LoginContext, PostContext } from "../SportySnap";
 import FunButttons from "../Components/FunButtons";
 import PopupView from "../Components/Popup";
@@ -8,10 +8,68 @@ const PostCard = (item) => {
   const { state } = useContext(LoginContext);
   const currUser = state.userLoggedIn;
 
-  const { likeIncreament, likeDecreament } = useContext(PostContext);
+  const { dispatch, token, likeIncreament, likeDecreament } = useContext(PostContext);
 
   const { saveBookmark, removeBookmark, bookmarkData } =
     useContext(BookmarkContext);
+
+
+
+
+
+
+
+
+
+    const [ commentText, setCommentText ] = useState()
+    const AddCommentToPost = async ({
+      post,
+      commentContent,
+      encodedToken,
+  }) => {
+      return axios.post(
+          `/api/comments/add/${post._id}`,
+          {
+              commentData: { text: commentContent },
+          },
+          {
+              headers: {
+                  authorization: encodedToken,
+              },
+          }
+      );
+  };
+  
+
+  const handlePostComment = async (e, post, cmtContent) => {
+    e.preventDefault();
+    const result = await AddCommentToPost({
+        post: post,
+        commentContent: cmtContent,
+        encodedToken: token,
+    });
+    console.log("handlePostComment result", result);
+    // if (result.status === 200 || result.status === 201) {
+    //     dispatch({
+    //         type: "ADD_COMMENT",
+    //         payload: { posts: result.data.posts },
+    //     });
+    // }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div className="post-container-div">
@@ -123,7 +181,10 @@ const PostCard = (item) => {
                 type="text"
                 placeholder="Add a comment..."
                 className="userComment-input"
+                value={commentText}
+                onChange={(e) => setCommentText(e.target.value)}
               />
+              <button onClick={(e) => handlePostComment(e, post, commentText )}>post</button>
             </div>
             <div style={{ textAlign: "right" }}>
               <small>posted on : {post.createdAt}</small>

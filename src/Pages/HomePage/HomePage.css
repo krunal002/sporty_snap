@@ -46,13 +46,19 @@ body {
   outline: 0.5px solid lightgray;
   border-color: transparent; /* Hide the border when active */
 }
+
+.createPost-bottom{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
 .createPost-button {
   border: 1px solid #f76b8a;
   border-bottom: 2px solid #f76b8a;
   border-radius: 0.5rem;
-  margin: 0.5rem;
-  padding: 0.5rem;
-  width: 30%;
+  margin: 0.5rem; 
+  padding: 0.5rem 4rem;
   font-weight: bolder;
   font-size: medium;
   background-color: #66bfbf;
@@ -60,6 +66,9 @@ body {
 }
 .createPost-button:hover {
   box-shadow: 1px 2px 5px 1px gray;
+}
+.file-input-label{
+  color: var(--primary-color);
 }
 
 /* Link container */
