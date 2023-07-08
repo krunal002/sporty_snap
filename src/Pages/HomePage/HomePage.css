@@ -232,7 +232,14 @@ body {
   background-color: var(--tertiary-color);
   border: none;
 }
-
+.userComment-input:focus {
+  outline: none;
+}
+.userComment-button{
+  border: none;
+  background-color: var(--tertiary-color);
+  cursor: pointer;
+}
 /* Container Format */
 .container-format {
   background-color: var(--tertiary-color);

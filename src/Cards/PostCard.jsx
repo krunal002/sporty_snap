@@ -1,5 +1,9 @@
 import { useContext, useState } from "react";
 import axios from "axios";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { BookmarkContext, LoginContext, PostContext } from "../SportySnap";
 import FunButttons from "../Components/FunButtons";
 import PopupView from "../Components/Popup";
@@ -8,71 +12,51 @@ const PostCard = (item) => {
   const { state } = useContext(LoginContext);
   const currUser = state.userLoggedIn;
 
-  const { dispatch, token, likeIncreament, likeDecreament } = useContext(PostContext);
+  const { token, likeIncreament, likeDecreament } = useContext(PostContext);
 
   const { saveBookmark, removeBookmark, bookmarkData } =
     useContext(BookmarkContext);
 
-
-
-
-
-
-
-
-
-    const [ commentText, setCommentText ] = useState()
-    const AddCommentToPost = async ({
-      post,
-      commentContent,
-      encodedToken,
-  }) => {
-      return axios.post(
-          `/api/comments/add/${post._id}`,
-          {
-              commentData: { text: commentContent },
-          },
-          {
-              headers: {
-                  authorization: encodedToken,
-              },
-          }
-      );
-  };
-  
-
-  const handlePostComment = async (e, post, cmtContent) => {
-    e.preventDefault();
-    const result = await AddCommentToPost({
-        post: post,
-        commentContent: cmtContent,
-        encodedToken: token,
+  const notifyComment = () =>
+    toast.success("Comment posted!", {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
     });
-    console.log("handlePostComment result", result);
-    // if (result.status === 200 || result.status === 201) {
-    //     dispatch({
-    //         type: "ADD_COMMENT",
-    //         payload: { posts: result.data.posts },
-    //     });
-    // }
-};
 
+  const [commentText, setCommentText] = useState("");
+  const AddCommentToPost = async ({ post, commentContent, encodedToken }) => {
+    return axios.post(
+      `/api/comments/add/${post._id}`,
+      {
+        commentData: { text: commentContent },
+      },
+      {
+        headers: {
+          authorization: encodedToken,
+        },
+      }
+    );
+  };
 
-
-
-
-
-
-
-
-
-
-
-
-
+  const handlePostComment = async (post) => {
+    await AddCommentToPost({
+      post: post,
+      commentContent: commentText,
+      encodedToken: token,
+    });
+    notifyComment();
+    setCommentText("");
+  };
 
   return (
     <div className="post-container-div">
+      <ToastContainer />
       {item.item.map((post) => {
         return (
           <div key={post.id} className="post-container container-format">
@@ -184,7 +168,13 @@ const PostCard = (item) => {
                 value={commentText}
                 onChange={(e) => setCommentText(e.target.value)}
               />
-              <button onClick={(e) => handlePostComment(e, post, commentText )}>post</button>
+              <button
+                className="userComment-button"
+                onClick={(e) => handlePostComment(post)}
+                disabled={commentText === ""}
+              >
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+              </button>
             </div>
             <div style={{ textAlign: "right" }}>
               <small>posted on : {post.createdAt}</small>
