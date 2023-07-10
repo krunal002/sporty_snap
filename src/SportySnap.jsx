@@ -38,9 +38,37 @@ const SportySnap = () => {
             </RequiresAuth>
           }
         />
-        <Route path="/explore" element={<Explore />} />
-        <Route path="/bookmark" element={<Bookmark />} />
-        <Route path="/profile/:userId" element={<Profile />} />
+
+        <Route
+          path="/explore"
+          element={
+            <RequiresAuth>
+              <Explore />
+            </RequiresAuth>
+          }
+        />
+
+        <Route
+          path="/bookmark"
+          element={
+            <RequiresAuth>
+              <Bookmark />
+            </RequiresAuth>
+          }
+        />
+
+        <Route
+          path="/profile/:userId"
+          element={
+            <RequiresAuth>
+              <Profile />
+            </RequiresAuth>
+          }
+        />
+        
+        {/* <Route path="/" element={< />} /> */}
+        {/* <Route path="/" element={< />} /> */}
+        {/* <Route path="" element={< />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/edit-user" element={<EditUser />} />
