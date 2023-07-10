@@ -99,8 +99,8 @@ const Profile = () => {
             <p>
               <b>{currUser.bio}</b>
             </p>
-            <Link to="https://krunal002.netlify.app/" className="user-link">
-              krunal002.netlify.app/
+            <Link to={currUser.portfolioURL} className="user-link" target="_blank">
+              {currUser.portfolioURL}
             </Link>
 
             <div className="userData-container">
@@ -125,7 +125,6 @@ const Profile = () => {
               </h2>
               <PostCard item={totalPosts} />
             </div>
-            
           </div>
         </div>
       </div>

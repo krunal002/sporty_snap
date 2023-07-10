@@ -19,6 +19,8 @@ const EditUser = () => {
         return { ...state, lastName: action.payload };
       case "bio":
         return { ...state, bio: action.payload };
+      case "portfolioURL":
+        return { ...state, portfolioURL: action.payload };
       case "password":
         return { ...state, password: action.payload };
       default:
@@ -30,6 +32,7 @@ const EditUser = () => {
     firstName: currUser.firstName,
     lastName: currUser.lastName,
     bio: currUser.bio,
+    portfolioURL: currUser.portfolioURL,
     password: currUser.password,
   });
 
@@ -176,6 +179,21 @@ const EditUser = () => {
               value={state.bio}
               onChange={(e) =>
                 dispatch({ type: "bio", payload: e.target.value })
+              }
+            />
+          </div>
+
+          {/* portfolio url */}
+          <div>
+            <label className="loginLabels">
+              <b>Portfolio URL : </b>
+            </label>
+            <input
+              type="text"
+              className="loginInputs"
+              value={state.portfolioURL}
+              onChange={(e) =>
+                dispatch({ type: "portfolioURL", payload: e.target.value })
               }
             />
           </div>
