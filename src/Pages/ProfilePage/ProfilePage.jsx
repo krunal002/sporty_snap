@@ -99,7 +99,11 @@ const Profile = () => {
             <p>
               <b>{currUser.bio}</b>
             </p>
-            <Link to={currUser.portfolioURL} className="user-link" target="_blank">
+            <Link
+              to={currUser.portfolioURL}
+              className="user-link"
+              target="_blank"
+            >
               {currUser.portfolioURL}
             </Link>
 

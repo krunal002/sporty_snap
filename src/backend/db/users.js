@@ -68,7 +68,7 @@ export const users = [
     bio: "Adventurer 🌍 | Nature Lover 🌿 | Coffee Addict ☕️ | Cat Mom 🐾 | Dreamer ✨",
     userImage:
       "https://cdn.dribbble.com/users/2813138/screenshots/5594486/media/e84dfbfcd859e7c5ec6c92d0861e64a2.jpg?compress=1&resize=400x300&vertical=center",
-    firstName: "Peterdeven",
+    firstName: "Peter",
     portfolioURL: "https://krunal002.netlify.app/",
     lastName: "Parker",
     username: "spidy_003",
