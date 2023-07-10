@@ -136,6 +136,45 @@ const EditUser = () => {
                 })
               }
             />
+
+            <img
+              src="https://tse2.mm.bing.net/th?id=OIP.IxeQFIHmWxB4uC8-1H1rXwHaFj&pid=Api&P=0&h=180"
+              alt="female-Avtaar"
+              className="avtaar"
+              onClick={() =>
+                dispatch({
+                  type: "userImage",
+                  payload:
+                    "https://tse2.mm.bing.net/th?id=OIP.IxeQFIHmWxB4uC8-1H1rXwHaFj&pid=Api&P=0&h=180",
+                })
+              }
+            />
+
+            <img
+              src="https://tse3.mm.bing.net/th?id=OIP.U64OwTZionM0NSNtjIGUqQHaHa&pid=Api&P=0&h=180"
+              alt="female-Avtaar"
+              className="avtaar"
+              onClick={() =>
+                dispatch({
+                  type: "userImage",
+                  payload:
+                    "https://tse3.mm.bing.net/th?id=OIP.U64OwTZionM0NSNtjIGUqQHaHa&pid=Api&P=0&h=180",
+                })
+              }
+            />
+
+            <img
+              src="https://tse4.mm.bing.net/th?id=OIP.te14DcGDGx0pREICZjuyfgHaHa&pid=Api&P=0&h=180"
+              alt="female-Avtaar"
+              className="avtaar"
+              onClick={() =>
+                dispatch({
+                  type: "userImage",
+                  payload:
+                    "https://tse4.mm.bing.net/th?id=OIP.te14DcGDGx0pREICZjuyfgHaHa&pid=Api&P=0&h=180",
+                })
+              }
+            />
           </div>
 
           {/* first name */}
