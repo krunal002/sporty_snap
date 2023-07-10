@@ -24,6 +24,7 @@ const Links = () => {
         <NavLink to="/login" className="home-links">
           <i class="fa fa-sign-in" aria-hidden="true"></i> Login
         </NavLink>
+        
       </div>
 
       {/* css in index.css */}
