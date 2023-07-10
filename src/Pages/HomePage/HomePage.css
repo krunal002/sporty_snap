@@ -106,10 +106,6 @@ body {
   border-radius: 0.5rem;
 }
 /* Post container */
-.post-container-div{
-  width: 700px;
-  margin: auto;
-}
 .post-container {
   
   max-width: 700px;
