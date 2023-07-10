@@ -11,8 +11,8 @@
   font-size: 1.5em;
 }
 .commentBox {
-  margin: 1rem;
-  padding: 1rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
   border-radius: 1rem;
   background-color: #eaf6f6;
   color: black;
@@ -42,7 +42,7 @@
   background-color: #fcfefe;
   border-radius: 0.5rem;
   border: none;
-  padding: 1rem;
+  padding: 0.5rem;
   text-align: center;
   font-weight: bolder;
 }

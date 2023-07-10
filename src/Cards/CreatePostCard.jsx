@@ -24,6 +24,8 @@ const CreatePost = () => {
   const clickHandler = () => {
     setContentHandler("");
     contentHandler === "" ? notify() : createPost(contentHandler, uploadedPic);
+    if(contentHandler !== "")
+      setUploadedPic("")
   };
 
 

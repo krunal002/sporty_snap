@@ -1,10 +1,12 @@
 import axios from "axios";
 import { createContext, useReducer, useState } from "react";
+import { useNavigate } from "react-router-dom";
 export const LoginContext = createContext();
 
 export const LoginContextHandler = ({ children }) => {
   const [token, setToken] = useState(false);
-
+  const navigate = useNavigate()
+  
   //   Reducer
   const reducerFun = (state, action) => {
     switch (action.type) {
@@ -59,6 +61,7 @@ export const LoginContextHandler = ({ children }) => {
     };
     try {
       await axios.post("/api/auth/signup", cred);
+      navigate("/login")
     } catch (e) {
       console.log(e);
     }
