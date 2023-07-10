@@ -9,7 +9,7 @@ export const users = [
   {
     _id: uuid(),
     bio: "Adventurer 🌍 | Nature Lover 🌿 | Coffee Addict ☕️ | Cat Mom 🐾 | Dreamer ✨",
-    portfolioURL : "https://krunal002.netlify.app/",
+    portfolioURL: "https://krunal002.netlify.app/",
     userImage:
       "https://media.istockphoto.com/id/610664694/photo/isolated-athlete-runner.jpg?s=612x612&w=0&k=20&c=c6Yks7L_0V-UZCpJPn-9ZkDhX7vTPHADrcZvg6OTtKU=",
     firstName: "Adarsh",
@@ -24,7 +24,7 @@ export const users = [
   {
     _id: uuid(),
     bio: "Adventurer 🌍 | Nature Lover 🌿 | Coffee Addict ☕️ | Cat Mom 🐾 | Dreamer ✨",
-    portfolioURL : "https://krunal002.netlify.app/",
+    portfolioURL: "https://krunal002.netlify.app/",
     userImage:
       "https://www.planetsport.com/image-library/square/1200/k/kylian-mbappe-psg-france-3-april-2022.jpg",
     firstName: "Kedar",
@@ -38,7 +38,7 @@ export const users = [
   {
     _id: uuid(),
     bio: "Adventurer 🌍 | Nature Lover 🌿 | Coffee Addict ☕️ | Cat Mom 🐾 | Dreamer ✨",
-    portfolioURL : "https://krunal002.netlify.app/",
+    portfolioURL: "https://krunal002.netlify.app/",
     userImage:
       "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3BvcnRzJTIwcGxheWVyfGVufDB8fDB8fHww&w=1000&q=80",
     firstName: "Rahul",
@@ -52,7 +52,7 @@ export const users = [
   {
     _id: uuid(),
     bio: "Adventurer 🌍 | Nature Lover 🌿 | Coffee Addict ☕️ | Cat Mom 🐾 | Dreamer ✨",
-    portfolioURL : "https://krunal002.netlify.app/",
+    portfolioURL: "https://krunal002.netlify.app/",
     userImage:
       "https://img.freepik.com/premium-photo/profile-view-beautiful-athletic-girl-exercising-fitness-concept_2221-2275.jpg",
     firstName: "Gunjan",
@@ -69,21 +69,40 @@ export const users = [
     userImage:
       "https://cdn.dribbble.com/users/2813138/screenshots/5594486/media/e84dfbfcd859e7c5ec6c92d0861e64a2.jpg?compress=1&resize=400x300&vertical=center",
     firstName: "Peterdeven",
-    portfolioURL : "https://krunal002.netlify.app/",
+    portfolioURL: "https://krunal002.netlify.app/",
     lastName: "Parker",
     username: "spidy_003",
     password: "spiderman",
-    followers:[{username:"naame"}],
-    following:[{bio      :       "Adventurer 🌍 | Nature Lover 🌿 | Coffee Addict ☕️ | Cat Mom 🐾 | Dreamer ✨",
-      bookmarks      :       [],
-      createdAt      :       "2023-07-08T15:16:14+05:30",
-      firstName      :       "Adarsh",
-      lastName      :       "Balika",
-      password      :       "adarshBalika123",
-      updatedAt      :       "2023-07-08T15:16:14+05:30",
-      userImage      :       "https://media.istockphoto.com/id/610664694/photo/isolated-athlete-runner.jpg?s=612x612&w=0&k=20&c=c6Yks7L_0V-UZCpJPn-9ZkDhX7vTPHADrcZvg6OTtKU=",
-      username      :       "adarshbalika",
-      _id      :       uuid()}],
+    followers: [
+      {
+        bio: "Adventurer 🌍 | Nature Lover 🌿 | Coffee Addict ☕️ | Cat Mom 🐾 | Dreamer ✨",
+        bookmarks: [],
+        createdAt: "2023-07-08T15:16:14+05:30",
+        firstName: "Adarsh",
+        lastName: "Balika",
+        password: "adarshBalika123",
+        updatedAt: "2023-07-08T15:16:14+05:30",
+        userImage:
+          "https://media.istockphoto.com/id/610664694/photo/isolated-athlete-runner.jpg?s=612x612&w=0&k=20&c=c6Yks7L_0V-UZCpJPn-9ZkDhX7vTPHADrcZvg6OTtKU=",
+        username: "adarshbalika",
+        _id: uuid(),
+      },
+    ],
+    following: [
+      {
+        bio: "Adventurer 🌍 | Nature Lover 🌿 | Coffee Addict ☕️ | Cat Mom 🐾 | Dreamer ✨",
+        bookmarks: [],
+        createdAt: "2023-07-08T15:16:14+05:30",
+        firstName: "Adarsh",
+        lastName: "Balika",
+        password: "adarshBalika123",
+        updatedAt: "2023-07-08T15:16:14+05:30",
+        userImage:
+          "https://media.istockphoto.com/id/610664694/photo/isolated-athlete-runner.jpg?s=612x612&w=0&k=20&c=c6Yks7L_0V-UZCpJPn-9ZkDhX7vTPHADrcZvg6OTtKU=",
+        username: "adarshbalika",
+        _id: uuid(),
+      },
+    ],
     bookmarks: [],
     createdAt: formatDate(),
     updatedAt: formatDate(),

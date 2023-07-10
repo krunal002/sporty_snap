@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 export const LoginContext = createContext();
 
 export const LoginContextHandler = ({ children }) => {
-  const [token, setToken] = useState(false);
+  const [token, setToken] = useState(localStorage.getItem("encodedToken"));
   const navigate = useNavigate()
-  
+
   //   Reducer
   const reducerFun = (state, action) => {
     switch (action.type) {
@@ -25,7 +25,7 @@ export const LoginContextHandler = ({ children }) => {
     }
   };
   const [state, dispatch] = useReducer(reducerFun, {
-    userLoggedIn: {},
+    userLoggedIn: JSON.parse(localStorage.getItem("user")),
     username: "",
     password: "",
     firstName: "",
