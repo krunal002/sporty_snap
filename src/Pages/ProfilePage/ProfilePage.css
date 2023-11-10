@@ -145,3 +145,10 @@
   cursor: pointer;
   box-shadow: 1px -1px 2px 1px gray;
 }
+
+/* responsive */
+@media (max-width: 300px) {
+  .userData-container {
+    max-width: 300px;
+  }
+}
