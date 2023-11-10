@@ -24,7 +24,7 @@ const Home = () => {
         </div>
 
         {/* post */}
-        <div>
+        <div className="post-wrapper">
           <CreatePost />
           <PostCard item={homeData} />
         </div>
