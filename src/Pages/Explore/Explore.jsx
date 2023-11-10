@@ -1,5 +1,4 @@
 import "./Explore.css";
-import { Link } from "react-router-dom";
 import { useContext, useReducer } from "react";
 import { PostContext } from "../../SportySnap";
 import Users from "../../Cards/UserCard";
@@ -7,8 +6,6 @@ import Links from "../../Cards/LinkCard";
 import PostCard from "../../Cards/PostCard";
 
 const Explore = () => {
-  const currUser = JSON.parse(localStorage.getItem("user"));
-
   const { postData } = useContext(PostContext);
 
   const reducerFun = (state, action) => {
@@ -82,21 +79,6 @@ const Explore = () => {
 
   return (
     <div className="home-container">
-      <div className="nav-container">
-        <div className="nav-heading">
-          <h1>
-            <i class="fa fa-suitcase" aria-hidden="true"></i> Explore_
-          </h1>
-        </div>
-        
-        <div>
-          <b className="bookmark-links">Hi, {currUser.firstName}</b>
-          <Link to="/login" className="bookmark-links">
-            <i class="fa fa-sign-in" aria-hidden="true"></i>
-          </Link>
-        </div>
-      </div>
-
       <div className="primary-category-container">
         <div className="category-container">
           <div
@@ -145,12 +127,20 @@ const Explore = () => {
       </div>
 
       <div className="primary-container">
-      <Links/>
+        {/* links */}
+        <div className="link-wrapper">
+          <Links />
+        </div>
+
         {/* post */}
-        <PostCard item={exploreData}/>
+        <div className="explore-post-wrapper">
+          <PostCard item={exploreData} />
+        </div>
 
         {/* user */}
-        <Users />
+        <div className="users-wrapper">
+          <Users />
+        </div>
       </div>
     </div>
   );
