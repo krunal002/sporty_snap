@@ -127,16 +127,6 @@ margin-top: 1rem;
 }
 
 /* user container */
-.primary-userContainer {
-  position: relative;
-}
-.user-container-div {
-  position: sticky;
-  position: -webkit-sticky;
-  top: 18%;
-  z-index: 5;
-}
-
 .searchUser {
   margin: 1rem auto;
   padding: 1rem;

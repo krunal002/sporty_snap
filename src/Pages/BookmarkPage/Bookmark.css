@@ -16,3 +16,9 @@
     font-size: x-large;
     padding: 1rem;
 }
+
+.bookmark-post-wrapper{
+    height: 85%;
+    overflow-y: auto;
+    padding: 4px;
+}
