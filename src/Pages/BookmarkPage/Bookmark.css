@@ -1,24 +1,24 @@
-.bookmark-container{
-    height: 100vh;
-    background-color: #eaf6f6;
+.bookmark-container {
+  height: 100vh;
+  background-color: #eaf6f6;
 }
-.nav-container{
-    background-color: #fcfefe;
-    border: 3px solid #eaf6f6;
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1rem;
+.nav-container {
+  background-color: #fcfefe;
+  border: 3px solid #eaf6f6;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
 }
-.bookmark-links{
-    color: black;
-    font-size: x-large;
-    padding: 1rem;
+.bookmark-links {
+  color: black;
+  font-size: x-large;
+  padding: 1rem;
 }
 
-.bookmark-post-wrapper{
-    height: 85%;
-    overflow-y: auto;
-    padding: 4px;
+.bookmark-post-wrapper {
+  height: 85%;
+  overflow-y: auto;
+  padding: 4px;
 }
