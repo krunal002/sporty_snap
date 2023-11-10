@@ -32,7 +32,7 @@ const PopupView = (reqPost) => {
                         className="comment-userImage"
                       />
                     </div>
-
+                  
                     <div className="">
                       <p>
                         <b>@{post.username}</b>
