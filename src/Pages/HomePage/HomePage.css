@@ -1,11 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Foldit&family=Raleway:wght@100&family=Red+Hat+Display:wght@600&family=Tajawal:wght@300;500&display=swap");
 
-:root {
-  --primary-color: #66bfbf;
-  --secondary-color: #f76b8a;
-  --background-color: #eaf6f6;
-  --tertiary-color: #fcfefe;
-}
 body {
   position: relative;
 }
@@ -73,7 +67,6 @@ body {
 
 /* Link container */
 .link-container-div {
-  position: relative;
   height: 100%;
   position: sticky;
   position: -webkit-sticky;
@@ -91,7 +84,11 @@ body {
   color: var(--primary-color);
   border-left: 5px solid var(--secondary-color);
   border-radius: 0.5rem;
-  background-image: linear-gradient(to right, var(--background-color), var(--tertiary-color));
+  background-image: linear-gradient(
+    to right,
+    var(--background-color),
+    var(--tertiary-color)
+  );
 }
 
 .home-links {
@@ -105,9 +102,9 @@ body {
   background-color: var(--background-color);
   border-radius: 0.5rem;
 }
+
 /* Post container */
 .post-container {
-  
   max-width: 700px;
   margin: auto;
   margin-bottom: 2rem;
@@ -257,4 +254,77 @@ body {
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
+}
+
+/* responsive */
+@media (max-width: 600px) {
+  .primary-container {
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+  }
+
+  .link-container-div {
+    position: sticky;
+    position: -webkit-sticky;
+    bottom: 18%;
+    z-index: 5;
+  }
+  .link-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    padding: 4px;
+    border: none;
+    border-radius: none;
+  }
+  .home-links span {
+    display: none;
+  }
+  .link-container a.active {
+    font-weight: bold;
+    color: var(--primary-color);
+    border-left: none;
+    border-bottom: 2px solid var(--secondary-color);
+    border-radius: 0.5rem;
+    background-image: linear-gradient(
+      to top,
+      var(--background-color),
+      var(--tertiary-color)
+    );
+  }
+
+  .users-wrapper {
+    display: none;
+  }
+
+  /* create post */
+  .createPost-textarea {
+    resize: none;
+    border: none;
+    padding: 1rem;
+    width: 250px;
+    height: 70px;
+  }
+
+  /* postcard */
+  .post-container {
+    max-width: 350px;
+    margin: auto;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+  }
+  .postImage-container,
+  .postImage {
+    width: 270px;
+    height: 200px;
+    display: block;
+    margin: 1rem auto;
+    overflow: hidden;
+  }
+  .userDetails {
+    margin: 0 -0.5rem;
+  }
 }

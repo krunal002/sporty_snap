@@ -68,3 +68,10 @@ body {
     margin: 1rem;
     cursor: pointer;
   }
+
+  /* responsive */
+  @media(max-width:600px){
+    .loggedInUser{
+      display: none;
+    }
+  }

@@ -15,30 +15,13 @@ const Home = () => {
     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
   );
 
-  // const { userProfile } = useContext(UserContext);
-
-  // const getSelectedPosts = () => {
-  //   try {
-  //     const allFollowedUsers1 =
-  //       userProfile && userProfile?.following.map((user) => user.username);
-  //     const followedUsersPosts = postData.filter((post) =>
-  //       allFollowedUsers1.includes(post.username)
-  //     );
-  //     return followedUsersPosts;
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // const selectedPosts = getSelectedPosts() ?? homeData;
-  // console.log("hello", selectedPosts);
-  // useEffect(() => console.log("hello", selectedPosts), []);
-
   return (
     <div className="home-container">
       <div className="primary-container">
         {/* Linnks */}
-        <Links />
+        <div className="link-wrapper">
+          <Links />
+        </div>
 
         {/* post */}
         <div>
@@ -47,7 +30,9 @@ const Home = () => {
         </div>
 
         {/* user */}
-        <Users />
+        <div className="users-wrapper">
+          <Users />
+        </div>
       </div>
     </div>
   );
