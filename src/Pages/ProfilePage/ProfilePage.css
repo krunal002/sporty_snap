@@ -107,7 +107,7 @@
 .userData-container {
   background-color: var(--tertiary-color);
   padding: 1rem;
-  width: 400px;
+  max-width: 400px;
   margin: auto;
   border-bottom: 2px solid var(--secondary-color);
   display: flex;

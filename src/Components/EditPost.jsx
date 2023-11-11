@@ -37,6 +37,7 @@ const EditPost = () => {
     category: reqPost.category,
     content: reqPost.content,
   };
+  
   const postEditedData = async (c) => {
     console.log("cred", cred);
     try {

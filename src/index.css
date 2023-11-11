@@ -74,4 +74,8 @@ body {
     .loggedInUser{
       display: none;
     }
+    .reqPostImage{
+      max-width: 250px;
+      max-height: 150px;
+    }
   }
