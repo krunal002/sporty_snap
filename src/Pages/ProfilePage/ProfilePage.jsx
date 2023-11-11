@@ -21,7 +21,7 @@ const Profile = () => {
   // Get required user
   const { userId } = useParams();
 
-  const getUser = async () => {
+  const getUser = async (userId) => {
     try {
       const res = await axios.get(`/api/users/${userId}`);
       const result = res.data.user;
@@ -31,13 +31,13 @@ const Profile = () => {
       }
       setCurrUser(result);
     } catch (e) {
-      console.log(e);
+      console.log(e, userId);
     }
   };
 
   useEffect(() => {
-    getUser();
-  }, [getUser]);
+    getUser(userId);
+  });
 
   const { followUser, unfollowUser } = useContext(UserContext);
 
